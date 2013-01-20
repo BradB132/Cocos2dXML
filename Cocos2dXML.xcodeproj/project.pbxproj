@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B2D714C16AC71EC001F2C91 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9464D116AC714E00B42B6B /* libcocos2dx.a */; };
+		9B2D715316AC7346001F2C91 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715216AC7346001F2C91 /* libz.dylib */; };
+		9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715416AC734C001F2C91 /* libxml2.dylib */; };
+		9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715616AC73B0001F2C91 /* QuartzCore.framework */; };
+		9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715816AC73B5001F2C91 /* OpenGLES.framework */; };
+		9BD5BD3416AC70E2000CF083 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD3316AC70E2000CF083 /* UIKit.framework */; };
+		9BD5BD3616AC70E2000CF083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD3516AC70E2000CF083 /* Foundation.framework */; };
+		9BD5BD3816AC70E2000CF083 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD3716AC70E2000CF083 /* CoreGraphics.framework */; };
+		9BD5BD3E16AC70E2000CF083 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5BD3C16AC70E2000CF083 /* InfoPlist.strings */; };
+		9BD5BD4016AC70E2000CF083 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5BD3F16AC70E2000CF083 /* main.m */; };
+		9BD5BD4616AC70E2000CF083 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5BD4516AC70E2000CF083 /* Default.png */; };
+		9BD5BD4816AC70E2000CF083 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5BD4716AC70E2000CF083 /* Default@2x.png */; };
+		9BD5BD4A16AC70E2000CF083 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5BD4916AC70E2000CF083 /* Default-568h@2x.png */; };
+		9BD5BD5216AC70E2000CF083 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD5116AC70E2000CF083 /* SenTestingKit.framework */; };
+		9BD5BD5316AC70E2000CF083 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD3316AC70E2000CF083 /* UIKit.framework */; };
+		9BD5BD5416AC70E2000CF083 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD5BD3516AC70E2000CF083 /* Foundation.framework */; };
+		9BD5BD5C16AC70E2000CF083 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BD5BD5A16AC70E2000CF083 /* InfoPlist.strings */; };
+		9BD5BD5F16AC70E2000CF083 /* Cocos2dXMLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5BD5E16AC70E2000CF083 /* Cocos2dXMLTests.m */; };
+		9BD6D2E416AC894400FD95B8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E116AC894400FD95B8 /* AppDelegate.mm */; };
+		9BD6D2E516AC894400FD95B8 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E116AC894400FD95B8 /* AppDelegate.mm */; };
+		9BD6D2E616AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
+		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
+		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
+		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
+		9BD6D2EF16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */; };
+		9BD6D2F016AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B2D714A16AC71E5001F2C91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
+			remoteInfo = cocos2dx;
+		};
+		9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1551A33F158F2AB200E66CFE;
+			remoteInfo = cocos2dx;
+		};
+		9BD5BD5516AC70E2000CF083 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9BD5BD2616AC70E2000CF083 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BD5BD2E16AC70E2000CF083;
+			remoteInfo = Cocos2dXML;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B2D715216AC7346001F2C91 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9B2D715416AC734C001F2C91 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		9B2D715616AC73B0001F2C91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		9B2D715816AC73B5001F2C91 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = "cocos2d-x/cocos2dx/proj.ios/cocos2dx.xcodeproj"; sourceTree = "<group>"; };
+		9BD5BD2F16AC70E2000CF083 /* Cocos2dXML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cocos2dXML.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5BD3316AC70E2000CF083 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9BD5BD3516AC70E2000CF083 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9BD5BD3716AC70E2000CF083 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9BD5BD3B16AC70E2000CF083 /* Cocos2dXML-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cocos2dXML-Info.plist"; sourceTree = "<group>"; };
+		9BD5BD3D16AC70E2000CF083 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BD5BD3F16AC70E2000CF083 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9BD5BD4116AC70E2000CF083 /* Cocos2dXML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cocos2dXML-Prefix.pch"; sourceTree = "<group>"; };
+		9BD5BD4516AC70E2000CF083 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		9BD5BD4716AC70E2000CF083 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		9BD5BD4916AC70E2000CF083 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9BD5BD5016AC70E2000CF083 /* Cocos2dXMLTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cocos2dXMLTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BD5BD5116AC70E2000CF083 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9BD5BD5916AC70E2000CF083 /* Cocos2dXMLTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cocos2dXMLTests-Info.plist"; sourceTree = "<group>"; };
+		9BD5BD5B16AC70E2000CF083 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9BD5BD5D16AC70E2000CF083 /* Cocos2dXMLTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cocos2dXMLTests.h; sourceTree = "<group>"; };
+		9BD5BD5E16AC70E2000CF083 /* Cocos2dXMLTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cocos2dXMLTests.m; sourceTree = "<group>"; };
+		9BD6D2E016AC894400FD95B8 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9BD6D2E116AC894400FD95B8 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		9BD6D2E216AC894400FD95B8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
+		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
+		9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cocos2dXMLScene.cpp; sourceTree = "<group>"; };
+		9BD6D2EC16AC8C6E00FD95B8 /* Cocos2dXMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocos2dXMLScene.h; sourceTree = "<group>"; };
+		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9BD5BD2C16AC70E2000CF083 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */,
+				9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */,
+				9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */,
+				9B2D715316AC7346001F2C91 /* libz.dylib in Frameworks */,
+				9B2D714C16AC71EC001F2C91 /* libcocos2dx.a in Frameworks */,
+				9BD5BD3416AC70E2000CF083 /* UIKit.framework in Frameworks */,
+				9BD5BD3616AC70E2000CF083 /* Foundation.framework in Frameworks */,
+				9BD5BD3816AC70E2000CF083 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5BD4C16AC70E2000CF083 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5BD5216AC70E2000CF083 /* SenTestingKit.framework in Frameworks */,
+				9BD5BD5316AC70E2000CF083 /* UIKit.framework in Frameworks */,
+				9BD5BD5416AC70E2000CF083 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B9464CD16AC714E00B42B6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B9464D116AC714E00B42B6B /* libcocos2dx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BD5BD2416AC70E2000CF083 = {
+			isa = PBXGroup;
+			children = (
+				9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */,
+				9BD5BD3916AC70E2000CF083 /* Cocos2dXML */,
+				9BD5BD5716AC70E2000CF083 /* Cocos2dXMLTests */,
+				9BD5BD3216AC70E2000CF083 /* Frameworks */,
+				9BD5BD3016AC70E2000CF083 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9BD5BD3016AC70E2000CF083 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5BD2F16AC70E2000CF083 /* Cocos2dXML.app */,
+				9BD5BD5016AC70E2000CF083 /* Cocos2dXMLTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9BD5BD3216AC70E2000CF083 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B2D715416AC734C001F2C91 /* libxml2.dylib */,
+				9B2D715216AC7346001F2C91 /* libz.dylib */,
+				9B2D715816AC73B5001F2C91 /* OpenGLES.framework */,
+				9B2D715616AC73B0001F2C91 /* QuartzCore.framework */,
+				9BD5BD3316AC70E2000CF083 /* UIKit.framework */,
+				9BD5BD3516AC70E2000CF083 /* Foundation.framework */,
+				9BD5BD3716AC70E2000CF083 /* CoreGraphics.framework */,
+				9BD5BD5116AC70E2000CF083 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BD5BD3916AC70E2000CF083 /* Cocos2dXML */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */,
+				9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */,
+				9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */,
+				9BD6D2EC16AC8C6E00FD95B8 /* Cocos2dXMLScene.h */,
+				9BD6D2DF16AC894400FD95B8 /* ObjcGlue */,
+				9BD5BD3A16AC70E2000CF083 /* Supporting Files */,
+			);
+			path = Cocos2dXML;
+			sourceTree = "<group>";
+		};
+		9BD5BD3A16AC70E2000CF083 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5BD3B16AC70E2000CF083 /* Cocos2dXML-Info.plist */,
+				9BD5BD3C16AC70E2000CF083 /* InfoPlist.strings */,
+				9BD5BD3F16AC70E2000CF083 /* main.m */,
+				9BD5BD4116AC70E2000CF083 /* Cocos2dXML-Prefix.pch */,
+				9BD5BD4516AC70E2000CF083 /* Default.png */,
+				9BD5BD4716AC70E2000CF083 /* Default@2x.png */,
+				9BD5BD4916AC70E2000CF083 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BD5BD5716AC70E2000CF083 /* Cocos2dXMLTests */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5BD5D16AC70E2000CF083 /* Cocos2dXMLTests.h */,
+				9BD5BD5E16AC70E2000CF083 /* Cocos2dXMLTests.m */,
+				9BD5BD5816AC70E2000CF083 /* Supporting Files */,
+			);
+			path = Cocos2dXMLTests;
+			sourceTree = "<group>";
+		};
+		9BD5BD5816AC70E2000CF083 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9BD5BD5916AC70E2000CF083 /* Cocos2dXMLTests-Info.plist */,
+				9BD5BD5A16AC70E2000CF083 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BD6D2DF16AC894400FD95B8 /* ObjcGlue */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6D2E016AC894400FD95B8 /* AppDelegate.h */,
+				9BD6D2E116AC894400FD95B8 /* AppDelegate.mm */,
+				9BD6D2E216AC894400FD95B8 /* RootViewController.h */,
+				9BD6D2E316AC894400FD95B8 /* RootViewController.mm */,
+			);
+			path = ObjcGlue;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9BD5BD2E16AC70E2000CF083 /* Cocos2dXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD5BD6216AC70E2000CF083 /* Build configuration list for PBXNativeTarget "Cocos2dXML" */;
+			buildPhases = (
+				9BD5BD2B16AC70E2000CF083 /* Sources */,
+				9BD5BD2C16AC70E2000CF083 /* Frameworks */,
+				9BD5BD2D16AC70E2000CF083 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B2D714B16AC71E5001F2C91 /* PBXTargetDependency */,
+			);
+			name = Cocos2dXML;
+			productName = Cocos2dXML;
+			productReference = 9BD5BD2F16AC70E2000CF083 /* Cocos2dXML.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9BD5BD4F16AC70E2000CF083 /* Cocos2dXMLTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9BD5BD6516AC70E2000CF083 /* Build configuration list for PBXNativeTarget "Cocos2dXMLTests" */;
+			buildPhases = (
+				9BD5BD4B16AC70E2000CF083 /* Sources */,
+				9BD5BD4C16AC70E2000CF083 /* Frameworks */,
+				9BD5BD4D16AC70E2000CF083 /* Resources */,
+				9BD5BD4E16AC70E2000CF083 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BD5BD5616AC70E2000CF083 /* PBXTargetDependency */,
+			);
+			name = Cocos2dXMLTests;
+			productName = Cocos2dXMLTests;
+			productReference = 9BD5BD5016AC70E2000CF083 /* Cocos2dXMLTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9BD5BD2616AC70E2000CF083 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Robox Studios";
+			};
+			buildConfigurationList = 9BD5BD2916AC70E2000CF083 /* Build configuration list for PBXProject "Cocos2dXML" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9BD5BD2416AC70E2000CF083;
+			productRefGroup = 9BD5BD3016AC70E2000CF083 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9B9464CD16AC714E00B42B6B /* Products */;
+					ProjectRef = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9BD5BD2E16AC70E2000CF083 /* Cocos2dXML */,
+				9BD5BD4F16AC70E2000CF083 /* Cocos2dXMLTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9B9464D116AC714E00B42B6B /* libcocos2dx.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2dx.a;
+			remoteRef = 9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9BD5BD2D16AC70E2000CF083 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5BD3E16AC70E2000CF083 /* InfoPlist.strings in Resources */,
+				9BD5BD4616AC70E2000CF083 /* Default.png in Resources */,
+				9BD5BD4816AC70E2000CF083 /* Default@2x.png in Resources */,
+				9BD5BD4A16AC70E2000CF083 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5BD4D16AC70E2000CF083 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5BD5C16AC70E2000CF083 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BD5BD4E16AC70E2000CF083 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9BD5BD2B16AC70E2000CF083 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5BD4016AC70E2000CF083 /* main.m in Sources */,
+				9BD6D2E416AC894400FD95B8 /* AppDelegate.mm in Sources */,
+				9BD6D2E616AC894400FD95B8 /* RootViewController.mm in Sources */,
+				9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */,
+				9BD6D2EF16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9BD5BD4B16AC70E2000CF083 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD5BD5F16AC70E2000CF083 /* Cocos2dXMLTests.m in Sources */,
+				9BD6D2E516AC894400FD95B8 /* AppDelegate.mm in Sources */,
+				9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */,
+				9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */,
+				9BD6D2F016AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B2D714B16AC71E5001F2C91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cocos2dx;
+			targetProxy = 9B2D714A16AC71E5001F2C91 /* PBXContainerItemProxy */;
+		};
+		9BD5BD5616AC70E2000CF083 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BD5BD2E16AC70E2000CF083 /* Cocos2dXML */;
+			targetProxy = 9BD5BD5516AC70E2000CF083 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9BD5BD3C16AC70E2000CF083 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BD5BD3D16AC70E2000CF083 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9BD5BD5A16AC70E2000CF083 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9BD5BD5B16AC70E2000CF083 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9BD5BD6016AC70E2000CF083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+					CC_TARGET_OS_IPHONE,
+					"COCOS2D_DEBUG=1",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2/\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Debug;
+		};
+		9BD5BD6116AC70E2000CF083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					CC_TARGET_OS_IPHONE,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/include/libxml2/\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
+			};
+			name = Release;
+		};
+		9BD5BD6316AC70E2000CF083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cocos2dXML/Cocos2dXML-Prefix.pch";
+				INFOPLIST_FILE = "Cocos2dXML/Cocos2dXML-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9BD5BD6416AC70E2000CF083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cocos2dXML/Cocos2dXML-Prefix.pch";
+				INFOPLIST_FILE = "Cocos2dXML/Cocos2dXML-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9BD5BD6616AC70E2000CF083 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cocos2dXML.app/Cocos2dXML";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cocos2dXML/Cocos2dXML-Prefix.pch";
+				INFOPLIST_FILE = "Cocos2dXMLTests/Cocos2dXMLTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9BD5BD6716AC70E2000CF083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cocos2dXML.app/Cocos2dXML";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cocos2dXML/Cocos2dXML-Prefix.pch";
+				INFOPLIST_FILE = "Cocos2dXMLTests/Cocos2dXMLTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9BD5BD2916AC70E2000CF083 /* Build configuration list for PBXProject "Cocos2dXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5BD6016AC70E2000CF083 /* Debug */,
+				9BD5BD6116AC70E2000CF083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD5BD6216AC70E2000CF083 /* Build configuration list for PBXNativeTarget "Cocos2dXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5BD6316AC70E2000CF083 /* Debug */,
+				9BD5BD6416AC70E2000CF083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9BD5BD6516AC70E2000CF083 /* Build configuration list for PBXNativeTarget "Cocos2dXMLTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9BD5BD6616AC70E2000CF083 /* Debug */,
+				9BD5BD6716AC70E2000CF083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9BD5BD2616AC70E2000CF083 /* Project object */;
+}
