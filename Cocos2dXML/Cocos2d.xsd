@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:cc="http://Cocos2dXML"
+	targetNamespace="http://Cocos2dXML">
+
+<!-- TYPEDEFS -->
+<simpleType name="event">
+	<restriction base="string" typedef="Cocos2dXMLEvent"/>
+</simpleType>
+
+<simpleType name="eventListener">
+	<restriction base="string" typedef="Cocos2dXMLEventListener"/>
+</simpleType>
+
+<simpleType name="filePath">
+	<restriction base="string" typedef="Cocos2dXMLFilePath"/>
+</simpleType>
+
+<simpleType name="point">
+	<restriction base="string" typedef="CCPoint"/>
+</simpleType>
+
+<simpleType name="color">
+	<restriction base="string" typedef="Cocos2dXMLColor"/>
+</simpleType>
+
+<!-- ENUMS -->
+
+<simpleType name="srcBlendFunc">
+	<restriction base="string">
+		<enumeration value="zero" />
+		<enumeration value="one" />
+		<enumeration value="destinationColor" />
+		<enumeration value="oneMinusDestinationColor" />
+		<enumeration value="sourceAlpha" />
+		<enumeration value="sourceAlphaSaturate" />
+		<enumeration value="oneMinusSourceAlpha" />
+		<enumeration value="destinationAlpha" />
+		<enumeration value="oneMinusDestinationAlpha" />
+	</restriction>
+</simpleType>
+
+<simpleType name="dstBlendFunc">
+	<restriction base="string">
+		<enumeration value="zero" />
+		<enumeration value="one" />
+		<enumeration value="sourceColor" />
+		<enumeration value="oneMinusSourceColor" />
+		<enumeration value="sourceAlpha" />
+		<enumeration value="oneMinusSourceAlpha" />
+		<enumeration value="destinationAlpha" />
+		<enumeration value="oneMinusDestinationAlpha" />
+	</restriction>
+</simpleType>
+
+<!-- CLASSES -->
+<element name="BaseObject" type="cc:BaseObject"/>
+<complexType name="BaseObject">
+	<complexContent>
+		<attribute name="id" type="ID"/>
+	</complexContent>
+</complexType>
+
+<element name="Director" type="cc:BaseObject"/>
+<complexType name="Director">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<sequence>
+				<element type="cc:SceneReference"/>
+			</sequence>
+			<attribute name="displayStats" type="boolean" default="false" />
+			<attribute name="animationInterval" type="double" default="60.0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="SceneReference" type="cc:SceneReference"/>
+<complexType name="SceneReference">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="path" type="cc:filePath"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Node" type="cc:Node"/>
+<complexType name="Node">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<sequence>
+				<element type="cc:Node"/>
+			</sequence>
+			<attribute name="zOrder" type="int"/>
+			<attribute name="scale" type="cc:Point" default="1,1"/>
+			<attribute name="position" type="cc:Point" default="0,0"/>
+			<attribute name="skew" type="cc:Point" default="0,0"/>
+			<attribute name="tag" type="int" default="0"/>
+			<attribute name="anchorPoint" type="cc:Point" default="0,0"/>
+			<attribute name="size" type="cc:Point" default="0,0"/>
+			<attribute name="visible" type="boolean" default="true"/>
+			<attribute name="rotation" type="float" default="0"/>
+			<attribute name="ignoreAnchorPointForPosition" type="boolean" default="false"/>
+			
+			<!-- shader program -->
+			
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Sprite" type="cc:Sprite"/>
+<complexType name="Sprite">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="color" type="cc:color" default="#FFFFFFFF"/>
+			<attribute name="texture" type="cc:filePath"/>
+			<attribute name="flipX" type="boolean" default="false"/>
+			<attribute name="flipY" type="boolean" default="false"/>
+			<attribute name="srcBlend" type="cc:srcBlendFunc"/>
+			<attribute name="dstBlend" type="cc:dstBlendFunc"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="SpriteBatch" type="cc:SpriteBatch"/>
+<complexType name="SpriteBatch">
+	<complexContent>
+		<extension base="cc:Node">
+			<!-- TODO -->
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="BatchedSprite" type="cc:BatchedSprite"/>
+<complexType name="BatchedSprite">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="color" type="cc:color" default="#FFFFFFFF"/>
+			<attribute name="texture" type="string"/>
+			<attribute name="flipX" type="boolean" default="false"/>
+			<attribute name="flipY" type="boolean" default="false"/>
+			<attribute name="srcBlend" type="cc:srcBlendFunc"/>
+			<attribute name="dstBlend" type="cc:dstBlendFunc"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Scene" type="cc:Scene"/>
+<complexType name="Scene">
+	<complexContent>
+		<extension base="cc:Node">
+			
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Action" type="cc:Action"/>
+<complexType name="Action">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="target" type="IDREF" use="required"/>
+			<attribute name="startListener" type="cc:eventListener"/>
+			<attribute name="stopListener" type="cc:eventListener"/>
+			<attribute name="tag" type="int"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<!--
+TODO:
+Actions --
+FiniteAction?
+Speed?
+Follow?
+ActionCamera?
+Catmull?
+Ease
+Grid?
+ActionGrid3d?
+Show/Hide/Toggle?
+FlipX/FlipY?
+Place?
+Sequence
+Repeat
+Spawn
+RotateTo/RotateBy
+MoveTo/MoveBy
+SkewTo/SkewBy
+JumpTo/JumpBy
+BezierTo/BezierBy
+ScaleTo/ScaleBy
+Blink
+FadeIn/FadeOut/FadeTo
+TintTo/TintBy
+Delay
+Reverse
+AnimateTexture
+-->
+
+</schema>
