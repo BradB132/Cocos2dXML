@@ -5,23 +5,39 @@
 
 <!-- TYPEDEFS -->
 <simpleType name="event">
-	<restriction base="string" typedef="Cocos2dXMLEvent"/>
+	<restriction base="string">
+		<annotation id="Cocos2dXMLEvent"/>
+	</restriction>
 </simpleType>
 
 <simpleType name="eventListener">
-	<restriction base="string" typedef="Cocos2dXMLEventListener"/>
+	<restriction base="string">
+		<annotation id="Cocos2dXMLEventListener"/>
+	</restriction>
 </simpleType>
 
 <simpleType name="filePath">
-	<restriction base="string" typedef="Cocos2dXMLFilePath"/>
+	<restriction base="string">
+		<annotation id="Cocos2dXMLFilePath"/>
+	</restriction>
 </simpleType>
 
 <simpleType name="point">
-	<restriction base="string" typedef="CCPoint"/>
+	<restriction base="string">
+		<annotation id="CCPoint"/>
+	</restriction>
 </simpleType>
 
-<simpleType name="color">
-	<restriction base="string" typedef="Cocos2dXMLColor"/>
+<simpleType name="color4">
+	<restriction base="string">
+		<annotation id="Cocos2dXMLColor"/>
+	</restriction>
+</simpleType>
+
+<simpleType name="color3">
+	<restriction base="string">
+		<annotation id="ccColor3B"/>
+	</restriction>
 </simpleType>
 
 <!-- ENUMS -->
@@ -53,20 +69,41 @@
 	</restriction>
 </simpleType>
 
+<simpleType name="ease">
+	<restriction base="string">
+		<enumeration value="in" />
+		<enumeration value="out" />
+		<enumeration value="inOut" />
+		<enumeration value="eponentialIn" />
+		<enumeration value="eponentialOut" />
+		<enumeration value="eponentialInOut" />
+		<enumeration value="sineIn" />
+		<enumeration value="sineOut" />
+		<enumeration value="sineInOut" />
+		<enumeration value="elasticIn" />
+		<enumeration value="elasticOut" />
+		<enumeration value="elasticInOut" />
+		<enumeration value="bounceIn" />
+		<enumeration value="bounceOut" />
+		<enumeration value="bounceInOut" />
+		<enumeration value="backIn" />
+		<enumeration value="backOut" />
+		<enumeration value="backInOut" />
+	</restriction>
+</simpleType>
+
 <!-- CLASSES -->
 <element name="BaseObject" type="cc:BaseObject"/>
 <complexType name="BaseObject">
-	<complexContent>
-		<attribute name="id" type="ID"/>
-	</complexContent>
+	<attribute name="id" type="ID"/>
 </complexType>
 
-<element name="Director" type="cc:BaseObject"/>
+<element name="Director" type="cc:Director"/>
 <complexType name="Director">
 	<complexContent>
 		<extension base="cc:BaseObject">
 			<sequence>
-				<element type="cc:SceneReference"/>
+				<element name="SceneReferences" type="cc:SceneReference" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="displayStats" type="boolean" default="false" />
 			<attribute name="animationInterval" type="double" default="60.0" />
@@ -88,21 +125,19 @@
 	<complexContent>
 		<extension base="cc:BaseObject">
 			<sequence>
-				<element type="cc:Node"/>
+				<element name="Nodes" type="cc:Node" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="zOrder" type="int"/>
-			<attribute name="scale" type="cc:Point" default="1,1"/>
-			<attribute name="position" type="cc:Point" default="0,0"/>
-			<attribute name="skew" type="cc:Point" default="0,0"/>
+			<attribute name="scale" type="cc:point" default="1,1"/>
+			<attribute name="position" type="cc:point" default="0,0"/>
+			<attribute name="skew" type="cc:point" default="0,0"/>
 			<attribute name="tag" type="int" default="0"/>
-			<attribute name="anchorPoint" type="cc:Point" default="0,0"/>
-			<attribute name="size" type="cc:Point" default="0,0"/>
+			<attribute name="anchorPoint" type="cc:point" default="0,0"/>
+			<attribute name="size" type="cc:point" default="0,0"/>
 			<attribute name="visible" type="boolean" default="true"/>
 			<attribute name="rotation" type="float" default="0"/>
 			<attribute name="ignoreAnchorPointForPosition" type="boolean" default="false"/>
-			
 			<!-- shader program -->
-			
 		</extension>
 	</complexContent>
 </complexType>
@@ -111,7 +146,7 @@
 <complexType name="Sprite">
 	<complexContent>
 		<extension base="cc:Node">
-			<attribute name="color" type="cc:color" default="#FFFFFFFF"/>
+			<attribute name="color" type="cc:color4" default="#FFFFFFFF"/>
 			<attribute name="texture" type="cc:filePath"/>
 			<attribute name="flipX" type="boolean" default="false"/>
 			<attribute name="flipY" type="boolean" default="false"/>
@@ -134,7 +169,7 @@
 <complexType name="BatchedSprite">
 	<complexContent>
 		<extension base="cc:Node">
-			<attribute name="color" type="cc:color" default="#FFFFFFFF"/>
+			<attribute name="color" type="cc:color4" default="#FFFFFFFF"/>
 			<attribute name="texture" type="string"/>
 			<attribute name="flipX" type="boolean" default="false"/>
 			<attribute name="flipY" type="boolean" default="false"/>
@@ -165,35 +200,143 @@
 	</complexContent>
 </complexType>
 
-<!--
-TODO:
-Actions --
-FiniteAction?
-Speed?
-Follow?
-ActionCamera?
-Catmull?
-Ease
-Grid?
-ActionGrid3d?
-Show/Hide/Toggle?
-FlipX/FlipY?
-Place?
-Sequence
-Repeat
-Spawn
-RotateTo/RotateBy
-MoveTo/MoveBy
-SkewTo/SkewBy
-JumpTo/JumpBy
-BezierTo/BezierBy
-ScaleTo/ScaleBy
-Blink
-FadeIn/FadeOut/FadeTo
-TintTo/TintBy
-Delay
-Reverse
-AnimateTexture
--->
+<element name="FiniteAction" type="cc:FiniteAction"/>
+<complexType name="FiniteAction">
+	<complexContent>
+		<extension base="cc:Action">
+			<attribute name="duration" type="float" default="0"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="RelativeAction" type="cc:RelativeAction"/>
+<complexType name="RelativeAction">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<attribute name="relative" type="boolean" default="false" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Sequence" type="cc:Sequence"/>
+<complexType name="Sequence">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<sequence>
+				<element name="Actions" type="cc:FiniteAction" minOccurs="2" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="serial" type="boolean" default="true"/><!-- uses CCSpawn if not serial -->
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Ease" type="cc:Ease"/>
+<complexType name="Ease">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<sequence>
+				<element name="Action" type="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+			<attribute name="type" type="cc:ease" default="out" />
+			<attribute name="rate" type="float" default="1" /><!-- only applies to types: in, out, inOut -->
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Repeat" type="cc:Repeat"/>
+<complexType name="Repeat">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<sequence>
+				<element name="Action" type="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+			<attribute name="repeats" type="int" default="2" /><!-- negative numbers repeat forever -->
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Rotate" type="cc:Rotate"/>
+<complexType name="Rotate">
+	<complexContent>
+		<extension base="cc:RelativeAction">
+			<attribute name="value" type="float" default="0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Move" type="cc:Move"/>
+<complexType name="Move">
+	<complexContent>
+		<extension base="cc:RelativeAction">
+			<attribute name="value" type="cc:point" default="0,0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Skew" type="cc:Skew"/>
+<complexType name="Skew">
+	<complexContent>
+		<extension base="cc:RelativeAction">
+			<attribute name="value" type="cc:point" default="0,0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Scale" type="cc:Scale"/>
+<complexType name="Scale">
+	<complexContent>
+		<extension base="cc:RelativeAction">
+			<attribute name="value" type="cc:point" default="0,0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Tint" type="cc:Tint"/>
+<complexType name="Tint">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<attribute name="value" type="cc:color3" default="#FFFFFF" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Fade" type="cc:Fade"/>
+<complexType name="Fade">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<attribute name="value" type="unsignedByte" default="255" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Place" type="cc:Place"/>
+<complexType name="Place">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+			<attribute name="value" type="cc:point" default="0,0" />
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Delay" type="cc:Delay"/>
+<complexType name="Delay">
+	<complexContent>
+		<extension base="cc:FiniteAction">
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Animation" type="cc:Animation"/>
+<complexType name="Animation">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="target" type="IDREF" use="optional"/>
+			<attribute name="format" type="string" use="required"/>
+			<attribute name="sequence" type="string" use="required"/>
+			<attribute name="fps" type="float" default="12"/>
+			<attribute name="loops" type="unsignedInt" default="0"/>
+		</extension>
+	</complexContent>
+</complexType>
 
 </schema>
