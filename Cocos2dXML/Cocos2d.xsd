@@ -92,6 +92,61 @@
 	</restriction>
 </simpleType>
 
+<simpleType name="horizontalTextAlign">
+	<restriction base="string">
+		<enumeration value="left" define="kCCTextAlignmentLeft" />
+		<enumeration value="center" define="kCCTextAlignmentCenter" />
+		<enumeration value="right" define="kCCTextAlignmentRight" />
+	</restriction>
+</simpleType>
+
+<simpleType name="verticalTextAlign">
+	<restriction base="string">
+		<enumeration value="top" define="kCCVerticalTextAlignmentTop" />
+		<enumeration value="center" define="kCCVerticalTextAlignmentCenter" />
+		<enumeration value="bottom" define="kCCVerticalTextAlignmentBottom" />
+	</restriction>
+</simpleType>
+
+<simpleType name="transition">
+	<restriction base="string">
+		<enumeration value="none" />
+		<enumeration value="rotoZoom" />
+		<enumeration value="jumpZoom" />
+		<enumeration value="moveInL" />
+		<enumeration value="moveInR" />
+		<enumeration value="moveInT" />
+		<enumeration value="moveInB" />
+		<enumeration value="slideInL" />
+		<enumeration value="slideInR" />
+		<enumeration value="slideInT" />
+		<enumeration value="slideInB" />
+		<enumeration value="shrinkGrow" />
+		<enumeration value="flipX" />
+		<enumeration value="flipY" />
+		<enumeration value="flipAngular" />
+		<enumeration value="zoomFlipX" />
+		<enumeration value="zoomFlipY" />
+		<enumeration value="zoomFlipAngular" />
+		<enumeration value="fade" />
+		<enumeration value="crossFade" />
+		<enumeration value="turnOffTiles" />
+		<enumeration value="splitCols" />
+		<enumeration value="splitRows" />
+		<enumeration value="fadeTR" />
+		<enumeration value="fadeBL" />
+		<enumeration value="fadeUp" />
+		<enumeration value="fadeDown" />
+		<enumeration value="pageTurn" />
+		<enumeration value="progressRadialCW" />
+		<enumeration value="progressRadialCCW" />
+		<enumeration value="progressHorizontal" />
+		<enumeration value="progressVertical" />
+		<enumeration value="progressInOut" />
+		<enumeration value="progressOutIn" />
+	</restriction>
+</simpleType>
+
 <!-- CLASSES -->
 <element name="BaseObject" type="cc:BaseObject"/>
 <complexType name="BaseObject">
@@ -103,7 +158,8 @@
 	<complexContent>
 		<extension base="cc:BaseObject">
 			<sequence>
-				<element name="SceneReferences" type="cc:SceneReference" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:SceneReference" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Transition" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="displayStats" type="boolean" default="false" />
 			<attribute name="animationInterval" type="double" default="60.0" />
@@ -115,7 +171,17 @@
 <complexType name="SceneReference">
 	<complexContent>
 		<extension base="cc:BaseObject">
-			<attribute name="path" type="cc:filePath"/>
+            <attribute name="path" type="cc:filePath" use="required"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Transition" type="cc:Transition"/>
+<complexType name="Transition">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="type" type="cc:transition" default="none"/>
+			<attribute name="duration" type="float" default="1"/>
 		</extension>
 	</complexContent>
 </complexType>
@@ -125,7 +191,7 @@
 	<complexContent>
 		<extension base="cc:BaseObject">
 			<sequence>
-				<element name="Nodes" type="cc:Node" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Node" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="zOrder" type="int"/>
 			<attribute name="scale" type="cc:point" default="1,1"/>
@@ -137,6 +203,12 @@
 			<attribute name="visible" type="boolean" default="true"/>
 			<attribute name="rotation" type="float" default="0"/>
 			<attribute name="ignoreAnchorPointForPosition" type="boolean" default="false"/>
+			<attribute name="enabled" type="boolean" default="true"/>
+			<attribute name="touchThrough" type="boolean" default="false"/>
+			<attribute name="onTouchUp" type="cc:event" use="optional"/>
+			<attribute name="onTouchMove" type="cc:event" use="optional"/>
+			<attribute name="onTouchDown" type="cc:event" use="optional"/>
+			<attribute name="onTouchCancel" type="cc:event" use="optional"/>
 			<!-- shader program -->
 		</extension>
 	</complexContent>
@@ -183,7 +255,25 @@
 <complexType name="Scene">
 	<complexContent>
 		<extension base="cc:Node">
-			
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="ClippingNode" type="cc:ClippingNode"/>
+<complexType name="ClippingNode">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="alphaThreshold" type="float" default="0"/>
+			<attribute name="inverted" type="boolean" default="false"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="ParticleSystem" type="cc:ParticleSystem"/>
+<complexType name="ParticleSystem">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="plist" type="cc:filePath" use="required"/>
 		</extension>
 	</complexContent>
 </complexType>
@@ -223,7 +313,7 @@
 	<complexContent>
 		<extension base="cc:FiniteAction">
 			<sequence>
-				<element name="Actions" type="cc:FiniteAction" minOccurs="2" maxOccurs="unbounded"/>
+				<element ref="cc:FiniteAction" minOccurs="2" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="serial" type="boolean" default="true"/><!-- uses CCSpawn if not serial -->
 		</extension>
@@ -235,7 +325,7 @@
 	<complexContent>
 		<extension base="cc:FiniteAction">
 			<sequence>
-				<element name="Action" type="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
+				<element ref="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
 			</sequence>
 			<attribute name="type" type="cc:ease" default="out" />
 			<attribute name="rate" type="float" default="1" /><!-- only applies to types: in, out, inOut -->
@@ -248,7 +338,7 @@
 	<complexContent>
 		<extension base="cc:FiniteAction">
 			<sequence>
-				<element name="Action" type="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
+				<element ref="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
 			</sequence>
 			<attribute name="repeats" type="int" default="2" /><!-- negative numbers repeat forever -->
 		</extension>
@@ -338,5 +428,28 @@
 		</extension>
 	</complexContent>
 </complexType>
+
+<element name="Text" type="cc:Text"/>
+<complexType name="Text">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="value" type="string" use="required"/>
+			<attribute name="fontName" type="string" use="required"/>
+			<attribute name="fontSize" type="float" use="required"/>
+			<attribute name="horizontalAlign" type="cc:horizontalTextAlign" default="center"/>
+			<attribute name="verticalAlign" type="cc:verticalTextAlign" default="center"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<!--
+TODO:
+shaders
+accelerometer
+parallax?
+Camera?
+RenderTexture
+MotionStreak
+-->
 
 </schema>
