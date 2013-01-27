@@ -1,0 +1,128 @@
+
+console("generating c++ enums");
+
+String schemaNickname = schema.targetNamespace;
+schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
+
+Object enums = abstractions.enums;
+
+//generate the header file for the enums
+outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+"_enums.h");
+
+<?//
+//  ?>#schemaNickname;<?_enums.h
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+#ifndef __?>#toUpper(schemaNickname);<?_ENUMS_H__
+#define __?>#toUpper(schemaNickname);<?_ENUMS_H__
+
+#include <iostream>
+#include "cocos2d.h"
+
+?>
+
+//skip this entirely if we have no enums
+if(enums != NULL)
+{
+<?#pragma mark - Enum declarations
+
+?>
+	//declare the enums
+	for(int i = 0; i < enums.length; i++)
+	{
+		Object enum = enums[i];
+		string enumName = enum.enumName;
+<?typedef enum
+{
+?>
+		for(int j = 0; j < enum.length; j++)
+		{
+			Object enumObj = enum[j];
+<?	?>#enumName;<?_?>#enumObj.value;
+
+//check if we've defined an actual value for this enum entry
+//(this is just something I did, not an attribute typically included in a schema)
+String def = enumObj.define;
+if(def != "0x0")
+{
+	<? = ?>#def;
+}
+<?,
+?>
+		}
+<?}?>#enumName;<?;
+
+?>
+	}
+
+<?#pragma mark - Enum conversions
+
+?>
+	//declare functions that convert the enums
+	for(int i = 0; i < enums.length; i++)
+	{
+		Object enum = enums[i];
+		string enumName = enum.enumName;
+#enumName;<? string_to_?>#enumName;<?(std::string enumString);
+std::string ?>#enumName;<?_to_string(?>#enumName;<? enumValue);
+
+?>
+	}
+}
+
+<?#endif //end __?>#toUpper(schemaNickname);<?_ENUMS_H__
+?>
+
+//generate the implementation for the enum conversion functions
+outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+"_enums.cpp");
+
+<?#include "?>#schemaNickname;<?_enums.h"
+
+?>
+
+for(int i = 0; i < enums.length; i++)
+{
+	Object enum = enums[i];
+	string enumName = enum.enumName;
+
+#enumName;<? string_to_?>#enumName;<?(std::string enumString)
+{
+	const char* enumStringC = enumString.c_str();
+?>
+	for(int j = 0; j < enum.length; j++)
+	{
+		Object enumObj = enum[j];
+		String enumStr = enumObj.value;
+<?	?>
+		if(j != 0)
+			<?else ?>
+	<?if(!strcmp(enumStringC, "?>#enumStr;<?"))
+		return ?>#enumName;<?_?>#enumStr;<?;
+?>
+	}
+<?	return (?>#enumName;<?)-1;
+}
+
+std::string ?>#enumName;<?_to_string(?>#enumName;<? enumValue)
+{
+	switch(enumValue)
+	{
+?>
+	for(int j = 0; j < enum.length; j++)
+	{
+		Object enumObj = enum[j];
+		String enumStr = enumObj.value;
+<?		case ?>#enumName;<?_?>#enumStr;<?:
+			return "?>#enumStr;<?";
+?>
+	}
+<?		default:
+			return "";
+	}
+}
+?>
+}

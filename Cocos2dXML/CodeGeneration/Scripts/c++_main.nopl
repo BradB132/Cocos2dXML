@@ -1,0 +1,55 @@
+
+console("generating c++_main");
+
+//hard code any key value pairs that we already know we'll need for this language
+String intType = 'int';
+String uintType = 'unsigned int';
+String stringType = 'std::string';
+setKeyAndValue('byte', 'char');
+setKeyAndValue('decimal', intType);
+setKeyAndValue('integer', intType);
+setKeyAndValue('negativeInteger', intType);
+setKeyAndValue('nonPositiveInteger', intType);
+setKeyAndValue('positiveInteger', uintType);
+setKeyAndValue('nonNegativeInteger', uintType);
+setKeyAndValue('unsignedInt', uintType);
+setKeyAndValue('unsignedLong', 'unsigned long');
+setKeyAndValue('unsignedShort', 'unsigned short');
+setKeyAndValue('unsignedByte', 'unsigned char');
+setKeyAndValue('ENTITIES', stringType);
+setKeyAndValue('ENTITY', stringType);
+setKeyAndValue('ID', stringType);
+setKeyAndValue('IDREF', stringType);
+setKeyAndValue('IDREFS', stringType);
+setKeyAndValue('language', stringType);
+setKeyAndValue('Name', stringType);
+setKeyAndValue('NCName', stringType);
+setKeyAndValue('NMTOKEN', stringType);
+setKeyAndValue('NMTOKENS', stringType);
+setKeyAndValue('normalizedString', stringType);
+setKeyAndValue('QName', stringType);
+setKeyAndValue('string', stringType);
+setKeyAndValue('token', stringType);
+setKeyAndValue('anyURI', stringType);
+setKeyAndValue('NOTATION', stringType);
+setKeyAndValue('boolean', 'bool');
+
+//choose which directory to put all of our generated code in
+setKeyAndValue('__ROOT_DIR__', '..');
+
+//loop to add all typedefs as key-value pairs
+Object typedefs  = abstractions.typedefs;
+if(typedefs != NULL)
+{
+	for(int i = 0; i < typedefs.length; i++)
+	{
+		Pointer typedef = typedefs[i];
+		setKeyAndValue((String)typedef.schemaName, (String)typedef.name);
+	}
+}
+
+runScript("./c++_header.nopl");
+runScript("./c++_implementation.nopl");
+runScript("./c++_enum.nopl");
+runScript("./c++_typedefs.nopl");
+runScript("./c++_include.nopl");

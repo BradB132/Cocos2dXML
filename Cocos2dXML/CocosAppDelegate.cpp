@@ -3,8 +3,8 @@
 
 USING_NS_CC;
 
-CocosAppDelegate::CocosAppDelegate() {
-
+CocosAppDelegate::CocosAppDelegate()
+{
 }
 
 CocosAppDelegate::~CocosAppDelegate()

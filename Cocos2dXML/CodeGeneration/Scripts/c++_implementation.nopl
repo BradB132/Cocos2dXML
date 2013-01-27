@@ -1,0 +1,323 @@
+
+console("generating c++ implementations");
+
+Object classes = abstractions.classes;
+
+String schemaNickname = schema.targetNamespace;
+schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
+
+for(int i = 0; i < classes.count; i++)
+{
+	Object class = classes[i];
+	String name = class.className;
+	String parentName = class.parentClassName;
+	Boolean hasParentClass = (parentName != "");
+
+	//output a blank file if we didn't already have one
+	if(!fileExists(valueForKey('__ROOT_DIR__')+"/"+name+".cpp"))
+	{
+		outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".cpp");
+//put a comment at the top with some metadata about this file
+<?//
+//  ?>#name;<?.h
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+#include "?>#name;<?.h"
+?>
+	}
+	
+	//output a base class with generated code
+	name += "_Base";
+	outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".cpp");
+
+	Object attributes = class.attributes;
+	Object children = class.children;
+
+//put a comment at the top with some metadata about this file
+<?//
+//  ?>#name;<?.cpp
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+#include "?>#name;<?.h"
+?>
+for(int j = 0; j < children.count; j++)
+{
+<?#include "?>#children[j].name;<?.h"
+?>
+}
+<?
+?>
+
+bool hasDefaults = children.count > 0;
+if(!hasDefaults)
+{
+	for(int j = 0; j < attributes.length; j++)
+	{
+		//default is a NoPL keyword, so we need to access it with a subscript
+		if(attributes[j]['default'] != '0x0')
+		{
+			hasDefaults = YES;
+			break;
+		}
+	}
+}
+
+//create the constructor / desctuctor
+#name;<?::?>#name;<?()?>
+if(hasDefaults)
+{
+	<?:
+?>
+	BOOL first = YES;
+	for(int j = 0; j < attributes.length; j++)
+	{
+		Object attr = attributes[j];
+
+		//default is a NoPL keyword, so we need to access it with a subscript
+		if(attr['default'] != '0x0')
+		{
+			if(!first)
+			{
+				<?,
+?>
+			}
+			first = NO;
+			String defaultStr = attr['default'];
+			String typeName = valueForKey((String)attr.type);
+			switch(typeName)
+			{
+				case 'std::string':
+					//this is a string, enclose it in quotes
+					defaultStr = format('"%"', defaultStr);
+					break;
+				case 'cocos2d::ccColor3B':
+					defaultStr = format('string_to_ccColor3B("%")', defaultStr);
+					break;
+				case 'Cocos2dXMLColor':
+					defaultStr = format('string_to_%("%")', typeName, defaultStr);
+					break;
+				default:
+					//determine if this is an enum
+					BOOL isEnum = NO;
+					Object enums = abstractions.enums;
+					for(int k = 0; k < enums.length; k++)
+					{
+						if(enums[k].enumName == typeName)
+						{
+							isEnum = YES;
+							break;
+						}
+					}
+					if(isEnum)
+					{
+						defaultStr = typeName+"_"+defaultStr;
+					}
+					break;
+			}
+			#attr.name;<?(?>#defaultStr;<?)?>
+		}
+	}
+	for(int j = 0; j < children.length; j++)
+	{
+		Object child = children[j];
+		
+		if(!first)
+		{
+			<?,
+?>
+		}
+		first = NO;
+		String listName = pluralize((String)child.name);
+		#listName;<?(new cocos2d::CCArray())?>
+	}
+}
+<?
+{
+}
+
+?>#name;<?::~?>#name;<?()
+{
+?>
+for(int j = 0; j < children.length; j++)
+{
+	Object child = children[j];
+	String listName = pluralize((String)child.name);
+<?	if(?>#listName;<?)
+	{
+		delete ?>#listName;<?;
+		?>#listName;<? = NULL;
+	}
+?>
+}
+<?}
+
+void ?>#name;<?::initWithXML(xmlNodePtr node)
+{
+?>
+if(hasParentClass)
+{
+<?	?>#parentName;<?::initWithXML(node);
+
+?>
+}
+
+if(attributes.count > 0)
+{
+	for(int j = 0; j < attributes.count; j++)
+	{
+		Object attr = attributes[j];
+		String attrName = attr.name;
+<?	?>
+		if(j ==0)
+		{
+			<?char* ?>
+		}
+
+	<?attrVal = (char*)xmlGetProp(node, (xmlChar*)"?>#attrName;<?");
+	if(attrVal)
+?>
+		String typeName = valueForKey((String)attr.type);
+		switch(typeName)
+		{
+			case 'int':
+			case 'unsigned char':
+<?		?>#attrName;<? = atoi(attrVal);
+?>
+				break;
+			case 'unsigned int':
+<?		?>#attrName;<? = strtoul(attrVal, NULL, 0);
+?>
+				break;
+			case 'double':
+			case 'float':
+<?		?>#attrName;<? = atof(attrVal);
+?>
+				break;
+			case 'cocos2d::CCPoint':
+<?		?>#attrName;<? = string_to_CCPoint(attrVal);
+?>
+				break;
+			case 'cocos2d::ccColor3B':
+<?		?>#attrName;<? = string_to_ccColor3B(attrVal);
+?>
+				break;
+			case 'Cocos2dXMLColor':
+			case 'bool':
+<?		?>#attrName;<? = string_to_?>#typeName;<?(attrVal);
+?>
+				break;
+			default:
+<?		?>
+				//determine if this is an enum
+				BOOL isEnum = NO;
+				Object enums = abstractions.enums;
+				for(int k = 0; k < enums.length; k++)
+				{
+					if(enums[k].enumName == typeName)
+					{
+						isEnum = YES;
+						break;
+					}
+				}
+				if(isEnum)
+				{
+					//this is an enum type
+					#attrName;<? = string_to_?>#typeName;<?(attrVal);
+?>
+				}
+				else
+				{
+					//this is a string?
+					#attrName;<? = attrVal;
+?>
+				}
+
+				break;
+		}
+	}
+<?
+?>
+}
+
+if(children.count > 0)
+{
+<?	xmlNodePtr child = node->children;
+	while(child)
+	{
+?>
+	for(int j = 0; j < children.count; j++)
+	{
+		Object child = children[j];
+		String childName = child.name;
+<?		?>
+		if(j != 0)
+		{
+			<?else ?>
+		}
+
+		<?if(!strcmp((char*)child->name, "?>#childName;<?"))
+		{
+			?>#childName;<?* newObj = new ?>#childName;<?();
+			?>#pluralize(childName);<?->addObject(newObj);
+			newObj->initWithXML(child);
+		}
+?>
+	}
+<?		child = child->next;
+	}
+?>
+}
+
+<?}
+
+?>
+
+if(attributes.count > 0)
+{
+	for(int j = 0; j < attributes.count; j++)
+	{
+		Object attr = attributes[j];
+		String attrName = attr.name;
+		String capName = capitalize(attrName);
+		String typeName = valueForKey((String)attr.type);
+#typeName;<? ?>#name;<?::get?>#capName;<?()
+{
+	return ?>#attrName;<?;
+}
+
+bool ?>#name;<?::set?>#capName;<?(?>#typeName;<? new?>#capName;<?)
+{
+	?>#attrName;<? = new?>#capName;<?;
+	return true;
+}
+
+?>
+	}
+}
+
+if(children.count > 0)
+{
+	for(int j = 0; j < children.count; j++)
+	{
+		Object child = children[j];
+		String listName = pluralize((String)child.name);
+		String capName = capitalize(listName);
+<?cocos2d::CCArray* ?>#name;<?::get?>#listName;<?()
+{
+	return ?>#listName;<?;
+}
+
+?>
+	}
+}
+
+
+}

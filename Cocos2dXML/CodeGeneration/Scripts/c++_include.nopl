@@ -1,0 +1,26 @@
+
+console("generating c++ include");
+
+String schemaNickname = schema.targetNamespace;
+schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
+
+outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+".h");
+
+//TODO: make a single header that includes all of the other generated files
+
+<?
+#include <iostream>
+#include <libxml/parser.h>
+#include "cocos2d.h"
+#include "?>#schemaNickname;<?_enums.h"
+#include "?>#schemaNickname;<?_typedefs.h"
+?>
+
+Object classes = abstractions.classes;
+for(int i = 0; i < classes.count; i++)
+{
+	String className = classes[i].className;
+<?#include "?>#className;<?_Base.h"
+#include "?>#className;<?.h"
+?>
+}

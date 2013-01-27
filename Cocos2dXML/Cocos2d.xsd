@@ -2,41 +2,53 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:cc="http://Cocos2dXML"
 	targetNamespace="http://Cocos2dXML">
-
+	
 <!-- TYPEDEFS -->
 <simpleType name="event">
 	<restriction base="string">
-		<annotation id="Cocos2dXMLEvent"/>
+		<annotation>
+			<appinfo>Cocos2dXMLEvent</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
 <simpleType name="eventListener">
 	<restriction base="string">
-		<annotation id="Cocos2dXMLEventListener"/>
+		<annotation>
+			<appinfo>Cocos2dXMLEventListener</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
 <simpleType name="filePath">
 	<restriction base="string">
-		<annotation id="Cocos2dXMLFilePath"/>
+		<annotation>
+			<appinfo>Cocos2dXMLFilePath</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
 <simpleType name="point">
 	<restriction base="string">
-		<annotation id="CCPoint"/>
+		<annotation>
+			<appinfo>cocos2d::CCPoint</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
 <simpleType name="color4">
 	<restriction base="string">
-		<annotation id="Cocos2dXMLColor"/>
+		<annotation>
+			<appinfo>Cocos2dXMLColor</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
 <simpleType name="color3">
 	<restriction base="string">
-		<annotation id="ccColor3B"/>
+		<annotation>
+			<appinfo>cocos2d::ccColor3B</appinfo>
+		</annotation>
 	</restriction>
 </simpleType>
 
@@ -94,17 +106,17 @@
 
 <simpleType name="horizontalTextAlign">
 	<restriction base="string">
-		<enumeration value="left" define="kCCTextAlignmentLeft" />
-		<enumeration value="center" define="kCCTextAlignmentCenter" />
-		<enumeration value="right" define="kCCTextAlignmentRight" />
+		<enumeration value="left" define="cocos2d::kCCTextAlignmentLeft" />
+		<enumeration value="center" define="cocos2d::kCCTextAlignmentCenter" />
+		<enumeration value="right" define="cocos2d::kCCTextAlignmentRight" />
 	</restriction>
 </simpleType>
 
 <simpleType name="verticalTextAlign">
 	<restriction base="string">
-		<enumeration value="top" define="kCCVerticalTextAlignmentTop" />
-		<enumeration value="center" define="kCCVerticalTextAlignmentCenter" />
-		<enumeration value="bottom" define="kCCVerticalTextAlignmentBottom" />
+		<enumeration value="top" define="cocos2d::kCCVerticalTextAlignmentTop" />
+		<enumeration value="center" define="cocos2d::kCCVerticalTextAlignmentCenter" />
+		<enumeration value="bottom" define="cocos2d::kCCVerticalTextAlignmentBottom" />
 	</restriction>
 </simpleType>
 
@@ -179,7 +191,7 @@
 <element name="Transition" type="cc:Transition"/>
 <complexType name="Transition">
 	<complexContent>
-		<extension base="cc:Node">
+		<extension base="cc:BaseObject">
 			<attribute name="type" type="cc:transition" default="none"/>
 			<attribute name="duration" type="float" default="1"/>
 		</extension>

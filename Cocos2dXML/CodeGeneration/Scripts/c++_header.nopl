@@ -1,0 +1,162 @@
+
+console("generating c++ headers");
+
+Object classes = abstractions.classes;
+
+String schemaNickname = schema.targetNamespace;
+schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
+
+for(int i = 0; i < classes.count; i++)
+{
+	Object class = classes[i];
+	String name = class.className;
+	String parentName = class.parentClassName;
+	Boolean hasParentClass = (parentName != "");
+
+	//output a blank file if we didn't already have one
+	if(!fileExists(valueForKey('__ROOT_DIR__')+"/"+name+".h"))
+	{
+		outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".h");
+//put a comment at the top with some metadata about this file
+<?//
+//  ?>#name;<?.h
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+?>
+//wrap this class definition with a precompiler macro
+<?#ifndef __?>#toUpper(name);<?_H__
+#define __?>#toUpper(name);<?_H__
+
+#import "?>#name;<?_Base.h"
+
+class ?>#name;<? : public ?>#name;<?_Base
+{
+	
+};
+
+#endif //end __?>#toUpper(name);<?_H__
+?>
+	}
+	
+	//output a base class with generated code
+	name += "_Base";
+	outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".h");
+
+//put a comment at the top with some metadata about this file
+<?//
+//  ?>#name;<?.h
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+?>
+//wrap this class definition with a precompiler macro
+<?#ifndef __?>#toUpper(name);<?_H__
+#define __?>#toUpper(name);<?_H__
+
+#include <iostream>
+#include <libxml/parser.h>
+#include "cocos2d.h"
+#include "?>#schemaNickname;<?_enums.h"
+#include "?>#schemaNickname;<?_typedefs.h"
+?>
+if(hasParentClass)
+{
+<?#include "?>#parentName;<?.h"
+?>
+}
+<?
+class ?>#name;
+
+if(hasParentClass)
+{
+	//declare this class as the subclass of the parent class
+	<? : public ?>#parentName;
+}
+else
+{
+	//we need to make sure that all of these objects inherit from CCObject so that they can go into CCArrays
+	<? : public cocos2d::CCObject?>
+}
+<?
+{
+public:
+
+	?>#name;<?();
+	~?>#name;<?();
+?>
+
+Object attributes = class.attributes;
+Object children = class.children;
+
+//generate accessor functions if we have attributes
+if(attributes.count > 0)
+{
+<?
+?>
+	for(int j = 0; j < attributes.count; j++)
+	{
+		Object attr = attributes[j];
+		String capName = capitalize((String)attr.name);
+		String typeName = valueForKey((String)attr.type);
+<?	virtual ?>#typeName;<? get?>#capName;<?();
+	virtual bool set?>#capName;<?(?>#typeName;<? new?>#capName;<?);
+
+?>
+	}
+}
+
+if(children.count > 0)
+{
+	for(int j = 0; j < children.count; j++)
+	{
+		Object child = children[j];
+		String listName = capitalize((String)pluralize((String)child.name));
+<?	virtual cocos2d::CCArray* get?>#listName;<?();
+?>
+	}
+}
+
+<?
+	virtual void initWithXML(xmlNodePtr node);
+
+?>
+
+//declare any attributes we have
+if(attributes.count > 0)
+{
+<?protected:
+
+?>
+	for(int j = 0; j < attributes.count; j++)
+	{
+		Object attr = attributes[j];
+<?	?>#valueForKey((String)attr.type);<? ?>#attr.name;<?;
+?>
+	}
+}
+
+if(children.count > 0)
+{
+	for(int j = 0; j < children.count; j++)
+	{
+		Object child = children[j];
+		String listName = pluralize((String)child.name);
+<?	cocos2d::CCArray* ?>#listName;<?;
+?>
+	}
+}
+
+<?
+};
+
+#endif //end __?>#toUpper(name);<?_H__
+?>
+	
+}

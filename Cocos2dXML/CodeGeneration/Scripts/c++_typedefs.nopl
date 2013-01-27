@@ -1,0 +1,126 @@
+
+console("generating c++ typedefs");
+
+String schemaNickname = schema.targetNamespace;
+schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
+
+//Object typedefs = abstractions.typedefs;
+
+//generate the header file for the typedefs
+outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+"_typedefs.h");
+
+<?//
+//  ?>#schemaNickname;<?_typedefs.h
+//  ?>#schemaNickname;<?
+//
+//  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
+//  Copyright (c) ?>#year();<?. All rights reserved.
+//
+
+#ifndef __?>#toUpper(schemaNickname);<?_TYPEDEFS_H__
+#define __?>#toUpper(schemaNickname);<?_TYPEDEFS_H__
+
+#include <iostream>
+#include "cocos2d.h"
+
+//some specialized types here
+typedef std::string Cocos2dXMLEvent;
+typedef std::string Cocos2dXMLEventListener;
+typedef std::string Cocos2dXMLFilePath;
+
+typedef struct
+{
+	cocos2d::ccColor3B rgb;
+	unsigned char a;
+}Cocos2dXMLColor;
+
+//handle conversions from strings
+cocos2d::ccColor3B string_to_ccColor3B(const char* colorString);
+Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString);
+bool string_to_bool(char* boolString);
+cocos2d::CCPoint string_to_CCPoint(char* pointString);
+
+#endif //end __?>#toUpper(schemaNickname);<?_TYPEDEFS_H__
+
+?>
+
+//generate the header file for the typedefs
+outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+"_typedefs.cpp");
+
+<?
+#include "?>#schemaNickname;<?_typedefs.h"
+
+unsigned char hexToDec(char hexChar)
+{
+	switch(hexChar)
+	{
+		case '0': return 0;
+		case '1': return 1;
+		case '2': return 2;
+		case '3': return 3;
+		case '4': return 4;
+		case '5': return 5;
+		case '6': return 6;
+		case '7': return 7;
+		case '8': return 8;
+		case '9': return 9;
+		case 'a':
+		case 'A':
+			return 10;
+		case 'b':
+		case 'B':
+			return 11;
+		case 'c':
+		case 'C':
+			return 12;
+		case 'd':
+		case 'D':
+			return 13;
+		case 'e':
+		case 'E':
+			return 14;
+		case 'f':
+		case 'F':
+			return 15;
+		default:
+			return 0;
+	}
+}
+
+cocos2d::ccColor3B string_to_ccColor3B(const char* colorString)
+{
+	if(colorString[0] == '#')
+		colorString++;
+
+	cocos2d::ccColor3B color;
+	color.r = (hexToDec(colorString[0]) << 4) + hexToDec(colorString[1]);
+	color.g = (hexToDec(colorString[2]) << 4) + hexToDec(colorString[3]);
+	color.b = (hexToDec(colorString[4]) << 4) + hexToDec(colorString[5]);
+	return color;
+}
+
+Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString)
+{
+	if(colorString[0] == '#')
+		colorString++;
+	
+	Cocos2dXMLColor color;
+	color.rgb = string_to_ccColor3B(colorString);
+	color.a = (hexToDec(colorString[6]) << 4) + hexToDec(colorString[7]);
+	return color;
+}
+
+bool string_to_bool(char* boolString)
+{
+	return !strcmp(boolString, "true");
+}
+
+cocos2d::CCPoint string_to_CCPoint(char* pointString)
+{
+	cocos2d::CCPoint point;
+	point.x = atof(pointString);
+	point.y = atof(strchr(pointString, ',')+1);
+	return point;
+}
+
+?>
