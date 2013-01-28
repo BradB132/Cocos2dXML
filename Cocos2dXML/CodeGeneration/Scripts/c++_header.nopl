@@ -31,7 +31,7 @@ for(int i = 0; i < classes.count; i++)
 <?#ifndef __?>#toUpper(name);<?_H__
 #define __?>#toUpper(name);<?_H__
 
-#import "?>#name;<?_Base.h"
+#include "?>#name;<?_Base.h"
 
 class ?>#name;<? : public ?>#name;<?_Base
 {
@@ -43,12 +43,12 @@ class ?>#name;<? : public ?>#name;<?_Base
 	}
 	
 	//output a base class with generated code
-	name += "_Base";
-	outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".h");
+	String baseName = name+"_Base";
+	outputToFile(valueForKey('__ROOT_DIR__')+"/"+baseName+".h");
 
 //put a comment at the top with some metadata about this file
 <?//
-//  ?>#name;<?.h
+//  ?>#baseName;<?.h
 //  ?>#schemaNickname;<?
 //
 //  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
@@ -57,10 +57,28 @@ class ?>#name;<? : public ?>#name;<?_Base
 
 ?>
 //wrap this class definition with a precompiler macro
-<?#ifndef __?>#toUpper(name);<?_H__
-#define __?>#toUpper(name);<?_H__
+<?#ifndef __?>#toUpper(baseName);<?_H__
+#define __?>#toUpper(baseName);<?_H__
 
-#include <iostream>
+?>
+
+Object attributes = class.attributes;
+Object children = class.children;
+
+//define ID's for attribute refreshing
+if(attributes.count > 0)
+{
+	for(int j = 0; j < attributes.count; j++)
+	{
+		String attrName = attributes[j].name;
+<?#define refresh_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%999999;<?
+?>
+	}
+<?
+?>
+}
+
+<?#include <iostream>
 #include <libxml/parser.h>
 #include "cocos2d.h"
 #include "?>#schemaNickname;<?_enums.h"
@@ -72,7 +90,7 @@ if(hasParentClass)
 ?>
 }
 <?
-class ?>#name;
+class ?>#baseName;
 
 if(hasParentClass)
 {
@@ -88,12 +106,9 @@ else
 {
 public:
 
-	?>#name;<?();
-	~?>#name;<?();
+	?>#baseName;<?();
+	~?>#baseName;<?();
 ?>
-
-Object attributes = class.attributes;
-Object children = class.children;
 
 //generate accessor functions if we have attributes
 if(attributes.count > 0)
@@ -121,12 +136,21 @@ if(children.count > 0)
 <?	virtual cocos2d::CCArray* get?>#listName;<?();
 ?>
 	}
+<?
+?>
 }
 
-<?
-	virtual void initWithXML(xmlNodePtr node);
+<?	virtual void initWithXML(xmlNodePtr node, CCObject* parentObj);
+	virtual void refreshAttribute(int attributeID);
+	virtual void refreshAllAttributes();
 
 ?>
+if(!hasParentClass)
+{
+<?	virtual CCObject* getParent();
+
+?>
+}
 
 //declare any attributes we have
 if(attributes.count > 0)
@@ -134,6 +158,11 @@ if(attributes.count > 0)
 <?protected:
 
 ?>
+	if(!hasParentClass)
+	{
+<?	cocos2d::CCObject* parent;
+?>
+	}
 	for(int j = 0; j < attributes.count; j++)
 	{
 		Object attr = attributes[j];
@@ -156,7 +185,7 @@ if(children.count > 0)
 <?
 };
 
-#endif //end __?>#toUpper(name);<?_H__
+#endif //end __?>#toUpper(baseName);<?_H__
 ?>
 	
 }

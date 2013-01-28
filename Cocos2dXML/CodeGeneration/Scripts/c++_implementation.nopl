@@ -31,22 +31,22 @@ for(int i = 0; i < classes.count; i++)
 	}
 	
 	//output a base class with generated code
-	name += "_Base";
-	outputToFile(valueForKey('__ROOT_DIR__')+"/"+name+".cpp");
+	String baseName = name+"_Base";
+	outputToFile(valueForKey('__ROOT_DIR__')+"/"+baseName+".cpp");
 
 	Object attributes = class.attributes;
 	Object children = class.children;
 
 //put a comment at the top with some metadata about this file
 <?//
-//  ?>#name;<?.cpp
+//  ?>#baseName;<?.cpp
 //  ?>#schemaNickname;<?
 //
 //  Created by NoPLGenerator on ?>#format("%/%/%", (Number)month(), (Number)dayOfTheMonth(), (String)substring((String)year(), 2));<?.
 //  Copyright (c) ?>#year();<?. All rights reserved.
 //
 
-#include "?>#name;<?.h"
+#include "?>#baseName;<?.h"
 ?>
 for(int j = 0; j < children.count; j++)
 {
@@ -71,7 +71,7 @@ if(!hasDefaults)
 }
 
 //create the constructor / desctuctor
-#name;<?::?>#name;<?()?>
+#baseName;<?::?>#baseName;<?()?>
 if(hasDefaults)
 {
 	<?:
@@ -143,7 +143,7 @@ if(hasDefaults)
 {
 }
 
-?>#name;<?::~?>#name;<?()
+?>#baseName;<?::~?>#baseName;<?()
 {
 ?>
 for(int j = 0; j < children.length; j++)
@@ -159,12 +159,44 @@ for(int j = 0; j < children.length; j++)
 }
 <?}
 
-void ?>#name;<?::initWithXML(xmlNodePtr node)
+void ?>#baseName;<?::refreshAttribute(int attributeID)
+{
+?>
+	if(hasParentClass)
+	{
+<?	?>#parentName;<?::refreshAttribute(attributeID);
+?>
+	}
+<?}
+
+void ?>#baseName;<?::refreshAllAttributes()
+{
+?>
+	if(hasParentClass)
+	{
+<?	?>#parentName;<?::refreshAllAttributes();
+?>
+	}
+	for(int j = 0; j < attributes.count; j++)
+	{
+		String attrName = attributes[j].name;
+<?	refreshAttribute(refresh_?>#name;<?_?>#attrName;<?);
+?>
+	}
+<?}
+
+void ?>#baseName;<?::initWithXML(xmlNodePtr node, CCObject* parentObj)
 {
 ?>
 if(hasParentClass)
 {
-<?	?>#parentName;<?::initWithXML(node);
+<?	?>#parentName;<?::initWithXML(node, parentObj);
+
+?>
+}
+else
+{
+<?	parent = parentObj;
 
 ?>
 }
@@ -252,26 +284,29 @@ if(children.count > 0)
 <?	xmlNodePtr child = node->children;
 	while(child)
 	{
+		if(child->type == XML_ELEMENT_NODE)
+		{
 ?>
 	for(int j = 0; j < children.count; j++)
 	{
 		Object child = children[j];
 		String childName = child.name;
-<?		?>
+<?			?>
 		if(j != 0)
 		{
 			<?else ?>
 		}
 
-		<?if(!strcmp((char*)child->name, "?>#childName;<?"))
-		{
-			?>#childName;<?* newObj = new ?>#childName;<?();
-			?>#pluralize(childName);<?->addObject(newObj);
-			newObj->initWithXML(child);
-		}
+			<?if(isKindOfClass((char*)child->name, "?>#childName;<?"))
+			{
+				?>#childName;<?* newObj = (?>#childName;<?*)newObjectOfType((char*)child->name);
+				?>#pluralize(childName);<?->addObject(newObj);
+				newObj->initWithXML(child, this);
+			}
 ?>
 	}
-<?		child = child->next;
+<?		}
+		child = child->next;
 	}
 ?>
 }
@@ -279,6 +314,16 @@ if(children.count > 0)
 <?}
 
 ?>
+
+if(!hasParentClass)
+{
+<?cocos2d::CCObject* ?>#baseName;<?::getParent()
+{
+	return parent;
+}
+
+?>
+}
 
 if(attributes.count > 0)
 {
@@ -288,14 +333,15 @@ if(attributes.count > 0)
 		String attrName = attr.name;
 		String capName = capitalize(attrName);
 		String typeName = valueForKey((String)attr.type);
-#typeName;<? ?>#name;<?::get?>#capName;<?()
+#typeName;<? ?>#baseName;<?::get?>#capName;<?()
 {
 	return ?>#attrName;<?;
 }
 
-bool ?>#name;<?::set?>#capName;<?(?>#typeName;<? new?>#capName;<?)
+bool ?>#baseName;<?::set?>#capName;<?(?>#typeName;<? new?>#capName;<?)
 {
 	?>#attrName;<? = new?>#capName;<?;
+	refreshAttribute(refresh_?>#name;<?_?>#attrName;<?);
 	return true;
 }
 
@@ -310,7 +356,7 @@ if(children.count > 0)
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
 		String capName = capitalize(listName);
-<?cocos2d::CCArray* ?>#name;<?::get?>#listName;<?()
+<?cocos2d::CCArray* ?>#baseName;<?::get?>#listName;<?()
 {
 	return ?>#listName;<?;
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Scene>
+
+	<Node id="container" position="0,0">
+		<Sprite texture="lol.png" position="160,240" anchorPoint=".5,.5" rotation="5" skew="3,3"/>
+	</Node>
+
+</Scene>

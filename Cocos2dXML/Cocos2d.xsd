@@ -56,28 +56,40 @@
 
 <simpleType name="srcBlendFunc">
 	<restriction base="string">
-		<enumeration value="zero" />
-		<enumeration value="one" />
-		<enumeration value="destinationColor" />
-		<enumeration value="oneMinusDestinationColor" />
-		<enumeration value="sourceAlpha" />
-		<enumeration value="sourceAlphaSaturate" />
-		<enumeration value="oneMinusSourceAlpha" />
-		<enumeration value="destinationAlpha" />
-		<enumeration value="oneMinusDestinationAlpha" />
+		<enumeration value="zero" define="GL_ZERO" />
+		<enumeration value="one" define="GL_ONE" />
+		<enumeration value="sourceColor" define="GL_SRC_COLOR" />
+		<enumeration value="sourceMinusSourceColor" define="GL_ONE_MINUS_SRC_COLOR" />
+		<enumeration value="destinationColor" define="GL_DST_COLOR" />
+		<enumeration value="oneMinuesDestinationColor" define="GL_ONE_MINUS_DST_COLOR" />
+		<enumeration value="sourceAlpha" define="GL_SRC_ALPHA" />
+		<enumeration value="oneMinusSourceAlpha" define="GL_ONE_MINUS_SRC_ALPHA" />
+		<enumeration value="destinationAlpha" define="GL_DST_ALPHA" />
+		<enumeration value="oneMinusDestinationAlpha" define="GL_ONE_MINUS_DST_ALPHA" />
+		<enumeration value="constantColor" define="GL_CONSTANT_COLOR" />
+		<enumeration value="oneMinusConstantColor" define="GL_ONE_MINUS_CONSTANT_COLOR" />
+		<enumeration value="constantAlpha" define="GL_CONSTANT_ALPHA" />
+		<enumeration value="oneMinusConstantAlpha" define="GL_ONE_MINUS_CONSTANT_ALPHA" />
+		<enumeration value="sourceAlphaSaturate" define="GL_SRC_ALPHA_SATURATE" />
 	</restriction>
 </simpleType>
 
 <simpleType name="dstBlendFunc">
 	<restriction base="string">
-		<enumeration value="zero" />
-		<enumeration value="one" />
-		<enumeration value="sourceColor" />
-		<enumeration value="oneMinusSourceColor" />
-		<enumeration value="sourceAlpha" />
-		<enumeration value="oneMinusSourceAlpha" />
-		<enumeration value="destinationAlpha" />
-		<enumeration value="oneMinusDestinationAlpha" />
+		<enumeration value="zero" define="GL_ZERO" />
+		<enumeration value="one" define="GL_ONE" />
+		<enumeration value="sourceColor" define="GL_SRC_COLOR" />
+		<enumeration value="oneMinusSourceColor" define="GL_ONE_MINUS_SRC_COLOR" />
+		<enumeration value="destinationColor" define="GL_DST_COLOR" />
+		<enumeration value="oneMinusDestinationColor" define="GL_ONE_MINUS_DST_COLOR" />
+		<enumeration value="sourceAlpha" define="GL_SRC_ALPHA" />
+		<enumeration value="oneMinusSourceAlpha" define="GL_ONE_MINUS_SRC_ALPHA" />
+		<enumeration value="destinationAlpha" define="GL_DST_ALPHA" />
+		<enumeration value="oneMinusDestinationAlpha" define="GL_ONE_MINUS_DST_ALPHA" />
+		<enumeration value="constantColor" define="GL_CONSTANT_COLOR" />
+		<enumeration value="oneMinusConstantColor" define="GL_ONE_MINUS_CONSTANT_COLOR" />
+		<enumeration value="constantAlpha" define="GL_CONSTANT_ALPHA" />
+		<enumeration value="oneMinusConstantAlpha" define="GL_ONE_MINUS_CONSTANT_ALPHA" />
 	</restriction>
 </simpleType>
 
@@ -174,7 +186,12 @@
 				<element ref="cc:Transition" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="displayStats" type="boolean" default="false" />
-			<attribute name="animationInterval" type="double" default="60.0" />
+			<attribute name="fps" type="double" default="60.0" />
+			<attribute name="color" type="cc:color3" default="#000000"/>
+			<attribute name="pushScene" type="cc:eventListener"/>
+			<attribute name="swapScene" type="cc:eventListener"/>
+			<attribute name="popScene" type="cc:eventListener"/>
+			<attribute name="popToRootScene" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B105B2A16B5C6AC005453A6 /* lol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2716B5C6AC005453A6 /* lol.png */; };
+		9B105B2B16B5C6AC005453A6 /* lol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2716B5C6AC005453A6 /* lol.png */; };
+		9B105B2C16B5C6AC005453A6 /* main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2816B5C6AC005453A6 /* main.xml */; };
+		9B105B2D16B5C6AC005453A6 /* main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2816B5C6AC005453A6 /* main.xml */; };
+		9B105B2E16B5C6AC005453A6 /* testScene.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2916B5C6AC005453A6 /* testScene.xml */; };
+		9B105B2F16B5C6AC005453A6 /* testScene.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2916B5C6AC005453A6 /* testScene.xml */; };
 		9B2D714C16AC71EC001F2C91 /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9464D116AC714E00B42B6B /* libcocos2dx.a */; };
 		9B2D715316AC7346001F2C91 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715216AC7346001F2C91 /* libz.dylib */; };
 		9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715416AC734C001F2C91 /* libxml2.dylib */; };
@@ -143,8 +149,6 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
-		9BD6D2EF16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */; };
-		9BD6D2F016AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +176,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B105B2716B5C6AC005453A6 /* lol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lol.png; sourceTree = "<group>"; };
+		9B105B2816B5C6AC005453A6 /* main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = main.xml; sourceTree = "<group>"; };
+		9B105B2916B5C6AC005453A6 /* testScene.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testScene.xml; sourceTree = "<group>"; };
 		9B2D715216AC7346001F2C91 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		9B2D715416AC734C001F2C91 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9B2D715616AC73B0001F2C91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -312,8 +319,6 @@
 		9BD6D2E216AC894400FD95B8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
-		9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cocos2dXMLScene.cpp; sourceTree = "<group>"; };
-		9BD6D2EC16AC8C6E00FD95B8 /* Cocos2dXMLScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocos2dXMLScene.h; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -346,6 +351,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B105B2616B5C6AC005453A6 /* TempTestingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9B105B2716B5C6AC005453A6 /* lol.png */,
+				9B105B2816B5C6AC005453A6 /* main.xml */,
+				9B105B2916B5C6AC005453A6 /* testScene.xml */,
+			);
+			path = TempTestingFiles;
+			sourceTree = SOURCE_ROOT;
+		};
 		9B32DAE916B49EBB00D3877A /* CodeGeneration */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,11 +527,10 @@
 		9BD5BD3916AC70E2000CF083 /* Cocos2dXML */ = {
 			isa = PBXGroup;
 			children = (
+				9B105B2616B5C6AC005453A6 /* TempTestingFiles */,
 				9B32DAE916B49EBB00D3877A /* CodeGeneration */,
 				9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */,
 				9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */,
-				9BD6D2EB16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp */,
-				9BD6D2EC16AC8C6E00FD95B8 /* Cocos2dXMLScene.h */,
 				9BD6D2DF16AC894400FD95B8 /* ObjcGlue */,
 				9BD5BD3A16AC70E2000CF083 /* Supporting Files */,
 			);
@@ -660,6 +674,9 @@
 				9BD5BD4616AC70E2000CF083 /* Default.png in Resources */,
 				9BD5BD4816AC70E2000CF083 /* Default@2x.png in Resources */,
 				9BD5BD4A16AC70E2000CF083 /* Default-568h@2x.png in Resources */,
+				9B105B2A16B5C6AC005453A6 /* lol.png in Resources */,
+				9B105B2C16B5C6AC005453A6 /* main.xml in Resources */,
+				9B105B2E16B5C6AC005453A6 /* testScene.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +685,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD5BD5C16AC70E2000CF083 /* InfoPlist.strings in Resources */,
+				9B105B2B16B5C6AC005453A6 /* lol.png in Resources */,
+				9B105B2D16B5C6AC005453A6 /* main.xml in Resources */,
+				9B105B2F16B5C6AC005453A6 /* testScene.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,7 +738,6 @@
 				9BD6D2E416AC894400FD95B8 /* AppDelegate.mm in Sources */,
 				9BD6D2E616AC894400FD95B8 /* RootViewController.mm in Sources */,
 				9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */,
-				9BD6D2EF16AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */,
 				9B32DB6216B49EBB00D3877A /* Action.cpp in Sources */,
 				9B32DB6416B49EBB00D3877A /* Action_Base.cpp in Sources */,
 				9B32DB6616B49EBB00D3877A /* Animation.cpp in Sources */,
@@ -786,7 +805,6 @@
 				9BD6D2E516AC894400FD95B8 /* AppDelegate.mm in Sources */,
 				9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */,
 				9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */,
-				9BD6D2F016AC8C6E00FD95B8 /* Cocos2dXMLScene.cpp in Sources */,
 				9B32DB6316B49EBB00D3877A /* Action.cpp in Sources */,
 				9B32DB6516B49EBB00D3877A /* Action_Base.cpp in Sources */,
 				9B32DB6716B49EBB00D3877A /* Animation.cpp in Sources */,

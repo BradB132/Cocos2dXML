@@ -2,6 +2,12 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
+#include "Cocos2dXML_enums.h"
+
+class Director;
+class SceneReference;
+class Transition;
+class Scene;
 
 /**
 @brief    The cocos2d Application.
@@ -14,24 +20,18 @@ public:
     CocosAppDelegate();
     virtual ~CocosAppDelegate();
 
-    /**
-    @brief    Implement CCDirector and CCScene init code here.
-    @return true    Initialize success, app continue.
-    @return false   Initialize failed, app terminate.
-    */
+	//application lifecycle
     virtual bool applicationDidFinishLaunching();
-
-    /**
-    @brief  The function be called when the application enter background
-    @param  the pointer of the application
-    */
-    virtual void applicationDidEnterBackground();
-
-    /**
-    @brief  The function be called when the application enter foreground
-    @param  the pointer of the application
-    */
-    virtual void applicationWillEnterForeground();
+	virtual void applicationDidEnterBackground();
+	virtual void applicationWillEnterForeground();
+	
+	//scene management
+	virtual bool switchToScene(SceneReference* ref, Transition* trans, bool push);
+	
+protected:
+	
+	Director* xmlDirector;
+	Scene* currentScene;
 };
 
 #endif // _APP_DELEGATE_H_

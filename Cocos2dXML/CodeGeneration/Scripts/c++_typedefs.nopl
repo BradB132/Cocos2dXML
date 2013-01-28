@@ -40,6 +40,10 @@ Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString);
 bool string_to_bool(char* boolString);
 cocos2d::CCPoint string_to_CCPoint(char* pointString);
 
+//utility functions for handling types
+bool isKindOfClass(const char* instanceTypeName, const char* desiredTypeName);
+cocos2d::CCObject* newObjectOfType(const char* typeName);
+
 #endif //end __?>#toUpper(schemaNickname);<?_TYPEDEFS_H__
 
 ?>
@@ -48,7 +52,9 @@ cocos2d::CCPoint string_to_CCPoint(char* pointString);
 outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+"_typedefs.cpp");
 
 <?
-#include "?>#schemaNickname;<?_typedefs.h"
+#include "?>#schemaNickname;<?.h"
+#include <string.h>
+#include <stdio.h>
 
 unsigned char hexToDec(char hexChar)
 {
@@ -121,6 +127,75 @@ cocos2d::CCPoint string_to_CCPoint(char* pointString)
 	point.x = atof(pointString);
 	point.y = atof(strchr(pointString, ',')+1);
 	return point;
+}
+
+bool isKindOfClass(const char* instanceTypeName, const char* desiredTypeName)
+{
+?>
+Object classes = abstractions.classes;
+for(int i = 0; i < classes.count; i++)
+{
+	Object class = classes[i];
+<?	?>
+	if(i != 0)
+	{
+		<?else ?>
+	}
+	<?if(!strcmp(instanceTypeName, "?>#class.className;<?"))
+	{
+		return (?>
+
+	Object parentClassObj = class;
+	BOOL first = YES;
+	do
+	{
+		if(!first)
+		{
+<?
+			|| ?>
+		}
+		
+		<?!strcmp(desiredTypeName, "?>#parentClassObj.className;<?")?>
+		
+		//find the actual object for the parent class
+		String parentClassName = parentClassObj.parentClassName;
+		Object tempObj = parentClassObj;
+		parentClassObj = nil;
+		for(int j = 0; j < classes.count; j++)
+		{
+			if(classes[j].className == parentClassName)			{
+				parentClassObj = classes[j];
+				break;
+			}
+		}
+		
+		first = NO;
+		
+	}while(parentClassObj != nil);
+
+<?);
+	}
+?>
+}
+<?
+	//coundn't find the type name
+	return false;
+}
+
+cocos2d::CCObject* newObjectOfType(const char* typeName)
+{
+?>
+for(int i = 0; i < classes.count; i++)
+{
+	Object class = classes[i];
+	String className = class.className;
+<?	if(!strcmp(typeName, "?>#className;<?"))
+		return new ?>#className;<?();
+?>
+}
+<?
+	//coundn't find the type name
+	return NULL;
 }
 
 ?>
