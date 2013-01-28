@@ -16,7 +16,7 @@ class Sprite : public Sprite_Base
 public:
 	virtual void load();
 	
-	virtual void refreshAttribute(int attributeID);
+	virtual void attributeDidChange(int attributeID);
 };
 
 #endif //end __SPRITE_H__

@@ -9,40 +9,42 @@
 #include "Action.h"
 #include "actions/CCAction.h"
 
-Action::Action():
-action(NULL)
+void Action::runAction()
 {
-}
-
-Action::~Action()
-{
-	unload();
-}
-
-void Action::load()
-{
-	if(!action)
-	{
-		action = cocos2d::CCAction::create();
-	}
+	cocos2d::CCAction* action = createActionObject();
 	
+	//TODO: get target
+	
+	//TODO: run on target
+}
+
+cocos2d::CCAction* Action::createActionObject()
+{
+	if(!tempAction)
+		tempAction = cocos2d::CCAction::create();
+	
+	//set all attributes on this action
+	cocos2d::CCAction* localAction = tempAction;
 	refreshAllAttributes();
+	tempAction = NULL;
 	
-	Action_Base::load();
+	return localAction;
 }
 
-void Action::unload()
+void Action::attributeDidChange(int attributeID)
 {
-	if(action)
+	if(tempAction)
 	{
-		action->release();
-		action = NULL;
+		switch (attributeID)
+		{
+			case id_Action_tag:
+				tempAction->setTag(tag);
+				return;
+			case id_Action_target:
+			case id_Action_startListener:
+			case id_Action_stopListener:
+				return;
+		}
 	}
-	
-	Action_Base::unload();
-}
-
-cocos2d::CCAction* Action::getAction()
-{
-	return action;
+	Action_Base::attributeDidChange(attributeID);
 }

@@ -71,7 +71,7 @@ if(attributes.count > 0)
 	for(int j = 0; j < attributes.count; j++)
 	{
 		String attrName = attributes[j].name;
-<?#define refresh_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%999999;<?
+<?#define id_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%999999;<?
 ?>
 	}
 <?
@@ -141,7 +141,7 @@ if(children.count > 0)
 }
 
 <?	virtual void initWithXML(xmlNodePtr node, CCObject* parentObj);
-	virtual void refreshAttribute(int attributeID);
+	virtual void attributeDidChange(int attributeID);
 	virtual void refreshAllAttributes();
 
 ?>

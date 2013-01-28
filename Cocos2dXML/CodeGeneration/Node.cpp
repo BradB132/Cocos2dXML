@@ -77,53 +77,53 @@ void Node::unload()
 	}
 }
 
-void Node::refreshAttribute(int attributeID)
+void Node::attributeDidChange(int attributeID)
 {
 	if(node)
 	{
 		switch (attributeID)
 		{
-			case refresh_Node_zOrder:
+			case id_Node_zOrder:
 				node->setZOrder(zOrder);
 				return;
-			case refresh_Node_scale:
+			case id_Node_scale:
 				node->setScaleX(scale.x);
 				node->setScaleY(scale.y);
 				return;
-			case refresh_Node_position:
+			case id_Node_position:
 				node->setPosition(position);
 				return;
-			case refresh_Node_skew:
+			case id_Node_skew:
 				node->setSkewX(skew.x);
 				node->setSkewY(skew.y);
 				return;
-			case refresh_Node_tag:
+			case id_Node_tag:
 				node->setTag(tag);
 				return;
-			case refresh_Node_anchorPoint:
+			case id_Node_anchorPoint:
 				node->setAnchorPoint(anchorPoint);
 				return;
-			case refresh_Node_size:
+			case id_Node_size:
 				node->setContentSize(cocos2d::CCSize(size.x, size.y));
 				return;
-			case refresh_Node_visible:
+			case id_Node_visible:
 				node->setVisible(visible);
 				return;
-			case refresh_Node_rotation:
+			case id_Node_rotation:
 				node->setRotation(rotation);
 				return;
-			case refresh_Node_ignoreAnchorPointForPosition:
+			case id_Node_ignoreAnchorPointForPosition:
 				node->ignoreAnchorPointForPosition(ignoreAnchorPointForPosition);
 				return;
-			case refresh_Node_enabled:
-			case refresh_Node_touchThrough:
-			case refresh_Node_onTouchUp:
-			case refresh_Node_onTouchMove:
-			case refresh_Node_onTouchCancel:
+			case id_Node_enabled:
+			case id_Node_touchThrough:
+			case id_Node_onTouchUp:
+			case id_Node_onTouchMove:
+			case id_Node_onTouchCancel:
 				return;
 		}
 	}
-	Node_Base::refreshAttribute(attributeID);
+	Node_Base::attributeDidChange(attributeID);
 }
 
 cocos2d::CCNode* Node::getCCNode()

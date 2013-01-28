@@ -22,7 +22,7 @@ public:
 	virtual void load();
 	virtual void unload();
 	
-	virtual void refreshAttribute(int attributeID);
+	virtual void attributeDidChange(int attributeID);
 	
 	virtual cocos2d::CCNode* getCCNode();
 	

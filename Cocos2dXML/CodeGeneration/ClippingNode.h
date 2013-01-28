@@ -13,7 +13,9 @@
 
 class ClippingNode : public ClippingNode_Base
 {
+	virtual void load();
 	
+	virtual void attributeDidChange(int attributeID);
 };
 
 #endif //end __CLIPPINGNODE_H__

@@ -9,9 +9,6 @@ outputToFile(valueForKey('__ROOT_DIR__')+"/"+schemaNickname+".h");
 //TODO: make a single header that includes all of the other generated files
 
 <?
-#include <iostream>
-#include <libxml/parser.h>
-#include "cocos2d.h"
 #include "?>#schemaNickname;<?_enums.h"
 #include "?>#schemaNickname;<?_typedefs.h"
 ?>

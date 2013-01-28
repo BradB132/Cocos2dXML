@@ -1,7 +1,4 @@
 
-#include <iostream>
-#include <libxml/parser.h>
-#include "cocos2d.h"
 #include "Cocos2dXML_enums.h"
 #include "Cocos2dXML_typedefs.h"
 #include "BaseObject_Base.h"

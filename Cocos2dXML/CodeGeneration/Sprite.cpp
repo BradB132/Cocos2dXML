@@ -20,42 +20,43 @@ void Sprite::load()
 	Sprite_Base::load();
 }
 
-void Sprite::refreshAttribute(int attributeID)
+void Sprite::attributeDidChange(int attributeID)
 {
 	if(node)
 	{
-		cocos2d::CCSprite* sprite = dynamic_cast<cocos2d::CCSprite*>(node);
-		if(sprite)
+		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+		switch (attributeID)
 		{
-			switch (attributeID)
+			case id_Sprite_color:
+				sprite->setColor(color.rgb);
+				sprite->setOpacity(color.a);
+				return;
+			case id_Sprite_texture:
 			{
-				case refresh_Sprite_color:
-					sprite->setColor(color.rgb);
-					sprite->setOpacity(color.a);
-					return;
-				case refresh_Sprite_texture:
-				{
-					cocos2d::CCTexture2D* tex = cocos2d::CCTextureCache::sharedTextureCache()->addImage(texture.c_str());
-					sprite->setTexture(tex);
-					
-					//we generally also want this node to be the same size as the image
-					sprite->setContentSize(tex->getContentSize());
-				}
-					return;
-				case refresh_Sprite_flipX:
-					sprite->setFlipX(flipX);
-					return;
-				case refresh_Sprite_flipY:
-					sprite->setFlipY(flipY);
-					return;
-				case refresh_Sprite_srcBlend:
-					//TODO: update blend
-					return;
-				case refresh_Sprite_dstBlend:
-					//TODO: update blend
-					return;
+				cocos2d::CCTexture2D* tex = cocos2d::CCTextureCache::sharedTextureCache()->addImage(texture.c_str());
+				sprite->setTexture(tex);
+				
+				//we generally also want this node to be the same size as the image
+				sprite->setContentSize(tex->getContentSize());
 			}
+				return;
+			case id_Sprite_flipX:
+				sprite->setFlipX(flipX);
+				return;
+			case id_Sprite_flipY:
+				sprite->setFlipY(flipY);
+				return;
+			case id_Sprite_srcBlend:
+			case id_Sprite_dstBlend:
+			{
+				//TODO: fix this
+//				cocos2d::ccBlendFunc func;
+//				func.src = srcBlend;
+//				func.dst = dstBlend;
+//				sprite->setBlendFunc(func);
+			}
+				return;
 		}
 	}
-	Sprite_Base::refreshAttribute(attributeID);
+	Sprite_Base::attributeDidChange(attributeID);
 }
