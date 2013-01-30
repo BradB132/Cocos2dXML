@@ -13,7 +13,13 @@
 
 class Ease : public Ease_Base
 {
+public:
 	
+	virtual void attributeDidChange(int attributeID);
+	
+protected:
+	
+	virtual cocos2d::CCAction* createActionObject();
 };
 
 #endif //end __EASE_H__

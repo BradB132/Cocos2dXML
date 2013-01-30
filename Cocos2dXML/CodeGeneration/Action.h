@@ -17,6 +17,9 @@ class Action : public Action_Base
 {
 public:
 	
+	Action();
+	~Action();
+	
 	virtual void runAction();
 	
 	virtual void attributeDidChange(int attributeID);

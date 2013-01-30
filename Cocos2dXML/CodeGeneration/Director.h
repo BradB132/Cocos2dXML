@@ -13,7 +13,7 @@
 
 class Director : public Director_Base
 {
-	
+	//TODO: move director logic into here
 };
 
 #endif //end __DIRECTOR_H__

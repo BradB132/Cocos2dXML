@@ -7,3 +7,11 @@
 //
 
 #include "Delay.h"
+
+cocos2d::CCAction* Delay::createActionObject()
+{
+	if(!tempAction)
+		tempAction = cocos2d::CCDelayTime::create(duration);
+	
+	return Delay_Base::createActionObject();
+}

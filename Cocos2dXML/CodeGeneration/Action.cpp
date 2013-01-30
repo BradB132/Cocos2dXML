@@ -9,6 +9,16 @@
 #include "Action.h"
 #include "actions/CCAction.h"
 
+Action::Action():
+tempAction(NULL)
+{
+	
+}
+
+Action::~Action()
+{
+}
+
 void Action::runAction()
 {
 	cocos2d::CCAction* action = createActionObject();
