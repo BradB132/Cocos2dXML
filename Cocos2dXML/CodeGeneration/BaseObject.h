@@ -13,11 +13,6 @@
 
 class BaseObject : public BaseObject_Base
 {
-public:
-	
-	virtual void load();
-	virtual void unload();
-	
 };
 
 #endif //end __BASEOBJECT_H__

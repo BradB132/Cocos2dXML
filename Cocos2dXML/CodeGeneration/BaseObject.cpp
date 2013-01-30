@@ -7,11 +7,3 @@
 //
 
 #include "BaseObject.h"
-
-void BaseObject::load()
-{
-}
-
-void BaseObject::unload()
-{
-}

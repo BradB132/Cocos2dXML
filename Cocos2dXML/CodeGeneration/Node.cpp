@@ -47,14 +47,6 @@ void Node::load()
 	}
 	
 	Node_Base::load();
-	
-	//TODO: auto generate a visitor function for this
-	for(int i = 0; i < Nodes->count(); i++)
-	{
-		Node* child = dynamic_cast<Node*>(Nodes->objectAtIndex(i));
-		if(child)
-			child->load();
-	}
 }
 
 void Node::unload()
@@ -67,14 +59,6 @@ void Node::unload()
 	}
 	
 	Node_Base::unload();
-	
-	//TODO: auto generate a visitor function for this
-	for(int i = 0; i < Nodes->count(); i++)
-	{
-		Node* child = dynamic_cast<Node*>(Nodes->objectAtIndex(i));
-		if(child)
-			child->unload();
-	}
 }
 
 void Node::attributeDidChange(int attributeID)

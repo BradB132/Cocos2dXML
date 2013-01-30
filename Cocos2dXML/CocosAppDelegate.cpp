@@ -54,10 +54,10 @@ bool CocosAppDelegate::applicationDidFinishLaunching()
 	pDirector->setAnimationInterval(1.0/xmlDirector->getFps());
 	pDirector->setBackgroundColor(xmlDirector->getColor());
 	
-	if(xmlDirector->getSceneReferences()->count() > 0)
+	if(xmlDirector->getSceneReferences()->size() > 0)
 	{
 		//default to the first scene
-		SceneReference* defaultScene = (SceneReference*)xmlDirector->getSceneReferences()->objectAtIndex(0);
+		SceneReference* defaultScene = (SceneReference*)xmlDirector->getSceneReferences()->at(0);
 		return switchToScene(defaultScene, NULL, false);
 	}
 	else
@@ -99,11 +99,14 @@ bool CocosAppDelegate::switchToScene(SceneReference* ref, Transition* trans, boo
 	}
 	
 	//create a the new scene using the XML
-	if(currentScene)
-		delete currentScene;
+	//TODO: figure out how to handle this with transitions, right now this is a massive leak!
+//	if(currentScene)
+//	{
+//		delete currentScene;
+//	}
 	currentScene = new Scene();
 	currentScene->initWithXML(xmlDocument->children, NULL);
-	currentScene->load();
+	currentScene->visitLoad();
 	CCScene* ccScene = dynamic_cast<CCScene*>(currentScene->getCCNode());
 	if(!ccScene)
 		return false;

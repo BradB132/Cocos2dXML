@@ -37,6 +37,9 @@ setKeyAndValue('boolean', 'bool');
 //choose which directory to put all of our generated code in
 setKeyAndValue('__ROOT_DIR__', '..');
 
+//the root class wil appear in lots of places, so let's not hard code it
+setKeyAndValue('__ROOT_CLASS__', 'BaseObject_Base');
+
 //loop to add all typedefs as key-value pairs
 Object typedefs  = abstractions.typedefs;
 if(typedefs != NULL)
@@ -50,6 +53,8 @@ if(typedefs != NULL)
 
 runScript("./c++_header.nopl");
 runScript("./c++_implementation.nopl");
+runScript("./c++_header_base.nopl");
+runScript("./c++_implementation_base.nopl");
 runScript("./c++_enum.nopl");
 runScript("./c++_typedefs.nopl");
 runScript("./c++_include.nopl");
