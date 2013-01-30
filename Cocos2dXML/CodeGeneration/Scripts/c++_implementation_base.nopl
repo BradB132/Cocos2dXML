@@ -308,12 +308,12 @@ void ?>#baseName;<?::unload()
 	{
 <?void ?>#baseName;<?::visitLoad()
 {
-	this->load();
+	load();
 }
 
 void ?>#baseName;<?::visitUnload()
 {
-	this->unload();
+	unload();
 }
 
 ?>
@@ -370,7 +370,7 @@ if(hasParentClass)
 }
 else
 {
-<?	this->load();
+<?	load();
 
 ?>
 }
@@ -397,7 +397,7 @@ if(hasParentClass)
 }
 else
 {
-<?	this->unload();
+<?	unload();
 
 ?>
 }

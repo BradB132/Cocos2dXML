@@ -118,8 +118,7 @@ if(children.count > 0)
 <?	virtual std::vector<?>#valueForKey((String)child.type);<?*>* get?>#listName;<?();
 ?>
 	}
-<?	virtual void visitLoad();
-	virtual void visitUnload();
+<?
 
 ?>
 }
@@ -134,7 +133,13 @@ if(!hasParentClass)
 <?	virtual CCObject* getParent();
 	virtual void load();
 	virtual void unload();
-	virtual void visitLoad();
+
+?>
+}
+
+if(!hasParentClass || children.count > 0)
+{
+<?	virtual void visitLoad();
 	virtual void visitUnload();
 
 ?>
