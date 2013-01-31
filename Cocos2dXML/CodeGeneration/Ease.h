@@ -12,14 +12,10 @@
 #import "Ease_Base.h"
 
 class Ease : public Ease_Base
-{
-public:
-	
-	virtual void attributeDidChange(int attributeID);
-	
+{	
 protected:
 	
-	virtual cocos2d::CCAction* createActionObject();
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __EASE_H__

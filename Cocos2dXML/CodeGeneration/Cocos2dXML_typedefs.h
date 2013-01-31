@@ -2,7 +2,7 @@
 //  Cocos2dXML_typedefs.h
 //  Cocos2dXML
 //
-//  Created by NoPLGenerator on 1/27/13.
+//  Created by NoPLGenerator on 1/31/13.
 //  Copyright (c) 2013. All rights reserved.
 //
 

@@ -7,3 +7,16 @@
 //
 
 #include "Rotate.h"
+
+void Rotate::createActionObject(cocos2d::CCAction** outAction)
+{
+	if(!*outAction)
+	{
+		if(relative)
+			*outAction = cocos2d::CCRotateBy::create(duration, value);
+		else
+			*outAction = cocos2d::CCRotateTo::create(duration, value);
+	}
+	
+	Rotate_Base::createActionObject(outAction);
+}

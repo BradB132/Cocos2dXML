@@ -7,3 +7,13 @@
 //
 
 #include "Place.h"
+
+void Place::createActionObject(cocos2d::CCAction** outAction)
+{
+	if(!*outAction)
+	{
+		*outAction = cocos2d::CCPlace::create(value);
+	}
+	
+	Place_Base::createActionObject(outAction);
+}

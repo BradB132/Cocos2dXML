@@ -15,8 +15,7 @@ class Delay : public Delay_Base
 {
 protected:
 	
-	virtual cocos2d::CCAction* createActionObject();
-	
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __DELAY_H__

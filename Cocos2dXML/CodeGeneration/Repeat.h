@@ -13,7 +13,9 @@
 
 class Repeat : public Repeat_Base
 {
+protected:
 	
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __REPEAT_H__

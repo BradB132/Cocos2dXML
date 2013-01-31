@@ -17,18 +17,11 @@ class Action : public Action_Base
 {
 public:
 	
-	Action();
-	~Action();
-	
 	virtual void runAction();
-	
-	virtual void attributeDidChange(int attributeID);
 	
 protected:
 	
-	virtual cocos2d::CCAction* createActionObject();
-	
-	cocos2d::CCAction* tempAction;
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 
 };
 

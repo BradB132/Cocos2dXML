@@ -8,10 +8,10 @@
 
 #include "Delay.h"
 
-cocos2d::CCAction* Delay::createActionObject()
+void Delay::createActionObject(cocos2d::CCAction** outAction)
 {
-	if(!tempAction)
-		tempAction = cocos2d::CCDelayTime::create(duration);
+	if(!*outAction)
+		*outAction = cocos2d::CCDelayTime::create(duration);
 	
-	return Delay_Base::createActionObject();
+	Delay_Base::createActionObject(outAction);
 }

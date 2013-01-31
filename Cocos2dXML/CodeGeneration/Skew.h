@@ -13,7 +13,9 @@
 
 class Skew : public Skew_Base
 {
+protected:
 	
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __SKEW_H__

@@ -7,3 +7,16 @@
 //
 
 #include "Skew.h"
+
+void Skew::createActionObject(cocos2d::CCAction** outAction)
+{
+	if(!*outAction)
+	{
+		if(relative)
+			*outAction = cocos2d::CCSkewBy::create(duration, value.x, value.y);
+		else
+			*outAction = cocos2d::CCSkewTo::create(duration, value.x, value.y);
+	}
+	
+	Skew_Base::createActionObject(outAction);
+}

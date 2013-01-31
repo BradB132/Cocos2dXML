@@ -13,7 +13,9 @@
 
 class Place : public Place_Base
 {
+protected:
 	
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __PLACE_H__

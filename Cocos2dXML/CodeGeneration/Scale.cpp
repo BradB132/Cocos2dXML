@@ -7,3 +7,16 @@
 //
 
 #include "Scale.h"
+
+void Scale::createActionObject(cocos2d::CCAction** outAction)
+{
+	if(!*outAction)
+	{
+		if(relative)
+			*outAction = cocos2d::CCScaleBy::create(duration, value.x, value.y);
+		else
+			*outAction = cocos2d::CCScaleTo::create(duration, value.x, value.y);
+	}
+	
+	Scale_Base::createActionObject(outAction);
+}

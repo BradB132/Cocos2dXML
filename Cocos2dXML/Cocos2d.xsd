@@ -357,7 +357,7 @@
 				<element ref="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
 			</sequence>
 			<attribute name="type" type="cc:ease" default="out" />
-			<attribute name="rate" type="float" default="1" /><!-- only applies to types: in, out, inOut -->
+			<attribute name="rate" type="float" default="2" /><!-- only applies to types: in, out, inOut -->
 		</extension>
 	</complexContent>
 </complexType>
@@ -369,7 +369,7 @@
 			<sequence>
 				<element ref="cc:FiniteAction" minOccurs="1" maxOccurs="1"/>
 			</sequence>
-			<attribute name="repeats" type="int" default="2" /><!-- negative numbers repeat forever -->
+			<attribute name="repeats" type="int" default="2" /><!-- numbers that are <= 0 will repeat forever -->
 		</extension>
 	</complexContent>
 </complexType>

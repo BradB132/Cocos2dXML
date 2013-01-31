@@ -13,7 +13,9 @@
 
 class Tint : public Tint_Base
 {
+protected:
 	
+	virtual void createActionObject(cocos2d::CCAction** outAction);
 };
 
 #endif //end __TINT_H__
