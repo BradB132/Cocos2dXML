@@ -13,7 +13,7 @@
 
 class Fade : public Fade_Base
 {
-protected:
+public:
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 };

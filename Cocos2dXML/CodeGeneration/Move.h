@@ -13,7 +13,7 @@
 
 class Move : public Move_Base
 {
-protected:
+public:
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 };

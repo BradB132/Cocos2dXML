@@ -13,7 +13,7 @@
 
 class Sequence : public Sequence_Base
 {
-protected:
+public:
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 };

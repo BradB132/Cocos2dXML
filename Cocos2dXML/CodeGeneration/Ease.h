@@ -13,7 +13,7 @@
 
 class Ease : public Ease_Base
 {	
-protected:
+public:
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 };

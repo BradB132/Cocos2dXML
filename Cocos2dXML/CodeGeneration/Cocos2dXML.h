@@ -55,3 +55,5 @@
 #include "Animation.h"
 #include "Text_Base.h"
 #include "Text.h"
+#include "Script_Base.h"
+#include "Script.h"

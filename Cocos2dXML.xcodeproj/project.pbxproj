@@ -18,6 +18,8 @@
 		9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715416AC734C001F2C91 /* libxml2.dylib */; };
 		9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715616AC73B0001F2C91 /* QuartzCore.framework */; };
 		9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715816AC73B5001F2C91 /* OpenGLES.framework */; };
+		9B2F6CB016BB8A06000DA09A /* Script_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F6CAC16BB8A04000DA09A /* Script_Base.cpp */; };
+		9B2F6CB116BB8A06000DA09A /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B2F6CAE16BB8A05000DA09A /* Script.cpp */; };
 		9B32DB6216B49EBB00D3877A /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B32DAEA16B49EBB00D3877A /* Action.cpp */; };
 		9B32DB6316B49EBB00D3877A /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B32DAEA16B49EBB00D3877A /* Action.cpp */; };
 		9B32DB6416B49EBB00D3877A /* Action_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B32DAEC16B49EBB00D3877A /* Action_Base.cpp */; };
@@ -183,6 +185,10 @@
 		9B2D715416AC734C001F2C91 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9B2D715616AC73B0001F2C91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9B2D715816AC73B5001F2C91 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		9B2F6CAC16BB8A04000DA09A /* Script_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Script_Base.cpp; sourceTree = "<group>"; };
+		9B2F6CAD16BB8A04000DA09A /* Script_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Script_Base.h; sourceTree = "<group>"; };
+		9B2F6CAE16BB8A05000DA09A /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Script.cpp; sourceTree = "<group>"; };
+		9B2F6CAF16BB8A06000DA09A /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Script.h; sourceTree = "<group>"; };
 		9B32DAEA16B49EBB00D3877A /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
 		9B32DAEB16B49EBB00D3877A /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		9B32DAEC16B49EBB00D3877A /* Action_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action_Base.cpp; sourceTree = "<group>"; };
@@ -449,6 +455,10 @@
 				9B32DB3C16B49EBB00D3877A /* SceneReference.h */,
 				9B32DB3D16B49EBB00D3877A /* SceneReference_Base.cpp */,
 				9B32DB3E16B49EBB00D3877A /* SceneReference_Base.h */,
+				9B2F6CAC16BB8A04000DA09A /* Script_Base.cpp */,
+				9B2F6CAD16BB8A04000DA09A /* Script_Base.h */,
+				9B2F6CAE16BB8A05000DA09A /* Script.cpp */,
+				9B2F6CAF16BB8A06000DA09A /* Script.h */,
 				9B32DB4616B49EBB00D3877A /* Sequence.cpp */,
 				9B32DB4716B49EBB00D3877A /* Sequence.h */,
 				9B32DB4816B49EBB00D3877A /* Sequence_Base.cpp */,
@@ -794,6 +804,8 @@
 				9B32DBD816B49EBB00D3877A /* Tint_Base.cpp in Sources */,
 				9B32DBDA16B49EBB00D3877A /* Transition.cpp in Sources */,
 				9B32DBDC16B49EBB00D3877A /* Transition_Base.cpp in Sources */,
+				9B2F6CB016BB8A06000DA09A /* Script_Base.cpp in Sources */,
+				9B2F6CB116BB8A06000DA09A /* Script.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

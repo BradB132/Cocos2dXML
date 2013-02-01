@@ -286,7 +286,9 @@
 		<extension base="cc:Node">
 			<sequence>
 				<element ref="cc:Action" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
+			<attribute name="onUpdate" type="cc:event"/>
 		</extension>
 	</complexContent>
 </complexType>
@@ -470,6 +472,16 @@
 			<attribute name="fontSize" type="float" use="required"/>
 			<attribute name="horizontalAlign" type="cc:horizontalTextAlign" default="center"/>
 			<attribute name="verticalAlign" type="cc:verticalTextAlign" default="center"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Script" type="cc:Script"/>
+<complexType name="Script">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="path" type="cc:filePath" use="required"/>
+			<attribute name="runListener" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>
