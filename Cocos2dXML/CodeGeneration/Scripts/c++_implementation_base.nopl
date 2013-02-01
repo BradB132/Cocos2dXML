@@ -155,7 +155,7 @@ void ?>#baseName;<?::refreshAllAttributes()
 	}
 <?}
 
-void ?>#baseName;<?::initWithXML(xmlNodePtr node, CCObject* parentObj)
+void ?>#baseName;<?::initWithXML(xmlNodePtr node, ?>#valueForKey('__ROOT_CLASS__');<?* parentObj)
 {
 ?>
 if(hasParentClass)
@@ -287,7 +287,7 @@ if(children.count > 0)
 
 if(!hasParentClass)
 {
-<?cocos2d::CCObject* ?>#baseName;<?::getParent()
+#valueForKey('__ROOT_CLASS__');<?* ?>#baseName;<?::getParent()
 {
 	return parent;
 }

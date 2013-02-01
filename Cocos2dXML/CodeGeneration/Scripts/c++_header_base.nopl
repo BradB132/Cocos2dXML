@@ -3,6 +3,9 @@ console("generating c++ base headers");
 
 Object classes = abstractions.classes;
 
+//mess with this number if we get any hash collisions
+Number hashMod = 999999;
+
 String schemaNickname = schema.targetNamespace;
 schemaNickname = substring(schemaNickname, lastIndexOf(schemaNickname, "/")+1);
 
@@ -42,7 +45,7 @@ if(attributes.count > 0)
 	for(int j = 0; j < attributes.count; j++)
 	{
 		String attrName = attributes[j].name;
-<?#define id_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%999999;<?
+<?#define id_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%hashMod;<?
 ?>
 	}
 <?
@@ -79,10 +82,10 @@ if(hasParentClass)
 	//declare this class as the subclass of the parent class
 	<? : public ?>#parentName;
 }
-else
+else if(baseName != valueForKey('__ROOT_CLASS__'))
 {
 	//we need to make sure that all of these objects inherit from the base object
-	<? : public cocos2d::CCObject?>
+	<? : public ?>#valueForKey('__ROOT_CLASS__');
 }
 <?
 {
@@ -123,14 +126,14 @@ if(children.count > 0)
 ?>
 }
 
-<?	virtual void initWithXML(xmlNodePtr node, CCObject* parentObj);
+<?	virtual void initWithXML(xmlNodePtr node, ?>#valueForKey('__ROOT_CLASS__');<?* parentObj);
 	virtual void attributeDidChange(int attributeID);
 	virtual void refreshAllAttributes();
 
 ?>
 if(!hasParentClass)
 {
-<?	virtual CCObject* getParent();
+<?	virtual ?>#valueForKey('__ROOT_CLASS__');<?* getParent();
 	virtual void load();
 	virtual void unload();
 
@@ -153,7 +156,7 @@ if(attributes.count > 0)
 ?>
 	if(!hasParentClass)
 	{
-<?	cocos2d::CCObject* parent;
+<?	?>#valueForKey('__ROOT_CLASS__');<?* parent;
 ?>
 	}
 	for(int j = 0; j < attributes.count; j++)
