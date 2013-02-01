@@ -284,6 +284,9 @@
 <complexType name="Scene">
 	<complexContent>
 		<extension base="cc:Node">
+			<sequence>
+				<element ref="cc:Action" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
 		</extension>
 	</complexContent>
 </complexType>
@@ -323,7 +326,7 @@
 <complexType name="FiniteAction">
 	<complexContent>
 		<extension base="cc:Action">
-			<attribute name="duration" type="float" default="0"/>
+			<attribute name="duration" type="float" default="1"/>
 		</extension>
 	</complexContent>
 </complexType>

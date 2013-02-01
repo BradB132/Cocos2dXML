@@ -39,7 +39,7 @@ for(int j = 0; j < children.count; j++)
 <?
 ?>
 
-bool hasDefaults = children.count > 0;
+bool hasDefaults = NO;
 if(!hasDefaults)
 {
 	for(int j = 0; j < attributes.length; j++)
@@ -55,11 +55,20 @@ if(!hasDefaults)
 
 //create the constructor / desctuctor
 #baseName;<?::?>#baseName;<?()?>
+if(!hasParentClass)
+{
+<?:
+parent(NULL)?>
+}
+
 if(hasDefaults)
 {
-	<?:
+	BOOL first = hasParentClass;
+	if(first)
+	{
+		<?:
 ?>
-	BOOL first = YES;
+	}
 	for(int j = 0; j < attributes.length; j++)
 	{
 		Object attr = attributes[j];

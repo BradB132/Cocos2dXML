@@ -16,6 +16,16 @@ class Scene : public Scene_Base
 public:
 	
 	virtual void load();
+	virtual void unload();
+	
+	virtual void addToSceneMap(BaseObject* obj);
+	virtual void removeFromSceneMap(BaseObject* obj);
+	virtual BaseObject* objectFromMap(std::string objectID);
+	
+protected:
+	
+	std::map<std::string, BaseObject*> objectMap;
+	
 };
 
 #endif //end __SCENE_H__

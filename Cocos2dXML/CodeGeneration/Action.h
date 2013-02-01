@@ -19,6 +19,8 @@ public:
 	
 	virtual void runAction();
 	
+	virtual void load();
+	
 protected:
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);

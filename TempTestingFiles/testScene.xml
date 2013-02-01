@@ -2,7 +2,18 @@
 <Scene>
 
 	<Node id="container" position="0,0">
-		<Sprite texture="lol.png" position="160,240" anchorPoint=".5,.5" rotation="5" skew="3,3"/>
+		<Sprite id="lolTex" texture="lol.png"/>
 	</Node>
-
+	
+	<Repeat target="lolTex" repeats="15">
+		<Sequence>
+			<Ease type="in">
+				<Move value="20,200" duration="6"/>
+			</Ease>
+			<Ease type="bounceOut">
+				<Move value="20,0" duration="2"/>
+			</Ease>
+		</Sequence>
+	</Repeat>
+	
 </Scene>

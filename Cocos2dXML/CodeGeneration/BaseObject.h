@@ -13,6 +13,21 @@
 
 class BaseObject : public BaseObject_Base
 {
+public:
+	
+	BaseObject();
+	
+	virtual BaseObject* getRootObject();
+	virtual BaseObject* objectForID(std::string objectID);
+	
+	virtual void load();
+	virtual void unload();
+	
+	virtual bool setId(std::string newId);
+	
+private:
+	
+	bool alreadySetID;
 };
 
 #endif //end __BASEOBJECT_H__
