@@ -10,7 +10,22 @@
 
 #pragma mark - NoPL callbacks
 
-//TODO: set up callbacks
+static NoPL_Callbacks scriptCallbacks;
+
+//NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+//{
+//	
+//}
+//
+//NoPL_FunctionValue evaluateSubscript(void* calledOnObject, NoPL_FunctionValue index)
+//{
+//	
+//}
+//
+//void stringFeedback(const char* string, NoPL_StringFeedbackType type)
+//{
+//	
+//}
 
 #pragma mark - Script
 

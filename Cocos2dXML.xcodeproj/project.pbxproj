@@ -151,6 +151,7 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
+		A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D664C116BD782300B88522 /* libNoPLRuntime.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9BD5BD2E16AC70E2000CF083;
 			remoteInfo = Cocos2dXML;
+		};
+		A2D664BE16BD782300B88522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A261C28E15C0E845008AE0C4;
+			remoteInfo = NoPL_Runtime_testing;
+		};
+		A2D664C016BD782300B88522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A24F59E6163098DB00FC9181;
+			remoteInfo = NoPLRuntime;
+		};
+		A2D664C216BD795900B88522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A24F59E5163098DB00FC9181;
+			remoteInfo = NoPLRuntime;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -326,6 +348,7 @@
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
+		A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +356,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */,
 				9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */,
 				9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */,
 				9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */,
@@ -502,6 +526,7 @@
 		9BD5BD2416AC70E2000CF083 = {
 			isa = PBXGroup;
 			children = (
+				A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */,
 				9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */,
 				9BD5BD3916AC70E2000CF083 /* Cocos2dXML */,
 				9BD5BD5716AC70E2000CF083 /* Cocos2dXMLTests */,
@@ -591,6 +616,15 @@
 			path = ObjcGlue;
 			sourceTree = "<group>";
 		};
+		A2D664BA16BD782300B88522 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2D664BF16BD782300B88522 /* NoPL_Runtime */,
+				A2D664C116BD782300B88522 /* libNoPLRuntime.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +640,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A2D664C316BD795900B88522 /* PBXTargetDependency */,
 				9B2D714B16AC71E5001F2C91 /* PBXTargetDependency */,
 			);
 			name = Cocos2dXML;
@@ -656,6 +691,10 @@
 					ProductGroup = 9B9464CD16AC714E00B42B6B /* Products */;
 					ProjectRef = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
 				},
+				{
+					ProductGroup = A2D664BA16BD782300B88522 /* Products */;
+					ProjectRef = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -671,6 +710,21 @@
 			fileType = archive.ar;
 			path = libcocos2dx.a;
 			remoteRef = 9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A2D664BF16BD782300B88522 /* NoPL_Runtime */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			name = NoPL_Runtime;
+			path = NoPL_Runtime_testing;
+			remoteRef = A2D664BE16BD782300B88522 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A2D664C116BD782300B88522 /* libNoPLRuntime.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNoPLRuntime.a;
+			remoteRef = A2D664C016BD782300B88522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -889,6 +943,11 @@
 			target = 9BD5BD2E16AC70E2000CF083 /* Cocos2dXML */;
 			targetProxy = 9BD5BD5516AC70E2000CF083 /* PBXContainerItemProxy */;
 		};
+		A2D664C316BD795900B88522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = NoPLRuntime;
+			targetProxy = A2D664C216BD795900B88522 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -941,6 +1000,8 @@
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
+					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPLc/include\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -975,6 +1036,8 @@
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
+					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPLc/include\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
