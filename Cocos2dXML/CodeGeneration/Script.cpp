@@ -68,6 +68,7 @@ static NoPL_Callbacks scriptCallbacks = {evaluateFunction, evaluateSubscript, st
 
 void Script::load()
 {
+	refreshAllAttributes();
 	script = Script::requireScriptAtPath(path);
 	
 	if(runListener == "")
@@ -76,7 +77,37 @@ void Script::load()
 
 void Script::unload()
 {
+	cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
+	center->removeObserver(this);
+	
 	Script::relinquishScriptAtPath(path);
+}
+
+void Script::attributeDidChange(int attributeID)
+{
+	switch (attributeID)
+	{
+		case id_Script_runListener:
+		{
+			cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
+		
+			//remove self from any notifications
+			center->removeObserver(this);
+			
+			//listen to the new notification
+			center->addObserver(this,
+								cocos2d::SEL_CallFuncO(&Script::handleRunEvent),
+								runListener.c_str(),
+								getRootObject());
+		}
+			return;
+	}
+	Script_Base::attributeDidChange(attributeID);
+}
+
+void Script::handleRunEvent(CCObject *obj)
+{
+	runTheScript();
 }
 
 void Script::runTheScript()

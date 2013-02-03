@@ -25,12 +25,16 @@ public:
 	virtual void load();
 	virtual void unload();
 	
+	virtual void attributeDidChange(int attributeID);
+	
 	virtual void runTheScript();
 	
 	static const RequiredScript* requireScriptAtPath(std::string path);
 	static void relinquishScriptAtPath(std::string path);
 	
 protected:
+	
+	void handleRunEvent(CCObject *obj);
 	
 	const RequiredScript* script;
 };

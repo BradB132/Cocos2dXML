@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Scene>
+<Scene onUpdate="doUpdate">
 
-	<Node id="container" position="0,0">
-		<Sprite id="lolTex" anchorPoint=".5,.5" texture="lol.png"/>
-	</Node>
+	<Sprite id="lolTex" anchorPoint=".5,.5" texture="lol.png"/>
 	
 	<Repeat target="lolTex" repeats="15">
 		<Sequence>
@@ -16,6 +14,6 @@
 		</Sequence>
 	</Repeat>
 	
-	<Script path="testScript.noplb"/>
+	<Script path="testScript.noplb" runListener="doUpdate"/>
 	
 </Scene>

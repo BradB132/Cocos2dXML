@@ -1,14 +1,6 @@
-#"Hello world!";
 
+//get the texture that we care about
 Pointer sprite = scene.lolTex;
 
-#"Sprite is using image:"+sprite.texture;
-
-float rotation = 45;
-#"setting Sprite rotation to: "+rotation;
-BOOL wasSuccess = sprite.setRotation(rotation);
-
-if(wasSuccess)
-	#"set rotation was successful";
-else
-	#"set rotation was NOT successful";
+//spin it a little bit each frame
+sprite.setRotation(sprite.rotation+0.5f);

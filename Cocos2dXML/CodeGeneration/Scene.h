@@ -24,6 +24,9 @@ public:
 	
 	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 	
+	virtual void update(float dt);
+	virtual void attributeDidChange(int attributeID);
+	
 protected:
 	
 	std::map<std::string, BaseObject*> objectMap;
