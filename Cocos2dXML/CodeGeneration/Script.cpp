@@ -8,6 +8,7 @@
 
 #include "Script.h"
 #include "cocos2d.h"
+#include "NoPLStandardFunctions.h"
 
 #pragma mark - Script memory cache
 
@@ -21,18 +22,21 @@ NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionNa
 	NoPL_FunctionValue returnVal;
 	returnVal.type = NoPL_DataType_Uninitialized;
 	
-	Script* callingFromScript = scriptStack.at(scriptStack.size()-1);
-	
 	//check if this is a global
 	if(!calledOnObject)
 	{
 		if(!strcmp(functionName, "scene") ||
 		   !strcmp(functionName, "scope") )
 		{
+			Script* callingFromScript = scriptStack.at(scriptStack.size()-1);
+			
 			//return the scope object that this script is in
 			returnVal.pointerValue = callingFromScript->getRootObject();
 			returnVal.type = NoPL_DataType_Pointer;
 		}
+		
+		if(returnVal.type == NoPL_DataType_Uninitialized)
+			returnVal = nopl_standardFunctions(calledOnObject, functionName, argv, argc);
 	}
 	else
 	{
