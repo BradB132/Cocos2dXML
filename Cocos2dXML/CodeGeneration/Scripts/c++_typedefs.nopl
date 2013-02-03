@@ -39,8 +39,8 @@ typedef struct
 //handle conversions from strings
 cocos2d::ccColor3B string_to_ccColor3B(const char* colorString);
 Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString);
-bool string_to_bool(char* boolString);
-cocos2d::CCPoint string_to_CCPoint(char* pointString);
+bool string_to_bool(const char* boolString);
+cocos2d::CCPoint string_to_CCPoint(const char* pointString);
 
 //utility functions for handling types
 bool isKindOfClass(const char* instanceTypeName, const char* desiredTypeName);
@@ -118,12 +118,12 @@ Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString)
 	return color;
 }
 
-bool string_to_bool(char* boolString)
+bool string_to_bool(const char* boolString)
 {
 	return !strcmp(boolString, "true");
 }
 
-cocos2d::CCPoint string_to_CCPoint(char* pointString)
+cocos2d::CCPoint string_to_CCPoint(const char* pointString)
 {
 	cocos2d::CCPoint point;
 	point.x = atof(pointString);

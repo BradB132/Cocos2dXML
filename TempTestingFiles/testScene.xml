@@ -3,7 +3,7 @@
 
 	<Sprite id="lolTex" anchorPoint=".5,.5" texture="lol.png"/>
 	
-	<Repeat target="lolTex" repeats="15">
+	<Repeat target="lolTex" repeats="2000">
 		<Sequence>
 			<Ease type="in">
 				<Move value="20,200" duration="6"/>
@@ -13,6 +13,10 @@
 			</Ease>
 		</Sequence>
 	</Repeat>
+	
+	<!-- Variables and scripting -->
+	<Float id="angleCounter" />
+	<Float id="spinSpeed" value="20.0f" />
 	
 	<Script path="testScript.noplb" runListener="doUpdate"/>
 	

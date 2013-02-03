@@ -287,6 +287,7 @@
 			<sequence>
 				<element ref="cc:Action" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
 		</extension>
@@ -482,6 +483,61 @@
 		<extension base="cc:BaseObject">
 			<attribute name="path" type="cc:filePath" use="required"/>
 			<attribute name="runListener" type="cc:eventListener"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Variable" type="cc:Variable"/>
+<complexType name="Variable">
+	<complexContent>
+		<extension base="cc:BaseObject">
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="String" type="cc:String"/>
+<complexType name="String">
+	<complexContent>
+		<extension base="cc:Variable">
+			<attribute name="value" type="string" use="optional"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Float" type="cc:Float"/>
+<complexType name="Float">
+	<complexContent>
+		<extension base="cc:Variable">
+			<attribute name="value" type="float" default="0"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Bool" type="cc:Bool"/>
+<complexType name="Bool">
+	<complexContent>
+		<extension base="cc:Variable">
+			<attribute name="value" type="boolean" default="false"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Object" type="cc:Object"/>
+<complexType name="Object">
+	<complexContent>
+		<extension base="cc:Variable">
+			<attribute name="value" type="IDREF" use="optional"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="List" type="cc:List"/>
+<complexType name="List">
+	<complexContent>
+		<extension base="cc:Variable">
+			<sequence>
+				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
 		</extension>
 	</complexContent>
 </complexType>
