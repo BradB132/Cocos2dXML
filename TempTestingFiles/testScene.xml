@@ -2,7 +2,7 @@
 <Scene>
 
 	<Node id="container" position="0,0">
-		<Sprite id="lolTex" texture="lol.png"/>
+		<Sprite id="lolTex" anchorPoint=".5,.5" texture="lol.png"/>
 	</Node>
 	
 	<Repeat target="lolTex" repeats="15">
@@ -15,5 +15,7 @@
 			</Ease>
 		</Sequence>
 	</Repeat>
+	
+	<Script path="testScript.noplb"/>
 	
 </Scene>

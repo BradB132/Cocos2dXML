@@ -10,12 +10,11 @@
 #define __SCRIPT_H__
 
 #include "Script_Base.h"
-#include "NoPLRuntime.h"
 
 typedef struct
 {
 	NoPL_Instruction* scriptBuffer;
-	unsigned int bufferLength;
+	unsigned long bufferLength;
 	int requireCount;
 }RequiredScript;
 
@@ -26,11 +25,14 @@ public:
 	virtual void load();
 	virtual void unload();
 	
-	virtual void runScript();
+	virtual void runTheScript();
+	
+	static const RequiredScript* requireScriptAtPath(std::string path);
+	static void relinquishScriptAtPath(std::string path);
 	
 protected:
 	
-	static std::map<std::string, RequiredScript> scriptCache;
+	const RequiredScript* script;
 };
 
 #endif //end __SCRIPT_H__

@@ -22,6 +22,8 @@ public:
 	virtual void removeFromSceneMap(BaseObject* obj);
 	virtual BaseObject* objectFromMap(std::string objectID);
 	
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	
 protected:
 	
 	std::map<std::string, BaseObject*> objectMap;

@@ -151,6 +151,7 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
+		9BFD1A7C16BDFC240062A658 /* testScript.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD1A7B16BDFC240062A658 /* testScript.noplb */; };
 		A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D664C116BD782300B88522 /* libNoPLRuntime.a */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = cocos2dx;
+		};
+		9B84F86816BDF24E00F34DF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B84F86516BDF21E00F34DF1;
+			remoteInfo = "NoPLRuntime(arm)";
+		};
+		9B84F86A16BDF25200F34DF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B84F85916BDF21E00F34DF1;
+			remoteInfo = "NoPLRuntime(arm)";
 		};
 		9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -188,13 +203,6 @@
 			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A24F59E6163098DB00FC9181;
-			remoteInfo = NoPLRuntime;
-		};
-		A2D664C216BD795900B88522 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A24F59E5163098DB00FC9181;
 			remoteInfo = NoPLRuntime;
 		};
 /* End PBXContainerItemProxy section */
@@ -348,6 +356,7 @@
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
+		9BFD1A7B16BDFC240062A658 /* testScript.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = testScript.noplb; sourceTree = "<group>"; };
 		A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -384,6 +393,7 @@
 		9B105B2616B5C6AC005453A6 /* TempTestingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				9BFD1A7B16BDFC240062A658 /* testScript.noplb */,
 				9B105B2716B5C6AC005453A6 /* lol.png */,
 				9B105B2816B5C6AC005453A6 /* main.xml */,
 				9B105B2916B5C6AC005453A6 /* testScene.xml */,
@@ -621,6 +631,7 @@
 			children = (
 				A2D664BF16BD782300B88522 /* NoPL_Runtime */,
 				A2D664C116BD782300B88522 /* libNoPLRuntime.a */,
+				9B84F86916BDF24E00F34DF1 /* libNoPLRuntime(arm).a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -640,7 +651,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				A2D664C316BD795900B88522 /* PBXTargetDependency */,
+				9B84F86B16BDF25200F34DF1 /* PBXTargetDependency */,
 				9B2D714B16AC71E5001F2C91 /* PBXTargetDependency */,
 			);
 			name = Cocos2dXML;
@@ -705,6 +716,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		9B84F86916BDF24E00F34DF1 /* libNoPLRuntime(arm).a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libNoPLRuntime(arm).a";
+			remoteRef = 9B84F86816BDF24E00F34DF1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9B9464D116AC714E00B42B6B /* libcocos2dx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -715,15 +733,15 @@
 		A2D664BF16BD782300B88522 /* NoPL_Runtime */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			name = NoPL_Runtime;
-			path = NoPL_Runtime_testing;
+			path = NoPL_Runtime;
 			remoteRef = A2D664BE16BD782300B88522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		A2D664C116BD782300B88522 /* libNoPLRuntime.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libNoPLRuntime.a;
+			name = libNoPLRuntime.a;
+			path = "libNoPLRuntime(OSX).a";
 			remoteRef = A2D664C016BD782300B88522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -741,6 +759,7 @@
 				9B105B2A16B5C6AC005453A6 /* lol.png in Resources */,
 				9B105B2C16B5C6AC005453A6 /* main.xml in Resources */,
 				9B105B2E16B5C6AC005453A6 /* testScene.xml in Resources */,
+				9BFD1A7C16BDFC240062A658 /* testScript.noplb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -938,15 +957,15 @@
 			name = cocos2dx;
 			targetProxy = 9B2D714A16AC71E5001F2C91 /* PBXContainerItemProxy */;
 		};
+		9B84F86B16BDF25200F34DF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "NoPLRuntime(arm)";
+			targetProxy = 9B84F86A16BDF25200F34DF1 /* PBXContainerItemProxy */;
+		};
 		9BD5BD5616AC70E2000CF083 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9BD5BD2E16AC70E2000CF083 /* Cocos2dXML */;
 			targetProxy = 9BD5BD5516AC70E2000CF083 /* PBXContainerItemProxy */;
-		};
-		A2D664C316BD795900B88522 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = NoPLRuntime;
-			targetProxy = A2D664C216BD795900B88522 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

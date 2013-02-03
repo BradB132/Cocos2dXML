@@ -425,5 +425,232 @@ else
 ?>
 }
 
+if(!hasParentClass || attributes.count > 0 || children.count > 0)
+{
+<?NoPL_FunctionValue ?>#baseName;<?::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+?>
+
+//check if we only are putting this function in because it's the root class
+if(!hasParentClass && attributes.count == 0 && children.count == 0)
+{
+<?	NoPL_FunctionValue retVal;
+	retVal.type = NoPL_DataType_Uninitialized;
+	return retVal;
+?>
+}
+else
+{
+<?	NoPL_FunctionValue retVal;
+	retVal.type = NoPL_DataType_Uninitialized;
+	
+	//accessors
+	if(argc == 0)
+	{
+?>
+for(int j = 0; j < attributes.count; j++)
+{
+	Object attrib = attributes[j];
+	String attribName = attrib.name;
+	String typeName = attrib.type;
+<?		?>
+	if(j != 0)
+	{
+		<?else ?>
+	}
+		<?if(!strcmp(functionName, "?>#attribName;<?"))
+		{
+?>
+		switch(valueForKey(typeName))
+		{
+			case 'std::string':
+			case 'Cocos2dXMLEvent':
+			case 'Cocos2dXMLEventListener':
+			case 'Cocos2dXMLFilePath':
+<?			NoPL_assignString(?>#attribName;<?.c_str(), retVal);
+?>
+				break;
+			case 'int':
+			case 'unsigned int':
+			case 'double':
+			case 'char':
+			case 'unsigned char':
+<?			retVal.numberValue = (float)?>#attribName;<?;
+			retVal.type = NoPL_DataType_Number;
+?>
+				break;
+			case 'float':
+<?			retVal.numberValue = ?>#attribName;<?;
+			retVal.type = NoPL_DataType_Number;
+?>
+				break;
+			case 'bool':
+<?			retVal.booleanValue = ?>#attribName;<?;
+			retVal.type = NoPL_DataType_Boolean;
+?>
+				break;
+			case 'cocos2d::CCPoint':
+			case 'Cocos2dXMLColor':
+			case 'cocos2d::ccColor3B':
+<?			retVal.pointerValue = &?>#attribName;<?;
+			retVal.type = NoPL_DataType_Pointer;
+?>
+				break;
+			default:
+
+				BOOL isEnum = NO;
+				String enumName;
+				Object enums = abstractions.enums;
+				for(int k = 0; k < enums.length; k++)
+				{
+					if(enums[k].enumName == typeName)
+					{
+						enumName = enums[k].enumName;
+						isEnum = YES;
+						break;
+					}
+				}
+				if(isEnum)
+				{
+					//this is an enum value, convert it to a string
+<?			std::string convertedEnum = ?>#enumName;<?_to_string(?>#attribName;<?);
+			NoPL_assignString(convertedEnum.c_str(), retVal);
+?>
+				}
+				else
+				{
+					//this is probably a pointer to an object?
+<?			retVal.pointerValue = ?>#attribName;<?;
+			retVal.type = NoPL_DataType_Pointer;
+?>
+				}
+				break;
+		}
+<?		}
+?>
+}
+<?	}
+	else if(argc == 1)
+	{
+?>
+for(int j = 0; j < attributes.count; j++)
+{
+	Object attrib = attributes[j];
+	String attribName = attrib.name;
+	String typeName = attrib.type;
+<?		?>
+	if(j != 0)
+	{
+		<?else ?>
+	}
+		<?if(!strcmp(functionName, "set?>#capitalize(attribName);<?"))
+		{
+?>
+		switch(valueForKey(typeName))
+		{
+			case 'std::string':
+			case 'Cocos2dXMLEvent':
+			case 'Cocos2dXMLEventListener':
+			case 'Cocos2dXMLFilePath':
+<?			if(argv[0].type == NoPL_DataType_String)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].stringValue);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
+			case 'int':
+			case 'unsigned int':
+			case 'double':
+			case 'char':
+			case 'unsigned char':
+<?			if(argv[0].type == NoPL_DataType_Number)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?((?>#valueForKey(typeName);<?)argv[0].numberValue);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
+			case 'float':
+<?			if(argv[0].type == NoPL_DataType_Number)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].numberValue);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
+			case 'bool':
+<?			if(argv[0].type == NoPL_DataType_Boolean)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?((bool)argv[0].booleanValue);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
+			case 'cocos2d::CCPoint':
+			case 'Cocos2dXMLColor':
+			case 'cocos2d::ccColor3B':
+<?			//TODO: figure out how to do this
+?>
+				break;
+			default:
+
+				BOOL isEnum = NO;
+				String enumName;
+				Object enums = abstractions.enums;
+				for(int k = 0; k < enums.length; k++)
+				{
+					if(enums[k].enumName == typeName)
+					{
+						enumName = enums[k].enumName;
+						isEnum = YES;
+						break;
+					}
+				}
+				if(isEnum)
+				{
+					//this is an enum value, convert it from string
+<?			if(argv[0].type == NoPL_DataType_String)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(string_to_?>#enumName;<?(argv[0].stringValue));
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				}
+				else
+				{
+					//this is probably a pointer to an object?
+<?			if(argv[0].type == NoPL_DataType_Pointer)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].pointerValue);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				}
+				break;
+		}
+<?		}
+?>
+}
+<?	}
+?>
+	if(!hasParentClass)
+	{
+<?	return retVal;
+?>
+	}
+	else
+	{
+<?	//return the result if we found one
+	if(retVal.type != NoPL_DataType_Uninitialized)
+		return retVal;
+	return ?>#parentName;<?::evaluateFunction(functionName, argv, argc);
+?>
+	}
+}
+
+<?}
+?>
+}
 
 }

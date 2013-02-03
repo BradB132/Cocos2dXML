@@ -63,15 +63,19 @@ if(children.count > 0)
 ?>
 }
 
-<?#include <iostream>
-#include <libxml/parser.h>
-#include "cocos2d.h"
-#include "?>#schemaNickname;<?_enums.h"
-#include "?>#schemaNickname;<?_typedefs.h"
-?>
 if(hasParentClass)
 {
 <?#include "?>#parentName;<?.h"
+?>
+}
+else
+{
+<?#include <iostream>
+#include <libxml/parser.h>
+#include "cocos2d.h"
+#include "NoPLRuntime.h"
+#include "?>#schemaNickname;<?_enums.h"
+#include "?>#schemaNickname;<?_typedefs.h"
 ?>
 }
 <?
@@ -144,6 +148,13 @@ if(!hasParentClass || children.count > 0)
 {
 <?	virtual void visitLoad();
 	virtual void visitUnload();
+
+?>
+}
+
+if(!hasParentClass || attributes.count > 0 || children.count > 0)
+{
+<?	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 
 ?>
 }

@@ -1,0 +1,14 @@
+#"Hello world!";
+
+Pointer sprite = scene.lolTex;
+
+#"Sprite is using image:"+sprite.texture;
+
+float rotation = 45;
+#"setting Sprite rotation to: "+rotation;
+BOOL wasSuccess = sprite.setRotation(rotation);
+
+if(wasSuccess)
+	#"set rotation was successful";
+else
+	#"set rotation was NOT successful";
