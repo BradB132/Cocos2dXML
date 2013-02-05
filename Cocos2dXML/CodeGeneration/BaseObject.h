@@ -19,6 +19,7 @@ public:
 	
 	virtual BaseObject* getRootObject();
 	virtual BaseObject* objectForID(std::string objectID);
+	virtual void postEvent(std::string eventName);
 	
 	virtual void load();
 	virtual void unload();

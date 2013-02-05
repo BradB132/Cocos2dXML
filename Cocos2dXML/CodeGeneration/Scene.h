@@ -18,6 +18,8 @@ public:
 	virtual void load();
 	virtual void unload();
 	
+	virtual void visitLoad();
+	
 	virtual void addToSceneMap(BaseObject* obj);
 	virtual void removeFromSceneMap(BaseObject* obj);
 	virtual BaseObject* objectFromMap(std::string objectID);

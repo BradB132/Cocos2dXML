@@ -27,6 +27,15 @@ void Scene::unload()
 	Scene_Base::unload();
 }
 
+void Scene::visitLoad()
+{
+	Scene_Base::visitLoad();
+	
+	//do this after the visit to make sure everything in the scene is ready to go
+	if(onLoad != "")
+		postEvent(onLoad);
+}
+
 void Scene::attributeDidChange(int attributeID)
 {
 	switch (attributeID)
@@ -49,8 +58,7 @@ void Scene::attributeDidChange(int attributeID)
 
 void Scene::update(float dt)
 {
-	cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
-	center->postNotification(onUpdate.c_str(), getRootObject());
+	postEvent(onUpdate);
 }
 
 void Scene::addToSceneMap(BaseObject* obj)

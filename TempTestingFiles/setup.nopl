@@ -1,0 +1,22 @@
+
+//get the texture that we care about
+Pointer scene = scene;
+
+//get all of the platforms in this scene
+Pointer plat1 = scene.plat1;
+Pointer plat2 = scene.plat2;
+Pointer plat3 = scene.plat3;
+Pointer plat4 = scene.plat4;
+
+//set some bounds
+float minX = 50;
+float maxX = 320-minX;
+float verticalSpace = 480/4;
+
+#random(minX, maxX);
+
+//randomly position platforms
+plat1.setPosition((float)random(minX, maxX), verticalSpace*0);
+plat2.setPosition((float)random(minX, maxX), verticalSpace*1);
+plat3.setPosition((float)random(minX, maxX), verticalSpace*2);
+plat4.setPosition((float)random(minX, maxX), verticalSpace*3);

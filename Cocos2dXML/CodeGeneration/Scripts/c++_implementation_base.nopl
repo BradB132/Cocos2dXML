@@ -453,15 +453,78 @@ for(int j = 0; j < attributes.count; j++)
 	Object attrib = attributes[j];
 	String attribName = attrib.name;
 	String typeName = attrib.type;
+	String convertedTypeName = valueForKey(typeName);
 <?		?>
 	if(j != 0)
 	{
 		<?else ?>
 	}
+	
+	//TODO: this generates a function with a whole lot of string comparisons, optimize this
+
+	if(convertedTypeName == 'cocos2d::CCPoint')
+	{
+		<?if(!strcmp(functionName, "?>#attribName;<?X"))
+		{
+			retVal.numberValue = ?>#attribName;<?.x;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?Y"))
+		{
+			retVal.numberValue = ?>#attribName;<?.y;
+			retVal.type = NoPL_DataType_Number;
+		}
+?>
+	}
+	else if(convertedTypeName == 'Cocos2dXMLColor')
+	{
+		<?if(!strcmp(functionName, "?>#attribName;<?R"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.rgb.r;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?G"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.rgb.g;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?B"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.rgb.b;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?A"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.a;
+			retVal.type = NoPL_DataType_Number;
+		}
+?>
+	}
+	else if(convertedTypeName == 'cocos2d::ccColor3B')
+	{
+		<?if(!strcmp(functionName, "?>#attribName;<?R"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.r;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?G"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.g;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?B"))
+		{
+			retVal.numberValue = (float)?>#attribName;<?.b;
+			retVal.type = NoPL_DataType_Number;
+		}
+?>
+	}
+	else
+	{
 		<?if(!strcmp(functionName, "?>#attribName;<?"))
 		{
 ?>
-		switch(valueForKey(typeName))
+		switch(convertedTypeName)
 		{
 			case 'std::string':
 			case 'Cocos2dXMLEvent':
@@ -487,13 +550,6 @@ for(int j = 0; j < attributes.count; j++)
 			case 'bool':
 <?			retVal.booleanValue = ?>#attribName;<?;
 			retVal.type = NoPL_DataType_Boolean;
-?>
-				break;
-			case 'cocos2d::CCPoint':
-			case 'Cocos2dXMLColor':
-			case 'cocos2d::ccColor3B':
-<?			retVal.pointerValue = &?>#attribName;<?;
-			retVal.type = NoPL_DataType_Pointer;
 ?>
 				break;
 			default:
@@ -528,9 +584,10 @@ for(int j = 0; j < attributes.count; j++)
 		}
 <?		}
 ?>
+	}
 }
 <?	}
-	else if(argc == 1)
+	else
 	{
 ?>
 for(int j = 0; j < attributes.count; j++)
@@ -552,7 +609,7 @@ for(int j = 0; j < attributes.count; j++)
 			case 'Cocos2dXMLEvent':
 			case 'Cocos2dXMLEventListener':
 			case 'Cocos2dXMLFilePath':
-<?			if(argv[0].type == NoPL_DataType_String)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_String)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].stringValue);
 				retVal.type = NoPL_DataType_Boolean;
@@ -564,7 +621,7 @@ for(int j = 0; j < attributes.count; j++)
 			case 'double':
 			case 'char':
 			case 'unsigned char':
-<?			if(argv[0].type == NoPL_DataType_Number)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_Number)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?((?>#valueForKey(typeName);<?)argv[0].numberValue);
 				retVal.type = NoPL_DataType_Boolean;
@@ -572,7 +629,7 @@ for(int j = 0; j < attributes.count; j++)
 ?>
 				break;
 			case 'float':
-<?			if(argv[0].type == NoPL_DataType_Number)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_Number)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].numberValue);
 				retVal.type = NoPL_DataType_Boolean;
@@ -580,7 +637,7 @@ for(int j = 0; j < attributes.count; j++)
 ?>
 				break;
 			case 'bool':
-<?			if(argv[0].type == NoPL_DataType_Boolean)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_Boolean)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?((bool)argv[0].booleanValue);
 				retVal.type = NoPL_DataType_Boolean;
@@ -588,9 +645,36 @@ for(int j = 0; j < attributes.count; j++)
 ?>
 				break;
 			case 'cocos2d::CCPoint':
+<?			if(argc == 2 && argv[0].type == NoPL_DataType_Number && argv[1].type == NoPL_DataType_Number)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(cocos2d::CCPoint(argv[0].numberValue, argv[1].numberValue));
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
 			case 'Cocos2dXMLColor':
+<?			if(argc == 4 && argv[0].type == NoPL_DataType_Number && argv[1].type == NoPL_DataType_Number && argv[2].type == NoPL_DataType_Number && argv[3].type == NoPL_DataType_Number)
+			{
+				Cocos2dXMLColor newColor;
+				newColor.rgb.r = (unsigned char)argv[0].numberValue;
+				newColor.rgb.g = (unsigned char)argv[1].numberValue;
+				newColor.rgb.b = (unsigned char)argv[2].numberValue;
+				newColor.a = (unsigned char)argv[3].numberValue;
+				retVal.booleanValue = set?>#capitalize(attribName);<?(newColor);
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
 			case 'cocos2d::ccColor3B':
-<?			//TODO: figure out how to do this
+<?			if(argc == 3 && argv[0].type == NoPL_DataType_Number && argv[1].type == NoPL_DataType_Number && argv[2].type == NoPL_DataType_Number)
+			{
+				cocos2d::ccColor3B newColor;
+				newColor.r = (unsigned char)argv[0].numberValue;
+				newColor.g = (unsigned char)argv[1].numberValue;
+				newColor.b = (unsigned char)argv[2].numberValue;
+				retVal.booleanValue = set?>#capitalize(attribName);<?(newColor);
+				retVal.type = NoPL_DataType_Boolean;
+			}
 ?>
 				break;
 			default:
@@ -610,7 +694,7 @@ for(int j = 0; j < attributes.count; j++)
 				if(isEnum)
 				{
 					//this is an enum value, convert it from string
-<?			if(argv[0].type == NoPL_DataType_String)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_String)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?(string_to_?>#enumName;<?(argv[0].stringValue));
 				retVal.type = NoPL_DataType_Boolean;
@@ -620,7 +704,7 @@ for(int j = 0; j < attributes.count; j++)
 				else
 				{
 					//this is probably a pointer to an object?
-<?			if(argv[0].type == NoPL_DataType_Pointer)
+<?			if(argc == 1 && argv[0].type == NoPL_DataType_Pointer)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?(argv[0].pointerValue);
 				retVal.type = NoPL_DataType_Boolean;

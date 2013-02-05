@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B105B2A16B5C6AC005453A6 /* lol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2716B5C6AC005453A6 /* lol.png */; };
-		9B105B2B16B5C6AC005453A6 /* lol.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2716B5C6AC005453A6 /* lol.png */; };
 		9B105B2C16B5C6AC005453A6 /* main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2816B5C6AC005453A6 /* main.xml */; };
 		9B105B2D16B5C6AC005453A6 /* main.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2816B5C6AC005453A6 /* main.xml */; };
 		9B105B2E16B5C6AC005453A6 /* testScene.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9B105B2916B5C6AC005453A6 /* testScene.xml */; };
@@ -107,8 +105,11 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
-		9BFD1A7C16BDFC240062A658 /* testScript.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9BFD1A7B16BDFC240062A658 /* testScript.noplb */; };
 		A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D664C116BD782300B88522 /* libNoPLRuntime.a */; };
+		A2D664CD16C0CD7700B88522 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CB16C0CD7700B88522 /* hero.png */; };
+		A2D664CE16C0CD7700B88522 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CC16C0CD7700B88522 /* platform.png */; };
+		A2D664D116C0D36200B88522 /* setup.noplb in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CF16C0D36200B88522 /* setup.noplb */; };
+		A2D664D216C0D36200B88522 /* update.noplb in Resources */ = {isa = PBXBuildFile; fileRef = A2D664D016C0D36200B88522 /* update.noplb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +165,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B105B2716B5C6AC005453A6 /* lol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lol.png; sourceTree = "<group>"; };
 		9B105B2816B5C6AC005453A6 /* main.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = main.xml; sourceTree = "<group>"; };
 		9B105B2916B5C6AC005453A6 /* testScene.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testScene.xml; sourceTree = "<group>"; };
 		9B2D715216AC7346001F2C91 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -336,8 +336,11 @@
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
-		9BFD1A7B16BDFC240062A658 /* testScript.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = testScript.noplb; sourceTree = "<group>"; };
 		A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
+		A2D664CB16C0CD7700B88522 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
+		A2D664CC16C0CD7700B88522 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
+		A2D664CF16C0D36200B88522 /* setup.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = setup.noplb; sourceTree = "<group>"; };
+		A2D664D016C0D36200B88522 /* update.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = update.noplb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,8 +376,10 @@
 		9B105B2616B5C6AC005453A6 /* TempTestingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				9BFD1A7B16BDFC240062A658 /* testScript.noplb */,
-				9B105B2716B5C6AC005453A6 /* lol.png */,
+				A2D664CB16C0CD7700B88522 /* hero.png */,
+				A2D664CC16C0CD7700B88522 /* platform.png */,
+				A2D664CF16C0D36200B88522 /* setup.noplb */,
+				A2D664D016C0D36200B88522 /* update.noplb */,
 				9B105B2816B5C6AC005453A6 /* main.xml */,
 				9B105B2916B5C6AC005453A6 /* testScene.xml */,
 			);
@@ -760,10 +765,12 @@
 				9BD5BD4616AC70E2000CF083 /* Default.png in Resources */,
 				9BD5BD4816AC70E2000CF083 /* Default@2x.png in Resources */,
 				9BD5BD4A16AC70E2000CF083 /* Default-568h@2x.png in Resources */,
-				9B105B2A16B5C6AC005453A6 /* lol.png in Resources */,
 				9B105B2C16B5C6AC005453A6 /* main.xml in Resources */,
 				9B105B2E16B5C6AC005453A6 /* testScene.xml in Resources */,
-				9BFD1A7C16BDFC240062A658 /* testScript.noplb in Resources */,
+				A2D664CD16C0CD7700B88522 /* hero.png in Resources */,
+				A2D664CE16C0CD7700B88522 /* platform.png in Resources */,
+				A2D664D116C0D36200B88522 /* setup.noplb in Resources */,
+				A2D664D216C0D36200B88522 /* update.noplb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -772,7 +779,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BD5BD5C16AC70E2000CF083 /* InfoPlist.strings in Resources */,
-				9B105B2B16B5C6AC005453A6 /* lol.png in Resources */,
 				9B105B2D16B5C6AC005453A6 /* main.xml in Resources */,
 				9B105B2F16B5C6AC005453A6 /* testScene.xml in Resources */,
 			);

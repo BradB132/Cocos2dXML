@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Scene onUpdate="doUpdate">
+<Scene onLoad="doSetup" onUpdate="doUpdate">
 
-	<Sprite id="lolTex" anchorPoint=".5,.5" texture="lol.png"/>
+	<Sprite id="heroTex" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
 	
+	<Sprite id="plat1" anchorPoint=".5,.5" texture="platform.png"/>
+	<Sprite id="plat2" anchorPoint=".5,.5" texture="platform.png"/>
+	<Sprite id="plat3" anchorPoint=".5,.5" texture="platform.png"/>
+	<Sprite id="plat4" anchorPoint=".5,.5" texture="platform.png"/>
+	
+	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchEnd="touchEnd" onTouchCancel="touchEnd"/>
+	
+	<!--
 	<Repeat target="lolTex" repeats="2000">
 		<Sequence>
 			<Ease type="in">
@@ -13,11 +21,11 @@
 			</Ease>
 		</Sequence>
 	</Repeat>
+	-->
 	
 	<!-- Variables and scripting -->
 	<Float id="angleCounter" />
-	<Float id="spinSpeed" value="20.0f" />
-	
-	<Script path="testScript.noplb" runListener="doUpdate"/>
+	<Script path="setup.noplb" runListener="doSetup"/>
+	<Script path="update.noplb" runListener="doUpdate"/>
 	
 </Scene>

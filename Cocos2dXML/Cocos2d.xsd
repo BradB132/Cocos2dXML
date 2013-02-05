@@ -290,6 +290,7 @@
 				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
+			<attribute name="onLoad" type="cc:event"/>
 		</extension>
 	</complexContent>
 </complexType>

@@ -1,0 +1,10 @@
+
+//get the texture that we care about
+Pointer scene = scene;
+Pointer hero = scene.hero;
+
+Pointer plat1 = scene.plat1;
+Pointer plat2 = scene.plat2;
+Pointer plat3 = scene.plat3;
+Pointer plat4 = scene.plat4;
+

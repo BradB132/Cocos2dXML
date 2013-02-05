@@ -34,6 +34,12 @@ BaseObject* BaseObject::objectForID(std::string objectID)
 	return NULL;
 }
 
+void BaseObject::postEvent(std::string eventName)
+{
+	cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
+	center->postNotification(eventName.c_str(), getRootObject());
+}
+
 void BaseObject::load()
 {
 	//attempt to add self to scene
