@@ -8,3 +8,25 @@ Pointer plat2 = scene.plat2;
 Pointer plat3 = scene.plat3;
 Pointer plat4 = scene.plat4;
 
+float dY = 2.0f;
+float newY;
+
+newY = plat1.positionY+dY;
+if(newY > 450)
+	newY -= 450;
+plat1.setPosition((float)plat1.positionX, newY);
+
+newY = plat2.positionY+dY;
+if(newY > 450)
+	newY -= 450;
+plat2.setPosition((float)plat2.positionX, newY);
+
+newY = plat3.positionY+dY;
+if(newY > 450)
+	newY -= 450;
+plat3.setPosition((float)plat3.positionX, newY);
+
+newY = plat4.positionY+dY;
+if(newY > 450)
+	newY -= 450;
+plat4.setPosition((float)plat4.positionX, newY);
