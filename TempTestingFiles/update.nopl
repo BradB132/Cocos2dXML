@@ -9,24 +9,43 @@ Pointer plat3 = scene.plat3;
 Pointer plat4 = scene.plat4;
 
 float dY = 2.0f;
+float minX = 50;
+float maxX = 320-minX;
 float newY;
+float newX;
 
 newY = plat1.positionY+dY;
+newX = plat1.positionX;
 if(newY > 450)
+{
 	newY -= 450;
-plat1.setPosition((float)plat1.positionX, newY);
+	newX = random(minX, maxX);
+}
+plat1.setPosition(newX, newY);
 
 newY = plat2.positionY+dY;
+newX = plat2.positionX;
 if(newY > 450)
+{
 	newY -= 450;
-plat2.setPosition((float)plat2.positionX, newY);
+	newX = random(minX, maxX);
+}
+plat2.setPosition(newX, newY);
 
 newY = plat3.positionY+dY;
+newX = plat3.positionX;
 if(newY > 450)
+{
 	newY -= 450;
-plat3.setPosition((float)plat3.positionX, newY);
+	newX = random(minX, maxX);
+}
+plat3.setPosition(newX, newY);
 
 newY = plat4.positionY+dY;
+newX = plat4.positionX;
 if(newY > 450)
+{
 	newY -= 450;
-plat4.setPosition((float)plat4.positionX, newY);
+	newX = random(minX, maxX);
+}
+plat4.setPosition(newX, newY);

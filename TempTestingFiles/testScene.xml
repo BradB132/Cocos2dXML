@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Scene onLoad="doSetup" onUpdate="doUpdate">
-
-	<Sprite id="heroTex" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
 	
 	<Sprite id="plat1" anchorPoint=".5,.5" texture="platform.png"/>
 	<Sprite id="plat2" anchorPoint=".5,.5" texture="platform.png"/>
 	<Sprite id="plat3" anchorPoint=".5,.5" texture="platform.png"/>
 	<Sprite id="plat4" anchorPoint=".5,.5" texture="platform.png"/>
 	
-	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchEnd="touchEnd" onTouchCancel="touchEnd"/>
+	<Sprite id="heroTex" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
+	
+	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchUp="touchUp" onTouchCancel="touchUp"/>
 	
 	<!--
 	<Repeat target="lolTex" repeats="2000">
@@ -27,5 +27,8 @@
 	<Float id="angleCounter" />
 	<Script path="setup.noplb" runListener="doSetup"/>
 	<Script path="update.noplb" runListener="doUpdate"/>
+	<Script path="touchDown.noplb" runListener="touchDown"/>
+	<Script path="touchMove.noplb" runListener="touchMove"/>
+	<Script path="touchUp.noplb" runListener="touchUp"/>
 	
 </Scene>

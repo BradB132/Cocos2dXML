@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Transition.h"
 #include "layers_scenes_transitions_nodes/CCTransition.h"
+#include "Cocos2dXMLTouchDelegate.h"
 
 USING_NS_CC;
 
@@ -53,6 +54,8 @@ bool CocosAppDelegate::applicationDidFinishLaunching()
 	pDirector->setDisplayStats(xmlDirector->getDisplayStats());
 	pDirector->setAnimationInterval(1.0/xmlDirector->getFps());
 	pDirector->setBackgroundColor(xmlDirector->getColor());
+	
+	Cocos2dXMLTouchDelegate::initDelegate();
 	
 	if(xmlDirector->getSceneReferences()->size() > 0)
 	{

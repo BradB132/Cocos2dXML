@@ -233,7 +233,6 @@
 			<attribute name="rotation" type="float" default="0"/>
 			<attribute name="ignoreAnchorPointForPosition" type="boolean" default="false"/>
 			<attribute name="enabled" type="boolean" default="true"/>
-			<attribute name="touchThrough" type="boolean" default="false"/>
 			<attribute name="onTouchUp" type="cc:event" use="optional"/>
 			<attribute name="onTouchMove" type="cc:event" use="optional"/>
 			<attribute name="onTouchDown" type="cc:event" use="optional"/>

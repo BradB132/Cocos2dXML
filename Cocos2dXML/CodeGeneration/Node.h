@@ -26,6 +26,11 @@ public:
 	
 	virtual cocos2d::CCNode* getCCNode();
 	
+	virtual void touchDidBegin();
+    virtual void touchDidMove();
+	virtual void touchDidEnd();
+	virtual void touchDidCancel();
+	
 protected:
 	
 	cocos2d::CCNode* node;

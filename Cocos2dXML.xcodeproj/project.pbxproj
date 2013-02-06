@@ -16,6 +16,14 @@
 		9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715416AC734C001F2C91 /* libxml2.dylib */; };
 		9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715616AC73B0001F2C91 /* QuartzCore.framework */; };
 		9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2D715816AC73B5001F2C91 /* OpenGLES.framework */; };
+		9B50A43016C209340024138D /* Cocos2dXMLTouchDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B50A42E16C209340024138D /* Cocos2dXMLTouchDelegate.cpp */; };
+		9B50A43116C209340024138D /* Cocos2dXMLTouchDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B50A42E16C209340024138D /* Cocos2dXMLTouchDelegate.cpp */; };
+		9B50A43716C21F070024138D /* touchDown.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43416C21F060024138D /* touchDown.noplb */; };
+		9B50A43816C21F070024138D /* touchDown.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43416C21F060024138D /* touchDown.noplb */; };
+		9B50A43916C21F070024138D /* touchMove.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43516C21F060024138D /* touchMove.noplb */; };
+		9B50A43A16C21F070024138D /* touchMove.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43516C21F060024138D /* touchMove.noplb */; };
+		9B50A43B16C21F070024138D /* touchUp.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43616C21F070024138D /* touchUp.noplb */; };
+		9B50A43C16C21F070024138D /* touchUp.noplb in Resources */ = {isa = PBXBuildFile; fileRef = 9B50A43616C21F070024138D /* touchUp.noplb */; };
 		9B69BE9E16BEC4750000D537 /* Action_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B69BE1116BEC4750000D537 /* Action_Base.cpp */; };
 		9B69BE9F16BEC4750000D537 /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B69BE1316BEC4750000D537 /* Action.cpp */; };
 		9B69BEA016BEC4750000D537 /* Animation_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B69BE1516BEC4750000D537 /* Animation_Base.cpp */; };
@@ -171,6 +179,11 @@
 		9B2D715416AC734C001F2C91 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9B2D715616AC73B0001F2C91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9B2D715816AC73B5001F2C91 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		9B50A42E16C209340024138D /* Cocos2dXMLTouchDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cocos2dXMLTouchDelegate.cpp; sourceTree = "<group>"; };
+		9B50A42F16C209340024138D /* Cocos2dXMLTouchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cocos2dXMLTouchDelegate.h; sourceTree = "<group>"; };
+		9B50A43416C21F060024138D /* touchDown.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = touchDown.noplb; sourceTree = "<group>"; };
+		9B50A43516C21F060024138D /* touchMove.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = touchMove.noplb; sourceTree = "<group>"; };
+		9B50A43616C21F070024138D /* touchUp.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = touchUp.noplb; sourceTree = "<group>"; };
 		9B69BE1116BEC4750000D537 /* Action_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action_Base.cpp; sourceTree = "<group>"; };
 		9B69BE1216BEC4750000D537 /* Action_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action_Base.h; sourceTree = "<group>"; };
 		9B69BE1316BEC4750000D537 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
@@ -380,6 +393,9 @@
 				A2D664CC16C0CD7700B88522 /* platform.png */,
 				A2D664CF16C0D36200B88522 /* setup.noplb */,
 				A2D664D016C0D36200B88522 /* update.noplb */,
+				9B50A43416C21F060024138D /* touchDown.noplb */,
+				9B50A43516C21F060024138D /* touchMove.noplb */,
+				9B50A43616C21F070024138D /* touchUp.noplb */,
 				9B105B2816B5C6AC005453A6 /* main.xml */,
 				9B105B2916B5C6AC005453A6 /* testScene.xml */,
 			);
@@ -585,6 +601,8 @@
 				9B32DAE916B49EBB00D3877A /* CodeGeneration */,
 				9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */,
 				9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */,
+				9B50A42E16C209340024138D /* Cocos2dXMLTouchDelegate.cpp */,
+				9B50A42F16C209340024138D /* Cocos2dXMLTouchDelegate.h */,
 				9BD6D2DF16AC894400FD95B8 /* ObjcGlue */,
 				9BD5BD3A16AC70E2000CF083 /* Supporting Files */,
 			);
@@ -749,8 +767,7 @@
 		A2D664C116BD782300B88522 /* libNoPLRuntime.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			name = libNoPLRuntime.a;
-			path = "libNoPLRuntime(OSX).a";
+			path = libNoPLRuntime.a;
 			remoteRef = A2D664C016BD782300B88522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -771,6 +788,9 @@
 				A2D664CE16C0CD7700B88522 /* platform.png in Resources */,
 				A2D664D116C0D36200B88522 /* setup.noplb in Resources */,
 				A2D664D216C0D36200B88522 /* update.noplb in Resources */,
+				9B50A43716C21F070024138D /* touchDown.noplb in Resources */,
+				9B50A43916C21F070024138D /* touchMove.noplb in Resources */,
+				9B50A43B16C21F070024138D /* touchUp.noplb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +801,9 @@
 				9BD5BD5C16AC70E2000CF083 /* InfoPlist.strings in Resources */,
 				9B105B2D16B5C6AC005453A6 /* main.xml in Resources */,
 				9B105B2F16B5C6AC005453A6 /* testScene.xml in Resources */,
+				9B50A43816C21F070024138D /* touchDown.noplb in Resources */,
+				9B50A43A16C21F070024138D /* touchMove.noplb in Resources */,
+				9B50A43C16C21F070024138D /* touchUp.noplb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,6 +924,7 @@
 				9B69BEE116BEC4750000D537 /* Transition.cpp in Sources */,
 				9B69BEE216BEC4750000D537 /* Variable_Base.cpp in Sources */,
 				9B69BEE316BEC4750000D537 /* Variable.cpp in Sources */,
+				9B50A43016C209340024138D /* Cocos2dXMLTouchDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +936,7 @@
 				9BD6D2E516AC894400FD95B8 /* AppDelegate.mm in Sources */,
 				9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */,
 				9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */,
+				9B50A43116C209340024138D /* Cocos2dXMLTouchDelegate.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,6 +31,9 @@ void Node::load()
 	//now that we have the node, make sure that all of the properties have been set
 	refreshAllAttributes();
 	
+	//set up a reference to this object on the node
+	node->setUserData(this);
+	
 	//walk up the object graph until we find a parent node
 	BaseObject* parentObj = dynamic_cast<BaseObject*>(parent);
 	while(parentObj)
@@ -100,9 +103,10 @@ void Node::attributeDidChange(int attributeID)
 				node->ignoreAnchorPointForPosition(ignoreAnchorPointForPosition);
 				return;
 			case id_Node_enabled:
-			case id_Node_touchThrough:
+				return;
 			case id_Node_onTouchUp:
 			case id_Node_onTouchMove:
+			case id_Node_onTouchDown:
 			case id_Node_onTouchCancel:
 				return;
 		}
@@ -113,4 +117,26 @@ void Node::attributeDidChange(int attributeID)
 cocos2d::CCNode* Node::getCCNode()
 {
 	return node;
+}
+
+#pragma mark - Touch notification
+
+void Node::touchDidBegin()
+{
+	postEvent(onTouchDown);
+}
+
+void Node::touchDidMove()
+{
+	postEvent(onTouchMove);
+}
+
+void Node::touchDidEnd()
+{
+	postEvent(onTouchUp);
+}
+
+void Node::touchDidCancel()
+{
+	postEvent(onTouchCancel);
 }
