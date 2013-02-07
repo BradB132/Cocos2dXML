@@ -543,9 +543,44 @@
 </complexType>
 
 <!--
+TODO: 
+<element name="Pool" type="cc:Pool"/>
+<complexType name="Pool">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<sequence>
+				<any minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+			<attribute name="target" type="IDREF" use="optional"/>
+			<attribute name="createListener" type="cc:eventListener"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="PoolInstance" type="cc:PoolInstance"/>
+<complexType name="PoolInstance">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<sequence>
+				<any minOccurs="1" maxOccurs="unbounded"/>
+			</sequence>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="Accelerometer" type="cc:Accelerometer"/>
+<complexType name="Accelerometer">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="onUpdate" type="cc:event"/>
+		</extension>
+	</complexContent>
+</complexType>
+-->
+
+<!--
 TODO:
 shaders
-accelerometer
 parallax?
 Camera?
 RenderTexture
