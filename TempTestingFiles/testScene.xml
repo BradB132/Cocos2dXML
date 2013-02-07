@@ -6,7 +6,7 @@
 	<Sprite id="plat3" anchorPoint=".5,.5" texture="platform.png"/>
 	<Sprite id="plat4" anchorPoint=".5,.5" texture="platform.png"/>
 	
-	<Sprite id="heroTex" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
+	<Sprite id="hero" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
 	
 	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchUp="touchUp" onTouchCancel="touchUp"/>
 	
@@ -24,7 +24,8 @@
 	-->
 	
 	<!-- Variables and scripting -->
-	<Float id="angleCounter" />
+	<Float id="horizontalJumpSpeed" />
+	<Bool id="isGripping"/>
 	<Script path="setup.noplb" runListener="doSetup"/>
 	<Script path="update.noplb" runListener="doUpdate"/>
 	<Script path="touchDown.noplb" runListener="touchDown"/>

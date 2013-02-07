@@ -34,10 +34,15 @@ BaseObject* BaseObject::objectForID(std::string objectID)
 	return NULL;
 }
 
-void BaseObject::postEvent(std::string eventName)
+void BaseObject::postEvent(std::string eventName, cocos2d::CCDictionary* args)
 {
 	cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
-	center->postNotification(eventName.c_str(), getRootObject());
+	center->postNotification(eventName.c_str(), args, getRootObject());
+}
+
+void BaseObject::postEvent(std::string eventName)
+{
+	postEvent(eventName, NULL);
 }
 
 void BaseObject::load()

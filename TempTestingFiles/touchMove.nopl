@@ -1,1 +1,11 @@
-#"Touch Move";
+
+Object scene = scene;
+
+//only can effect sideways speed when we're holding onto something
+if(scene.isGripping.value)
+{
+	//when we let go, we'll jump at this speed
+	float xMovement = args.touch.dx;
+	xMovement *= .6f;
+	scene.horizontalJumpSpeed.setValue(xMovement);
+}

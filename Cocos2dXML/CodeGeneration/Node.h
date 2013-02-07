@@ -26,10 +26,12 @@ public:
 	
 	virtual cocos2d::CCNode* getCCNode();
 	
-	virtual void touchDidBegin();
-    virtual void touchDidMove();
-	virtual void touchDidEnd();
-	virtual void touchDidCancel();
+	virtual void touchDidBegin(cocos2d::CCTouch* touch);
+    virtual void touchDidMove(cocos2d::CCTouch* touch);
+	virtual void touchDidEnd(cocos2d::CCTouch* touch);
+	virtual void touchDidCancel(cocos2d::CCTouch* touch);
+	
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 	
 protected:
 	

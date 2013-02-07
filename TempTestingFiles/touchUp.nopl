@@ -1,1 +1,3 @@
-#"Touch Up";
+
+Pointer gripBool = scene.isGripping;
+gripBool.setValue(false);

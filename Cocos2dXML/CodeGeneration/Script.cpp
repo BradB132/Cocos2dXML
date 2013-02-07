@@ -25,13 +25,19 @@ NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionNa
 	//check if this is a global
 	if(!calledOnObject)
 	{
+		Script* callingFromScript = scriptStack.at(scriptStack.size()-1);
+		
 		if(!strcmp(functionName, "scene") ||
 		   !strcmp(functionName, "scope") )
 		{
-			Script* callingFromScript = scriptStack.at(scriptStack.size()-1);
-			
 			//return the scope object that this script is in
 			returnVal.pointerValue = callingFromScript->getRootObject();
+			returnVal.type = NoPL_DataType_Pointer;
+		}
+		else if(!strcmp(functionName, "args") ||
+				!strcmp(functionName, "arguments") )
+		{
+			returnVal.pointerValue = callingFromScript->getCurrentParams();
 			returnVal.type = NoPL_DataType_Pointer;
 		}
 		
@@ -70,6 +76,11 @@ static NoPL_Callbacks scriptCallbacks = {evaluateFunction, evaluateSubscript, st
 
 #pragma mark - Script
 
+Script::Script():
+currentParams(NULL)
+{
+}
+
 void Script::load()
 {
 	refreshAllAttributes();
@@ -100,7 +111,7 @@ void Script::attributeDidChange(int attributeID)
 			
 			//listen to the new notification
 			center->addObserver(this,
-								cocos2d::SEL_CallFuncO(&Script::handleRunEvent),
+								cocos2d::SEL_NoteHandler(&Script::handleRunEvent),
 								runListener.c_str(),
 								getRootObject());
 		}
@@ -109,9 +120,11 @@ void Script::attributeDidChange(int attributeID)
 	Script_Base::attributeDidChange(attributeID);
 }
 
-void Script::handleRunEvent(CCObject *obj)
+void Script::handleRunEvent(const char* noteName, cocos2d::CCDictionary* params)
 {
+	currentParams = params;
 	runTheScript();
+	currentParams = NULL;
 }
 
 void Script::runTheScript()
@@ -122,6 +135,11 @@ void Script::runTheScript()
 	scriptStack.push_back(this);
 	runScript(script->scriptBuffer, (unsigned int)script->bufferLength, &scriptCallbacks);
 	scriptStack.pop_back();
+}
+
+cocos2d::CCDictionary* Script::getCurrentParams()
+{
+	return currentParams;
 }
 
 const RequiredScript* Script::requireScriptAtPath(std::string path)

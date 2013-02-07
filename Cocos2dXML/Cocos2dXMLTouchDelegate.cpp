@@ -89,7 +89,7 @@ bool Cocos2dXMLTouchDelegate::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CC
 		touchToNodeMap->setObject(hitNode, pTouch->getID());
 		
 		//notify the wrapper object of the touch
-		((Node*)hitNode->getUserData())->touchDidBegin();
+		((Node*)hitNode->getUserData())->touchDidBegin(pTouch);
 	}
 	
 	return (hitNode != NULL);
@@ -101,7 +101,7 @@ void Cocos2dXMLTouchDelegate::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CC
 	{
 		cocos2d::CCNode* touchedNode = (cocos2d::CCNode*)touchToNodeMap->objectForKey(pTouch->getID());
 		if(touchedNode && touchedNode->getUserData())
-			((Node*)touchedNode->getUserData())->touchDidMove();
+			((Node*)touchedNode->getUserData())->touchDidMove(pTouch);
 	}
 }
 
@@ -112,7 +112,7 @@ void Cocos2dXMLTouchDelegate::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CC
 		cocos2d::CCNode* touchedNode = (cocos2d::CCNode*)touchToNodeMap->objectForKey(pTouch->getID());
 		if(touchedNode && touchedNode->getUserData())
 		{
-			((Node*)touchedNode->getUserData())->touchDidEnd();
+			((Node*)touchedNode->getUserData())->touchDidEnd(pTouch);
 			touchToNodeMap->removeObjectForKey(pTouch->getID());
 		}
 	}
@@ -125,7 +125,7 @@ void Cocos2dXMLTouchDelegate::ccTouchCancelled(cocos2d::CCTouch *pTouch, cocos2d
 		cocos2d::CCNode* touchedNode = (cocos2d::CCNode*)touchToNodeMap->objectForKey(pTouch->getID());
 		if(touchedNode && touchedNode->getUserData())
 		{
-			((Node*)touchedNode->getUserData())->touchDidCancel();
+			((Node*)touchedNode->getUserData())->touchDidCancel(pTouch);
 			touchToNodeMap->removeObjectForKey(pTouch->getID());
 		}
 	}

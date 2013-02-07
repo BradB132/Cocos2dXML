@@ -113,7 +113,6 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
-		A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D664C116BD782300B88522 /* libNoPLRuntime.a */; };
 		A2D664CD16C0CD7700B88522 /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CB16C0CD7700B88522 /* hero.png */; };
 		A2D664CE16C0CD7700B88522 /* platform.png in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CC16C0CD7700B88522 /* platform.png */; };
 		A2D664D116C0D36200B88522 /* setup.noplb in Resources */ = {isa = PBXBuildFile; fileRef = A2D664CF16C0D36200B88522 /* setup.noplb */; };
@@ -128,20 +127,6 @@
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = cocos2dx;
 		};
-		9B84F86816BDF24E00F34DF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9B84F86516BDF21E00F34DF1;
-			remoteInfo = "NoPLRuntime(arm)";
-		};
-		9B84F86A16BDF25200F34DF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B84F85916BDF21E00F34DF1;
-			remoteInfo = "NoPLRuntime(arm)";
-		};
 		9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
@@ -155,20 +140,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9BD5BD2E16AC70E2000CF083;
 			remoteInfo = Cocos2dXML;
-		};
-		A2D664BE16BD782300B88522 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A261C28E15C0E845008AE0C4;
-			remoteInfo = NoPL_Runtime_testing;
-		};
-		A2D664C016BD782300B88522 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A24F59E6163098DB00FC9181;
-			remoteInfo = NoPLRuntime;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -349,7 +320,6 @@
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
-		A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NoPL_Runtime.xcodeproj; path = NoPLGenerator/NoPL_repo/NoPL_Runtime/NoPL_Runtime.xcodeproj; sourceTree = "<group>"; };
 		A2D664CB16C0CD7700B88522 /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		A2D664CC16C0CD7700B88522 /* platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platform.png; sourceTree = "<group>"; };
 		A2D664CF16C0D36200B88522 /* setup.noplb */ = {isa = PBXFileReference; lastKnownFileType = file; path = setup.noplb; sourceTree = "<group>"; };
@@ -361,7 +331,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D664C416BD797000B88522 /* libNoPLRuntime.a in Frameworks */,
 				9B2D715916AC73B5001F2C91 /* OpenGLES.framework in Frameworks */,
 				9B2D715716AC73B0001F2C91 /* QuartzCore.framework in Frameworks */,
 				9B2D715516AC734C001F2C91 /* libxml2.dylib in Frameworks */,
@@ -561,7 +530,6 @@
 		9BD5BD2416AC70E2000CF083 = {
 			isa = PBXGroup;
 			children = (
-				A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */,
 				9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */,
 				9BD5BD3916AC70E2000CF083 /* Cocos2dXML */,
 				9BD5BD5716AC70E2000CF083 /* Cocos2dXMLTests */,
@@ -653,16 +621,6 @@
 			path = ObjcGlue;
 			sourceTree = "<group>";
 		};
-		A2D664BA16BD782300B88522 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A2D664BF16BD782300B88522 /* NoPL_Runtime */,
-				A2D664C116BD782300B88522 /* libNoPLRuntime.a */,
-				9B84F86916BDF24E00F34DF1 /* libNoPLRuntime(arm).a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -678,7 +636,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9B84F86B16BDF25200F34DF1 /* PBXTargetDependency */,
 				9B2D714B16AC71E5001F2C91 /* PBXTargetDependency */,
 			);
 			name = Cocos2dXML;
@@ -729,10 +686,6 @@
 					ProductGroup = 9B9464CD16AC714E00B42B6B /* Products */;
 					ProjectRef = 9B9464CC16AC714E00B42B6B /* cocos2dx.xcodeproj */;
 				},
-				{
-					ProductGroup = A2D664BA16BD782300B88522 /* Products */;
-					ProjectRef = A2D664B916BD782300B88522 /* NoPL_Runtime.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -743,32 +696,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		9B84F86916BDF24E00F34DF1 /* libNoPLRuntime(arm).a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libNoPLRuntime(arm).a";
-			remoteRef = 9B84F86816BDF24E00F34DF1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		9B9464D116AC714E00B42B6B /* libcocos2dx.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libcocos2dx.a;
 			remoteRef = 9B9464D016AC714E00B42B6B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A2D664BF16BD782300B88522 /* NoPL_Runtime */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = NoPL_Runtime;
-			remoteRef = A2D664BE16BD782300B88522 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		A2D664C116BD782300B88522 /* libNoPLRuntime.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libNoPLRuntime.a;
-			remoteRef = A2D664C016BD782300B88522 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -947,11 +879,6 @@
 			isa = PBXTargetDependency;
 			name = cocos2dx;
 			targetProxy = 9B2D714A16AC71E5001F2C91 /* PBXContainerItemProxy */;
-		};
-		9B84F86B16BDF25200F34DF1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "NoPLRuntime(arm)";
-			targetProxy = 9B84F86A16BDF25200F34DF1 /* PBXContainerItemProxy */;
 		};
 		9BD5BD5616AC70E2000CF083 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -1,1 +1,4 @@
-#"Touch Down";
+
+Pointer scene = scene;
+scene.isGripping.setValue(true);
+scene.horizontalJumpSpeed.setValue(0);

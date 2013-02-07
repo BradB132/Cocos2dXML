@@ -19,7 +19,9 @@ public:
 	
 	virtual BaseObject* getRootObject();
 	virtual BaseObject* objectForID(std::string objectID);
+	
 	virtual void postEvent(std::string eventName);
+	virtual void postEvent(std::string eventName, cocos2d::CCDictionary* args);
 	
 	virtual void load();
 	virtual void unload();

@@ -121,22 +121,81 @@ cocos2d::CCNode* Node::getCCNode()
 
 #pragma mark - Touch notification
 
-void Node::touchDidBegin()
+void Node::touchDidBegin(cocos2d::CCTouch* touch)
 {
-	postEvent(onTouchDown);
+	cocos2d::CCDictionary* params = NULL;
+	if(touch)
+	{
+		params = cocos2d::CCDictionary::create();
+		params->setObject(touch, "touch");
+	}
+	postEvent(onTouchDown, params);
 }
 
-void Node::touchDidMove()
+void Node::touchDidMove(cocos2d::CCTouch* touch)
 {
-	postEvent(onTouchMove);
+	cocos2d::CCDictionary* params = NULL;
+	if(touch)
+	{
+		params = cocos2d::CCDictionary::create();
+		params->setObject(touch, "touch");
+	}
+	postEvent(onTouchMove, params);
 }
 
-void Node::touchDidEnd()
+void Node::touchDidEnd(cocos2d::CCTouch* touch)
 {
-	postEvent(onTouchUp);
+	cocos2d::CCDictionary* params = NULL;
+	if(touch)
+	{
+		params = cocos2d::CCDictionary::create();
+		params->setObject(touch, "touch");
+	}
+	postEvent(onTouchUp, params);
 }
 
-void Node::touchDidCancel()
+void Node::touchDidCancel(cocos2d::CCTouch* touch)
 {
-	postEvent(onTouchCancel);
+	cocos2d::CCDictionary* params = NULL;
+	if(touch)
+	{
+		params = cocos2d::CCDictionary::create();
+		params->setObject(touch, "touch");
+	}
+	postEvent(onTouchCancel, params);
+}
+
+NoPL_FunctionValue Node::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue returnVal;
+	returnVal.type = NoPL_DataType_Uninitialized;
+	
+	if(node)
+	{
+		if(argc == 0)
+		{
+			if(!strcmp(functionName, "worldPositionX"))
+			{
+				returnVal.numberValue = node->convertToWorldSpace(cocos2d::CCPointZero).x;
+				returnVal.type = NoPL_DataType_Number;
+			}
+			else if(!strcmp(functionName, "worldPositionY"))
+			{
+				returnVal.numberValue = node->convertToWorldSpace(cocos2d::CCPointZero).y;
+				returnVal.type = NoPL_DataType_Number;
+			}
+		}
+		else if(argc == 2 &&
+		   argv[0].type == NoPL_DataType_Number &&
+		   argv[1].type == NoPL_DataType_Number &&
+		   !strcmp(functionName, "hitTest"))
+		{
+			returnVal.booleanValue = (node->hitTest(cocos2d::CCPoint(argv[0].numberValue, argv[1].numberValue)));
+			returnVal.type = NoPL_DataType_Boolean;
+		}
+	}
+	
+	if(returnVal.type == NoPL_DataType_Uninitialized)
+		return Node_Base::evaluateFunction(functionName, argv, argc);
+	return returnVal;
 }

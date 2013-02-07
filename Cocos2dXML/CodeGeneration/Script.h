@@ -22,6 +22,8 @@ class Script : public Script_Base
 {
 public:
 	
+	Script();
+	
 	virtual void load();
 	virtual void unload();
 	
@@ -29,13 +31,16 @@ public:
 	
 	virtual void runTheScript();
 	
+	virtual cocos2d::CCDictionary* getCurrentParams();
+	
 	static const RequiredScript* requireScriptAtPath(std::string path);
 	static void relinquishScriptAtPath(std::string path);
 	
 protected:
 	
-	void handleRunEvent(CCObject *obj);
+	void handleRunEvent(const char* noteName, cocos2d::CCDictionary* params);
 	
+	cocos2d::CCDictionary* currentParams;
 	const RequiredScript* script;
 };
 

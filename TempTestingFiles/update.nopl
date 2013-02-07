@@ -3,49 +3,7 @@
 Pointer scene = scene;
 Pointer hero = scene.hero;
 
-Pointer plat1 = scene.plat1;
-Pointer plat2 = scene.plat2;
-Pointer plat3 = scene.plat3;
-Pointer plat4 = scene.plat4;
-
-float dY = 2.0f;
-float minX = 50;
-float maxX = 320-minX;
-float newY;
-float newX;
-
-newY = plat1.positionY+dY;
-newX = plat1.positionX;
-if(newY > 450)
+if(!scene.isGripping.value)
 {
-	newY -= 450;
-	newX = random(minX, maxX);
+	hero.setPosition(hero.positionX+scene.horizontalJumpSpeed.value, hero.positionY-2);
 }
-plat1.setPosition(newX, newY);
-
-newY = plat2.positionY+dY;
-newX = plat2.positionX;
-if(newY > 450)
-{
-	newY -= 450;
-	newX = random(minX, maxX);
-}
-plat2.setPosition(newX, newY);
-
-newY = plat3.positionY+dY;
-newX = plat3.positionX;
-if(newY > 450)
-{
-	newY -= 450;
-	newX = random(minX, maxX);
-}
-plat3.setPosition(newX, newY);
-
-newY = plat4.positionY+dY;
-newX = plat4.positionX;
-if(newY > 450)
-{
-	newY -= 450;
-	newX = random(minX, maxX);
-}
-plat4.setPosition(newX, newY);
