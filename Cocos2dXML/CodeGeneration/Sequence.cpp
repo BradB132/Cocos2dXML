@@ -13,11 +13,12 @@ void Sequence::createActionObject(cocos2d::CCAction** outAction)
 	if (!*outAction)
 	{
 		//assemble a CCArray of new actions
-		cocos2d::CCArray* actionArray = cocos2d::CCArray::createWithCapacity(FiniteActions.size());
-		for(std::vector<FiniteAction*>::iterator it = FiniteActions.begin(); it != FiniteActions.end(); ++it)
+		cocos2d::CCArray* actionArray = cocos2d::CCArray::createWithCapacity(FiniteActions->count());
+		cocos2d::ccArray* arr = FiniteActions->data;
+		for(int i = 0; i < arr->num; i++)
 		{
 			cocos2d::CCAction* childAction = NULL;
-			(*it)->createActionObject(&childAction);
+			((FiniteAction*)arr->arr[i])->createActionObject(&childAction);
 			if(childAction)
 				actionArray->addObject(childAction);
 		}

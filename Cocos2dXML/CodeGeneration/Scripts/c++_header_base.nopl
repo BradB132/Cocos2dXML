@@ -122,7 +122,7 @@ if(children.count > 0)
 	{
 		Object child = children[j];
 		String listName = capitalize((String)pluralize((String)child.name));
-<?	virtual std::vector<?>#valueForKey((String)child.type);<?*>* get?>#listName;<?();
+<?	virtual cocos2d::CCArray* get?>#listName;<?();
 ?>
 	}
 <?
@@ -184,7 +184,7 @@ if(children.count > 0)
 	{
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
-<?	std::vector<?>#valueForKey((String)child.type);<?*> ?>#listName;<?;
+<?	cocos2d::CCArray* ?>#listName;<?;
 ?>
 	}
 }

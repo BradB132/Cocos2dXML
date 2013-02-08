@@ -46,8 +46,8 @@ NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionNa
 	}
 	else
 	{
-		//assume this object is the correct type for now (TODO: fix that)
-		BaseObject_Base* obj = (BaseObject_Base*)calledOnObject;
+		//it should be safe to assume all pointers are CCObjects
+		cocos2d::CCObject* obj = (cocos2d::CCObject*)calledOnObject;
 		returnVal = obj->evaluateFunction(functionName, argv, argc);
 	}
 	
@@ -59,7 +59,12 @@ NoPL_FunctionValue evaluateSubscript(void* calledOnObject, NoPL_FunctionValue in
 	NoPL_FunctionValue returnVal;
 	returnVal.type = NoPL_DataType_Uninitialized;
 	
-	//TODO: finish this
+	if(calledOnObject)
+	{
+		//it should be safe to assume all pointers are CCObjects
+		cocos2d::CCObject* obj = (cocos2d::CCObject*)calledOnObject;
+		returnVal = obj->evaluateSubscript(index);
+	}
 	
 	return returnVal;
 }

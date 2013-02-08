@@ -55,20 +55,17 @@ if(!hasDefaults)
 
 //create the constructor / desctuctor
 #baseName;<?::?>#baseName;<?()?>
+BOOL first = YES;
+
 if(!hasParentClass)
 {
+	first = NO;
 <?:
 parent(NULL)?>
 }
 
 if(hasDefaults)
 {
-	BOOL first = hasParentClass;
-	if(first)
-	{
-		<?:
-?>
-	}
 	for(int j = 0; j < attributes.length; j++)
 	{
 		Object attr = attributes[j];
@@ -76,7 +73,12 @@ if(hasDefaults)
 		//default is a NoPL keyword, so we need to access it with a subscript
 		if(attr['default'] != '0x0')
 		{
-			if(!first)
+			if(first)
+			{
+				<?:
+?>
+			}
+			else
 			{
 				<?,
 ?>
@@ -118,6 +120,22 @@ if(hasDefaults)
 		}
 	}
 }
+for(int j = 0; j < children.length; j++)
+{
+	Object child = children[j];
+	if(first)
+	{
+		<?:
+?>
+	}
+	else
+	{
+		<?,
+?>
+	}
+	first = NO;
+	#pluralize((String)child.type);<?(new cocos2d::CCArray())?>
+}
 <?
 {
 }
@@ -129,11 +147,11 @@ for(int j = 0; j < children.count; j++)
 {
 	Object child = children[j];
 	String listName = pluralize((String)child.name);
-<?	for(std::vector<?>#valueForKey((String)child.type);<?*>::iterator it = ?>#listName;<?.begin(); it != ?>#listName;<?.end(); ++it)
+<?	if(?>#listName;<?)
 	{
-		delete *it;
+		?>#listName;<?->release();
+		?>#listName;<? = NULL;
 	}
-	?>#listName;<?.clear();
 ?>
 }
 <?}
@@ -279,7 +297,8 @@ if(children.count > 0)
 			<?if(isKindOfClass((char*)child->name, "?>#childName;<?"))
 			{
 				?>#childName;<?* newObj = (?>#childName;<?*)newObjectOfType((char*)child->name);
-				?>#pluralize(childName);<?.push_back(newObj);
+				?>#pluralize(childName);<?->addObject(newObj);
+				newObj->release();
 				newObj->initWithXML(child, this);
 			}
 ?>
@@ -360,9 +379,9 @@ if(children.count > 0)
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
 		String capName = capitalize(listName);
-<?std::vector<?>#valueForKey((string)child.type);<?*>* ?>#baseName;<?::get?>#listName;<?()
+<?cocos2d::CCArray* ?>#baseName;<?::get?>#listName;<?()
 {
-	return &?>#listName;<?;
+	return ?>#listName;<?;
 }
 
 ?>
@@ -383,16 +402,25 @@ else
 
 ?>
 }
+
+if(children.count > 0)
+{
+<?	BaseObject* baseObj;
+	cocos2d::ccArray* arrayData;
+?>
 	for(int j = 0; j < children.count; j++)
 	{
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
-<?	for(std::vector<?>#valueForKey((String)child.type);<?*>::iterator it = ?>#listName;<?.begin(); it != ?>#listName;<?.end(); ++it)
+<?	arrayData = ?>#listName;<?->data; 
+	for(int i = 0; i < arrayData->num; i++)
 	{
-		(*it)->visitLoad();
+		baseObj = (BaseObject*)arrayData->arr[i];
+		baseObj->visitLoad();
 	}
 ?>
 	}
+}
 <?}
 
 void ?>#baseName;<?::visitUnload()
@@ -410,16 +438,24 @@ else
 
 ?>
 }
+if(children.count > 0)
+{
+<?	BaseObject* baseObj;
+	cocos2d::ccArray* arrayData;
+?>
 	for(int j = 0; j < children.count; j++)
 	{
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
-<?	for(std::vector<?>#valueForKey((String)child.type);<?*>::iterator it = ?>#listName;<?.begin(); it != ?>#listName;<?.end(); ++it)
+<?	arrayData = ?>#listName;<?->data; 
+	for(int i = 0; i < arrayData->num; i++)
 	{
-		(*it)->visitUnload();
+		baseObj = (BaseObject*)arrayData->arr[i];
+		baseObj->visitUnload();
 	}
 ?>
 	}
+}
 <?}
 
 ?>
@@ -585,6 +621,22 @@ for(int j = 0; j < attributes.count; j++)
 <?		}
 ?>
 	}
+}
+for(int j = 0; j < children.count; j++)
+{
+<?		?>
+	if(j != 0 || attributes.count > 0)
+	{
+		<?else ?>
+	}
+	Object child = children[j];
+	String listName = pluralize((String)child.type);
+		<?if(!strcmp(functionName, "?>#listName;<?"))
+		{
+			retVal.pointerValue = ?>#listName;<?;
+			retVal.type = NoPL_DataType_Pointer;
+		}
+?>
 }
 <?	}
 	else

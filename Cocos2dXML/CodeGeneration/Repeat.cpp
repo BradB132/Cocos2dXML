@@ -14,8 +14,8 @@ void Repeat::createActionObject(cocos2d::CCAction** outAction)
 	{
 		//get the action object that we're easing
 		cocos2d::CCAction* innerAction = NULL;
-		if(FiniteActions.size() > 0)
-			FiniteActions.at(0)->createActionObject(&innerAction);
+		if(FiniteActions->count() > 0)
+			((FiniteAction*)FiniteActions->objectAtIndex(0))->createActionObject(&innerAction);
 		
 		if(innerAction)
 		{

@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Scene onLoad="doSetup" onUpdate="doUpdate">
 	
-	<Sprite id="plat1" anchorPoint=".5,.5" texture="platform.png"/>
-	<Sprite id="plat2" anchorPoint=".5,.5" texture="platform.png"/>
-	<Sprite id="plat3" anchorPoint=".5,.5" texture="platform.png"/>
-	<Sprite id="plat4" anchorPoint=".5,.5" texture="platform.png"/>
+	<Node id="platforms">
+		<Sprite anchorPoint=".5,.5" texture="platform.png"/>
+		<Sprite anchorPoint=".5,.5" texture="platform.png"/>
+		<Sprite anchorPoint=".5,.5" texture="platform.png"/>
+		<Sprite anchorPoint=".5,.5" texture="platform.png"/>
+	</Node>
 	
 	<Sprite id="hero" position="160,480" anchorPoint=".5,1" texture="hero.png"/>
 	
 	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchUp="touchUp" onTouchCancel="touchUp"/>
-	
-	<!--
-	<Repeat target="lolTex" repeats="2000">
-		<Sequence>
-			<Ease type="in">
-				<Move value="20,200" duration="6"/>
-			</Ease>
-			<Ease type="bounceOut">
-				<Move value="20,0" duration="2"/>
-			</Ease>
-		</Sequence>
-	</Repeat>
-	-->
 	
 	<!-- Variables and scripting -->
 	<Float id="horizontalJumpSpeed" />

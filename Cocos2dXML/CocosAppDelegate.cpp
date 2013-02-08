@@ -57,10 +57,10 @@ bool CocosAppDelegate::applicationDidFinishLaunching()
 	
 	Cocos2dXMLTouchDelegate::initDelegate();
 	
-	if(xmlDirector->getSceneReferences()->size() > 0)
+	if(xmlDirector->getSceneReferences()->count() > 0)
 	{
 		//default to the first scene
-		SceneReference* defaultScene = (SceneReference*)xmlDirector->getSceneReferences()->at(0);
+		SceneReference* defaultScene = (SceneReference*)xmlDirector->getSceneReferences()->objectAtIndex(0);
 		return switchToScene(defaultScene, NULL, false);
 	}
 	else
