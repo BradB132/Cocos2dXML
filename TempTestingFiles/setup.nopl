@@ -10,17 +10,8 @@ float minX = 50;
 float maxX = 320-minX;
 float verticalSpace = 480/4;
 
-#"PLATS: "+platforms;
 for(int i = 0; i < platforms.count; i++)
 {
 	Object p = platforms[i];
 	p.setPosition((float)random(minX, maxX), (float)random(480));
 }
-
-/*
-//randomly position platforms
-plat1.setPosition((float)random(minX, maxX), verticalSpace*0);
-plat2.setPosition((float)random(minX, maxX), verticalSpace*1);
-plat3.setPosition((float)random(minX, maxX), verticalSpace*2);
-plat4.setPosition((float)random(minX, maxX), verticalSpace*3);
-*/
