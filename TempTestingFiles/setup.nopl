@@ -1,17 +1,13 @@
 
 //get the texture that we care about
 Pointer scene = scene;
+Pointer dir = director;
 
 //get all of the platforms in this scene
 Pointer platforms = scene.platforms.Nodes;
 
-//set some bounds
-float minX = 50;
-float maxX = 320-minX;
-float verticalSpace = 480/4;
-
 for(int i = 0; i < platforms.count; i++)
 {
 	Object p = platforms[i];
-	p.setPosition((float)random(minX, maxX), (float)random(480));
+	p.setPosition((float)random(0, (float)dir.sizeX), i*(dir.sizeY/platforms.count));
 }

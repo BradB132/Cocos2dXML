@@ -176,12 +176,12 @@ NoPL_FunctionValue Node::evaluateFunction(const char* functionName, const NoPL_F
 		{
 			if(!strcmp(functionName, "worldPositionX"))
 			{
-				returnVal.numberValue = node->convertToWorldSpace(cocos2d::CCPointZero).x;
+				returnVal.numberValue = node->convertToWorldSpaceAR(cocos2d::CCPointZero).x;
 				returnVal.type = NoPL_DataType_Number;
 			}
 			else if(!strcmp(functionName, "worldPositionY"))
 			{
-				returnVal.numberValue = node->convertToWorldSpace(cocos2d::CCPointZero).y;
+				returnVal.numberValue = node->convertToWorldSpaceAR(cocos2d::CCPointZero).y;
 				returnVal.type = NoPL_DataType_Number;
 			}
 		}

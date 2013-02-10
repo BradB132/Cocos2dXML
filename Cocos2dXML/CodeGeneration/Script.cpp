@@ -40,6 +40,11 @@ NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionNa
 			returnVal.pointerValue = callingFromScript->getCurrentParams();
 			returnVal.type = NoPL_DataType_Pointer;
 		}
+		else if(!strcmp(functionName, "director"))
+		{
+			returnVal.pointerValue = cocos2d::CCDirector::sharedDirector();
+			returnVal.type = NoPL_DataType_Pointer;
+		}
 		
 		if(returnVal.type == NoPL_DataType_Uninitialized)
 			returnVal = nopl_standardFunctions(calledOnObject, functionName, argv, argc);

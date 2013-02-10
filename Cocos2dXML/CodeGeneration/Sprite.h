@@ -17,6 +17,11 @@ public:
 	virtual void load();
 	
 	virtual void attributeDidChange(int attributeID);
+	
+protected:
+	
+	void formatTexturePathWithSuffix();
+	std::string pathWithResolutionSuffix;
 };
 
 #endif //end __SPRITE_H__

@@ -50,6 +50,14 @@ bool CocosAppDelegate::applicationDidFinishLaunching()
 	
 	pDirector->setOpenGLView(pEGLView);
 	
+	//set the content scale
+	float smallerDesigned = (xmlDirector->getDesignedSize().x < xmlDirector->getDesignedSize().y) ? xmlDirector->getDesignedSize().x : xmlDirector->getDesignedSize().y;
+	float smallerScreenSize = (pEGLView->getFrameSize().width < pEGLView->getFrameSize().height) ? pEGLView->getFrameSize().width : pEGLView->getFrameSize().height;
+	int scaleFactor = (int)(smallerScreenSize/smallerDesigned);
+	CCSize frame = pEGLView->getFrameSize();
+	pEGLView->setDesignResolutionSize(frame.width/scaleFactor, frame.height/scaleFactor, kResolutionNoBorder);
+	pDirector->setContentScaleFactor(scaleFactor);
+	
 	// set attributes of the director based on XML arguments
 	pDirector->setDisplayStats(xmlDirector->getDisplayStats());
 	pDirector->setAnimationInterval(1.0/xmlDirector->getFps());
@@ -101,7 +109,7 @@ bool CocosAppDelegate::switchToScene(SceneReference* ref, Transition* trans, boo
 		return false;
 	}
 	
-	//create a the new scene using the XML
+	//create the new scene using the XML
 	//TODO: figure out how to handle this with transitions, right now this is a massive leak!
 //	if(currentScene)
 //	{

@@ -1,4 +1,4 @@
 
-Pointer scene = scene;
-scene.isGripping.setValue(true);
-scene.horizontalJumpSpeed.setValue(0);
+//incriment the number of fingers touching the screen
+Pointer touchCount = scene.touchCount;
+touchCount.setValue(touchCount.value+1);

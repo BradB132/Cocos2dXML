@@ -9,11 +9,36 @@
 #include "Sprite.h"
 #include "sprite_nodes/CCSprite.h"
 
+void Sprite::formatTexturePathWithSuffix()
+{
+	//cocos no longer supports content scale suffix, so we'll have to do that ourselves
+	int scaleSufix = (int)cocos2d::CCDirector::sharedDirector()->getContentScaleFactor();
+	if(scaleSufix == 1)
+		pathWithResolutionSuffix = texture;
+	else
+	{
+		while (scaleSufix > 1)
+		{
+			//add a @x suffix onto the file name
+			char formatStr[texture.length()+5];
+			int index = texture.rfind('.');
+			sprintf(formatStr, "%s@%dx%s", texture.substr(0,index).c_str(), scaleSufix, texture.substr(index).c_str());
+			pathWithResolutionSuffix = formatStr;
+			
+			//TODO: check if file exists, then break if it does
+			break;
+			
+			scaleSufix--;
+		}
+	}
+}
+
 void Sprite::load()
 {
 	if(!node)
 	{
-		node = cocos2d::CCSprite::create(texture.c_str());
+		formatTexturePathWithSuffix();
+		node = cocos2d::CCSprite::create(pathWithResolutionSuffix.c_str());
 		node->retain();
 	}
 	
@@ -33,11 +58,13 @@ void Sprite::attributeDidChange(int attributeID)
 				return;
 			case id_Sprite_texture:
 			{
-				cocos2d::CCTexture2D* tex = cocos2d::CCTextureCache::sharedTextureCache()->addImage(texture.c_str());
+				formatTexturePathWithSuffix();
+				
+				cocos2d::CCTexture2D* tex = cocos2d::CCTextureCache::sharedTextureCache()->addImage(pathWithResolutionSuffix.c_str());
 				sprite->setTexture(tex);
 				
 				//we generally also want this node to be the same size as the image
-				sprite->setContentSize(tex->getContentSize());
+				this->setSize(cocos2d::CCPoint(tex->getContentSize().width, tex->getContentSize().height));
 			}
 				return;
 			case id_Sprite_flipX:

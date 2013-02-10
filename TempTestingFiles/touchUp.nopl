@@ -1,3 +1,12 @@
 
-Pointer gripBool = scene.isGripping;
-gripBool.setValue(false);
+//decriment the number of fingers touching the screen
+Pointer touchCount = scene.touchCount;
+float count = touchCount.value-1;
+touchCount.setValue(count);
+
+if(count == 0)
+{
+	//when no fingers are touching the screen, we've definitely let go
+	Pointer gripBool = scene.isGripping;
+	gripBool.setValue(false);
+}

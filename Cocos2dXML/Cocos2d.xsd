@@ -188,6 +188,7 @@
 			<attribute name="displayStats" type="boolean" default="false" />
 			<attribute name="fps" type="double" default="60.0" />
 			<attribute name="color" type="cc:color3" default="#000000"/>
+			<attribute name="designedSize" type="cc:point" default="320,480"/>
 			<attribute name="pushScene" type="cc:eventListener"/>
 			<attribute name="swapScene" type="cc:eventListener"/>
 			<attribute name="popScene" type="cc:eventListener"/>
@@ -222,7 +223,7 @@
 			<sequence>
 				<element ref="cc:Node" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
-			<attribute name="zOrder" type="int"/>
+			<attribute name="zOrder" type="int" default="0"/>
 			<attribute name="scale" type="cc:point" default="1,1"/>
 			<attribute name="position" type="cc:point" default="0,0"/>
 			<attribute name="skew" type="cc:point" default="0,0"/>
@@ -287,6 +288,7 @@
 				<element ref="cc:Action" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Accelerometer" minOccurs="0" maxOccurs="1"/>
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
 			<attribute name="onLoad" type="cc:event"/>
@@ -542,6 +544,16 @@
 	</complexContent>
 </complexType>
 
+<element name="Accelerometer" type="cc:Accelerometer"/>
+<complexType name="Accelerometer">
+	<complexContent>
+		<extension base="cc:BaseObject">
+			<attribute name="hertz" type="float" default="30"/>
+			<attribute name="filter" type="float" default="0.1"/>
+		</extension>
+	</complexContent>
+</complexType>
+
 <!--
 TODO: 
 <element name="Pool" type="cc:Pool"/>
@@ -564,15 +576,6 @@ TODO:
 			<sequence>
 				<any minOccurs="1" maxOccurs="unbounded"/>
 			</sequence>
-		</extension>
-	</complexContent>
-</complexType>
-
-<element name="Accelerometer" type="cc:Accelerometer"/>
-<complexType name="Accelerometer">
-	<complexContent>
-		<extension base="cc:BaseObject">
-			<attribute name="onUpdate" type="cc:event"/>
 		</extension>
 	</complexContent>
 </complexType>

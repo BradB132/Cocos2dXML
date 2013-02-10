@@ -6,6 +6,6 @@ if(scene.isGripping.value)
 {
 	//when we let go, we'll jump at this speed
 	float xMovement = args.touch.dx;
-	xMovement *= .6f;
+	xMovement *= .15f;
 	scene.horizontalJumpSpeed.setValue(xMovement);
 }
