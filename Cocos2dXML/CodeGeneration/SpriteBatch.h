@@ -13,7 +13,7 @@
 
 class SpriteBatch : public SpriteBatch_Base
 {
-	
+	virtual void load();
 };
 
 #endif //end __SPRITEBATCH_H__

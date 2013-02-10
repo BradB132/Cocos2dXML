@@ -7,3 +7,80 @@
 //
 
 #include "Object.h"
+
+void Object::load()
+{
+	refreshAllAttributes();
+	
+	Object_Base::load();
+}
+
+void Object::unload()
+{
+	if(referencedObject)
+	{
+		referencedObject->release();
+		referencedObject = NULL;
+	}
+	
+	Object_Base::unload();
+}
+
+void Object::attributeDidChange(int attributeID)
+{
+	switch (attributeID)
+	{
+		case id_Object_value:
+			
+			//swap out the old object for the new one
+			setReferencedObject(objectForID(value));
+			
+			return;
+	}
+	Object_Base::attributeDidChange(attributeID);
+}
+
+void Object::setReferencedObject(cocos2d::CCObject* newObj)
+{
+	//swap out the old object for the new one
+	if(referencedObject)
+		referencedObject->release();
+	
+	referencedObject = newObj;
+	
+	if(referencedObject)
+		referencedObject->retain();
+}
+
+NoPL_FunctionValue Object::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue retVal;
+	retVal.type = NoPL_DataType_Uninitialized;
+	
+	//accessors
+	if(argc == 0)
+	{
+		if(!strcmp(functionName, "value"))
+		{
+			retVal.pointerValue = referencedObject;
+			retVal.type = NoPL_DataType_Pointer;
+		}
+	}
+	else
+	{
+		if(!strcmp(functionName, "setValue"))
+		{
+			if(argc == 1 && argv[0].type == NoPL_DataType_Pointer)
+			{
+				setReferencedObject((cocos2d::CCObject*)argv[0].pointerValue);
+				
+				retVal.booleanValue = true;
+				retVal.type = NoPL_DataType_Boolean;
+			}
+		}
+	}
+	//return the result if we found one
+	if(retVal.type != NoPL_DataType_Uninitialized)
+		return retVal;
+	return Variable::evaluateFunction(functionName, argv, argc);
+}

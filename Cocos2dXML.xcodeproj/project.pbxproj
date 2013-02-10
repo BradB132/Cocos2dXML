@@ -113,6 +113,10 @@
 		9BD6D2E716AC894400FD95B8 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E316AC894400FD95B8 /* RootViewController.mm */; };
 		9BD6D2ED16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
 		9BD6D2EE16AC8C6E00FD95B8 /* CocosAppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */; };
+		A25EBBBA16C837DB00491436 /* hurdle.plist in Resources */ = {isa = PBXBuildFile; fileRef = A25EBBB816C837DB00491436 /* hurdle.plist */; };
+		A25EBBBB16C837DB00491436 /* hurdle.plist in Resources */ = {isa = PBXBuildFile; fileRef = A25EBBB816C837DB00491436 /* hurdle.plist */; };
+		A25EBBBC16C837DB00491436 /* hurdle.png in Resources */ = {isa = PBXBuildFile; fileRef = A25EBBB916C837DB00491436 /* hurdle.png */; };
+		A25EBBBD16C837DB00491436 /* hurdle.png in Resources */ = {isa = PBXBuildFile; fileRef = A25EBBB916C837DB00491436 /* hurdle.png */; };
 		A275AF2A16C70817002C6571 /* hero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A275AF2816C70817002C6571 /* hero@2x.png */; };
 		A275AF2B16C70817002C6571 /* hero@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A275AF2816C70817002C6571 /* hero@2x.png */; };
 		A275AF2C16C70817002C6571 /* platform@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A275AF2916C70817002C6571 /* platform@2x.png */; };
@@ -328,6 +332,8 @@
 		9BD6D2E316AC894400FD95B8 /* RootViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RootViewController.mm; sourceTree = "<group>"; };
 		9BD6D2E816AC8C6E00FD95B8 /* CocosAppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CocosAppDelegate.cpp; sourceTree = "<group>"; };
 		9BD6D2F116AC8D2000FD95B8 /* CocosAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosAppDelegate.h; sourceTree = "<group>"; };
+		A25EBBB816C837DB00491436 /* hurdle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hurdle.plist; path = animation/hurdle.plist; sourceTree = "<group>"; };
+		A25EBBB916C837DB00491436 /* hurdle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hurdle.png; path = animation/hurdle.png; sourceTree = "<group>"; };
 		A275AF2816C70817002C6571 /* hero@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hero@2x.png"; sourceTree = "<group>"; };
 		A275AF2916C70817002C6571 /* platform@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platform@2x.png"; sourceTree = "<group>"; };
 		A29E392016C74F16004BA316 /* Accelerometer_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Accelerometer_Base.cpp; sourceTree = "<group>"; };
@@ -372,6 +378,8 @@
 		9B105B2616B5C6AC005453A6 /* TempTestingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A25EBBB816C837DB00491436 /* hurdle.plist */,
+				A25EBBB916C837DB00491436 /* hurdle.png */,
 				A2D664CB16C0CD7700B88522 /* hero.png */,
 				A2D664CC16C0CD7700B88522 /* platform.png */,
 				A275AF2816C70817002C6571 /* hero@2x.png */,
@@ -745,6 +753,8 @@
 				9B50A43B16C21F070024138D /* touchUp.noplb in Resources */,
 				A275AF2A16C70817002C6571 /* hero@2x.png in Resources */,
 				A275AF2C16C70817002C6571 /* platform@2x.png in Resources */,
+				A25EBBBA16C837DB00491436 /* hurdle.plist in Resources */,
+				A25EBBBC16C837DB00491436 /* hurdle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +770,8 @@
 				9B50A43C16C21F070024138D /* touchUp.noplb in Resources */,
 				A275AF2B16C70817002C6571 /* hero@2x.png in Resources */,
 				A275AF2D16C70817002C6571 /* platform@2x.png in Resources */,
+				A25EBBBB16C837DB00491436 /* hurdle.plist in Resources */,
+				A25EBBBD16C837DB00491436 /* hurdle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -944,7 +956,6 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -985,7 +996,6 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (

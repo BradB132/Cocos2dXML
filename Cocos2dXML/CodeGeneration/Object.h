@@ -13,7 +13,19 @@
 
 class Object : public Object_Base
 {
+public:
 	
+	virtual void load();
+	virtual void unload();
+	
+	virtual void attributeDidChange(int attributeID);
+	
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	
+protected:
+	
+	void setReferencedObject(cocos2d::CCObject* newObj);
+	cocos2d::CCObject* referencedObject;
 };
 
 #endif //end __OBJECT_H__
