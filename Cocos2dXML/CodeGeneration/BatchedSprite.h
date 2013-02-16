@@ -13,7 +13,10 @@
 
 class BatchedSprite : public BatchedSprite_Base
 {
+public:
+	virtual void load();
 	
+	virtual void attributeDidChange(int attributeID);
 };
 
 #endif //end __BATCHEDSPRITE_H__

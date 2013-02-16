@@ -463,6 +463,7 @@
 			<attribute name="sequence" type="string" use="required"/>
 			<attribute name="fps" type="float" default="12"/>
 			<attribute name="loops" type="unsignedInt" default="0"/>
+			<attribute name="startListener" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>

@@ -13,7 +13,19 @@
 
 class Animation : public Animation_Base
 {
+public:
 	
+	virtual void load();
+	virtual void unload();
+	
+	virtual void animate();
+	
+	virtual void attributeDidChange(int attributeID);
+	
+protected:
+	
+	//cache the array sequence of frames
+	cocos2d::CCArray* frameList;
 };
 
 #endif //end __ANIMATION_H__
