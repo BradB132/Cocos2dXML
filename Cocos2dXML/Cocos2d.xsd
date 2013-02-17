@@ -287,6 +287,7 @@
 		<extension base="cc:Node">
 			<sequence>
 				<element ref="cc:Action" minOccurs="0" maxOccurs="unbounded"/>
+				<element ref="cc:Animation" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Accelerometer" minOccurs="0" maxOccurs="1"/>
@@ -462,7 +463,8 @@
 			<attribute name="format" type="string" use="required"/>
 			<attribute name="sequence" type="string" use="required"/>
 			<attribute name="fps" type="float" default="12"/>
-			<attribute name="loops" type="unsignedInt" default="0"/>
+			<attribute name="loops" type="unsignedInt" default="1"/>
+			<attribute name="restoreOriginalFrame" type="boolean" default="false"/>
 			<attribute name="startListener" type="cc:eventListener"/>
 		</extension>
 	</complexContent>

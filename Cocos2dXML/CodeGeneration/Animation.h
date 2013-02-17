@@ -24,6 +24,8 @@ public:
 	
 protected:
 	
+	void handleAnimateEvent(const char* noteName, cocos2d::CCDictionary* params);
+	
 	//cache the array sequence of frames
 	cocos2d::CCArray* frameList;
 };

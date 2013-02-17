@@ -7,6 +7,7 @@
 //
 
 #include "Animation.h"
+#include "BatchedSprite.h"
 
 void Animation::load()
 {
@@ -23,6 +24,9 @@ void Animation::unload()
 		frameList->release();
 		frameList = NULL;
 	}
+	
+	cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
+	center->removeObserver(this);
 }
 
 void Animation::attributeDidChange(int attributeID)
@@ -37,6 +41,14 @@ void Animation::attributeDidChange(int attributeID)
 			frameList = cocos2d::CCArray::create();
 			frameList->retain();
 			
+			//set up a format string 
+			char formattedString[sequence.length()+10];
+			int replaceIndex = format.find('#');
+			if(replaceIndex == std::string::npos)
+				return;
+			std::string formatterString = format.replace(replaceIndex, 1, "%d");
+			
+			//iterate over all of the expressions in the sequence string
 			char delimiter = ',';
 			char spanDelimiter = '-';
 			char spanMultiplier = '*';
@@ -52,32 +64,44 @@ void Animation::attributeDidChange(int attributeID)
 				else
 					expression = sequence.substr(delimitIndex, nextIndex-delimitIndex);
 				
+				//check if this expression is a span of numbers or a multiple of the same number
 				if(expression.find(spanDelimiter) != std::string::npos)
 				{
+					//this expression contains the span character, get the indices included in the span
 					int spanIndex = expression.find(spanDelimiter);
 					int startNum = atoi(expression.substr(0,spanIndex).c_str());
 					int endNum = atoi(expression.substr(spanIndex+1).c_str());
 					
-					if(startNum > endNum)
+					//this loop should support counting up or down
+					int incrementor = (endNum > startNum) ? 1 : -1;
+					for(int i = startNum; i-incrementor != endNum; i += incrementor)
 					{
-						
-					}
-					else
-					{
-						
+						//add each frame in the span
+						sprintf(formattedString, formatterString.c_str(), i);
+						cocos2d::CCSpriteFrame* frame = cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(formattedString);
+						frameList->addObject(frame);
 					}
 				}
-				else if(expression.find(spanDelimiter) != std::string::npos)
+				else if(expression.find(spanMultiplier) != std::string::npos)
 				{
-					int multIndex = expression.find(spanDelimiter);
-					int number = atoi(expression.substr(0,multIndex).c_str());
+					//this expression contains the multiplier character, get the index and multiplier
+					int multIndex = expression.find(spanMultiplier);
+					int frameIndex = atoi(expression.substr(0,multIndex).c_str());
 					int repeats = atoi(expression.substr(multIndex+1).c_str());
 					
-					
+					//add the same frame multiple times
+					sprintf(formattedString, formatterString.c_str(), frameIndex);
+					cocos2d::CCSpriteFrame* frame = cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(formattedString);
+					for(int i = 0; i < repeats; i++)
+						frameList->addObject(frame);
 				}
 				else
 				{
-					int index = atoi(expression.c_str());
+					//this is not a special kind of expression, just a single frame index
+					int frameIndex = atoi(expression.c_str());
+					sprintf(formattedString, formatterString.c_str(), frameIndex);
+					cocos2d::CCSpriteFrame* frame = cocos2d::CCSpriteFrameCache::sharedSpriteFrameCache()->spriteFrameByName(formattedString);
+					frameList->addObject(frame);
 				}
 				
 				if(shouldBreak)
@@ -88,7 +112,18 @@ void Animation::attributeDidChange(int attributeID)
 		}
 			return;
 		case id_Animation_startListener:
-			//TODO: subscribe
+		{
+			cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
+			
+			//remove self from any notifications
+			center->removeObserver(this);
+			
+			//listen to the new notification
+			center->addObserver(this,
+								cocos2d::SEL_NoteHandler(&Animation::handleAnimateEvent),
+								startListener.c_str(),
+								getRootObject());
+		}
 			return;
 		case id_Animation_target:
 		case id_Animation_format:
@@ -99,11 +134,19 @@ void Animation::attributeDidChange(int attributeID)
 	Animation_Base::attributeDidChange(attributeID);
 }
 
+void Animation::handleAnimateEvent(const char* noteName, cocos2d::CCDictionary* params)
+{
+	this->animate();
+}
+
 void Animation::animate()
 {
-	cocos2d::CCSprite* targetSprite = dynamic_cast<cocos2d::CCSprite*>(objectForID(target));
+	BatchedSprite* targetSprite = dynamic_cast<BatchedSprite*>(objectForID(target));
 	if(targetSprite)
 	{
-		
+		cocos2d::CCAnimation* animation = cocos2d::CCAnimation::createWithSpriteFrames(frameList, 1.0/fps);
+		animation->setLoops(loops);
+		animation->setRestoreOriginalFrame(restoreOriginalFrame);
+		((cocos2d::CCSprite*)targetSprite->getCCNode())->runAction(cocos2d::CCAnimate::create(animation));
 	}
 }

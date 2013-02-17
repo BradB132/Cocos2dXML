@@ -10,13 +10,14 @@
 		<Sprite anchorPoint=".5,.5" texture="platform.png"/>
 	</Node>
 	
-	<SpriteBatch texture="hurdle.png" plist="hurdle.plist">
-		<BatchedSprite texture="frame1.png" />
-	</SpriteBatch>
-	
 	<Sprite id="hero" position="160,480" anchorPoint=".5,.8" texture="hero.png"/>
 	
 	<Node id="touchNode" size="320,480" onTouchDown="touchDown" onTouchMove="touchMove" onTouchUp="touchUp" onTouchCancel="touchUp"/>
+	
+	<SpriteBatch texture="hurdle.png" plist="hurdle.plist">
+		<BatchedSprite id="hurdleMan" texture="frame1.png" onTouchUp="playHurdle" />
+	</SpriteBatch>
+	<Animation target="hurdleMan" startListener="playHurdle" format="frame#.png" sequence="1-11,10-1" fps="20" loops="2"/>
 	
 	<!-- Variables and scripting -->
 	<Float id="horizontalJumpSpeed" />
