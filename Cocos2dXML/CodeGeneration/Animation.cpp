@@ -37,46 +37,54 @@ void Animation::attributeDidChange(int attributeID)
 			frameList = cocos2d::CCArray::create();
 			frameList->retain();
 			
-			/*
-			 std::string sequence = "1,2,3-4,6*3";
-			 
-			 char delimiter = ',';
-			 char spanDelimiter = '-';
-			 char spanMultiplier = '*';
-			 int delimitIndex = 0;
-			 while(true)
-			 {
-			 //get the next expression in the sequence
-			 int nextIndex = sequence.find(delimiter, delimitIndex);
-			 bool shouldBreak = (nextIndex == std::string::npos);
-			 std::string expression;
-			 if(shouldBreak)
-			 expression = sequence.substr(delimitIndex);
-			 else
-			 expression = sequence.substr(delimitIndex, nextIndex-delimitIndex);
-			 
-			 if(expression.find(spanDelimiter) != std::string::npos)
-			 {
-			 int spanIndex = expression.find(spanDelimiter);
-			 int startNum = atoi(expression.substr(0,spanIndex).c_str());
-			 int endNum = atoi(expression.substr(spanIndex+1).c_str());
-			 
-			 if(startNum > endNum)
-			 {
-			 
-			 }
-			 else
-			 {
-			 
-			 }
-			 }
-			 
-			 if(shouldBreak)
-			 break;
-			 
-			 delimitIndex = nextIndex+1;
-			 }
-			*/
+			char delimiter = ',';
+			char spanDelimiter = '-';
+			char spanMultiplier = '*';
+			int delimitIndex = 0;
+			while(true)
+			{
+				//get the next expression in the sequence
+				int nextIndex = sequence.find(delimiter, delimitIndex);
+				bool shouldBreak = (nextIndex == std::string::npos);
+				std::string expression;
+				if(shouldBreak)
+					expression = sequence.substr(delimitIndex);
+				else
+					expression = sequence.substr(delimitIndex, nextIndex-delimitIndex);
+				
+				if(expression.find(spanDelimiter) != std::string::npos)
+				{
+					int spanIndex = expression.find(spanDelimiter);
+					int startNum = atoi(expression.substr(0,spanIndex).c_str());
+					int endNum = atoi(expression.substr(spanIndex+1).c_str());
+					
+					if(startNum > endNum)
+					{
+						
+					}
+					else
+					{
+						
+					}
+				}
+				else if(expression.find(spanDelimiter) != std::string::npos)
+				{
+					int multIndex = expression.find(spanDelimiter);
+					int number = atoi(expression.substr(0,multIndex).c_str());
+					int repeats = atoi(expression.substr(multIndex+1).c_str());
+					
+					
+				}
+				else
+				{
+					int index = atoi(expression.c_str());
+				}
+				
+				if(shouldBreak)
+					break;
+				
+				delimitIndex = nextIndex+1;
+			}
 		}
 			return;
 		case id_Animation_startListener:
