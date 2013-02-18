@@ -532,6 +532,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B41048E16D1A46700EA730A /* Build configuration list for PBXNativeTarget "Cocos2dXML" */;
 			buildPhases = (
+				9BCBFF5116D1F3050031840C /* ShellScript */,
 				9B41047C16D1A46700EA730A /* Sources */,
 				9B41047D16D1A46700EA730A /* Frameworks */,
 				9B41047E16D1A46700EA730A /* CopyFiles */,
@@ -586,6 +587,31 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BCBFF5116D1F3050031840C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/GeneratorScripts/Cocos2d.xsd",
+				"$(SRCROOT)/GeneratorScripts/c++_main.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_enum.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_header.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_header_base.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_implementation.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_implementation_base.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_include.nopl",
+				"$(SRCROOT)/GeneratorScripts/c++_typedefs.nopl",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#run the NoPLGenerator on the C++ code generation script\n$SRCROOT/NoPLGenerator/executable/NoPLGenerator $SRCROOT/GeneratorScripts/Cocos2d.xsd $SRCROOT/GeneratorScripts/c++_main.nopl";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B41047C16D1A46700EA730A /* Sources */ = {

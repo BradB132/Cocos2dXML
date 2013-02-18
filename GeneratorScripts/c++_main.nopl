@@ -35,7 +35,7 @@ setKeyAndValue('NOTATION', stringType);
 setKeyAndValue('boolean', 'bool');
 
 //choose which directory to put all of our generated code in
-setKeyAndValue('__ROOT_DIR__', '..');
+setKeyAndValue('__ROOT_DIR__', '../Generated');
 
 //the root class wil appear in lots of places, so let's not hard code it
 setKeyAndValue('__ROOT_CLASS__', 'cocos2d::CCObject');
