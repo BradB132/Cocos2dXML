@@ -64,7 +64,9 @@ void Sprite::attributeDidChange(int attributeID)
 				sprite->setTexture(tex);
 				
 				//we generally also want this node to be the same size as the image
-				this->setSize(cocos2d::CCPoint(tex->getContentSize().width, tex->getContentSize().height));
+				cocos2d::CCSize newSize = tex->getContentSize();
+				sprite->setTextureRect(cocos2d::CCRect(0,0,newSize.width,newSize.height));
+				this->setSize(cocos2d::CCPoint(newSize.width, newSize.height));
 			}
 				return;
 			case id_Sprite_flipX:

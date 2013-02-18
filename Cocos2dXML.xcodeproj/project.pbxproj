@@ -14,6 +14,53 @@
 		9B4104A216D1ABB600EA730A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4104A116D1ABB600EA730A /* libxml2.dylib */; };
 		9B4104A416D1ABCA00EA730A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4104A316D1ABCA00EA730A /* QuartzCore.framework */; };
 		9B4104A616D1ABD900EA730A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4104A516D1ABD900EA730A /* OpenGLES.framework */; };
+		9BCB022116D2E7EA0031840C /* APSXMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01AD16D2E7EA0031840C /* APSXMLParser.cpp */; };
+		9BCB022216D2E7EA0031840C /* APSArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01AF16D2E7EA0031840C /* APSArray.cpp */; };
+		9BCB022316D2E7EA0031840C /* APSAutoreleasePool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B016D2E7EA0031840C /* APSAutoreleasePool.cpp */; };
+		9BCB022416D2E7EA0031840C /* APSDictionary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B116D2E7EA0031840C /* APSDictionary.cpp */; };
+		9BCB022516D2E7EA0031840C /* APSNull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B216D2E7EA0031840C /* APSNull.cpp */; };
+		9BCB022616D2E7EA0031840C /* APSNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B316D2E7EA0031840C /* APSNumber.cpp */; };
+		9BCB022716D2E7EA0031840C /* APSObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B416D2E7EA0031840C /* APSObject.cpp */; };
+		9BCB022816D2E7EA0031840C /* APString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B516D2E7EA0031840C /* APString.cpp */; };
+		9BCB022916D2E7EA0031840C /* APSAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B816D2E7EA0031840C /* APSAction.cpp */; };
+		9BCB022A16D2E7EA0031840C /* APSActionGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01B916D2E7EA0031840C /* APSActionGroup.cpp */; };
+		9BCB022B16D2E7EA0031840C /* APSAudioAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01BA16D2E7EA0031840C /* APSAudioAction.cpp */; };
+		9BCB022C16D2E7EA0031840C /* APSLinkerAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01BB16D2E7EA0031840C /* APSLinkerAction.cpp */; };
+		9BCB022D16D2E7EA0031840C /* APSSymbolControlAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01BC16D2E7EA0031840C /* APSSymbolControlAction.cpp */; };
+		9BCB022E16D2E7EA0031840C /* APSTouchEventNotificationLinker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01BD16D2E7EA0031840C /* APSTouchEventNotificationLinker.cpp */; };
+		9BCB022F16D2E7EA0031840C /* APSGraphicAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01BF16D2E7EA0031840C /* APSGraphicAction.cpp */; };
+		9BCB023016D2E7EA0031840C /* APSInstantFadeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C116D2E7EA0031840C /* APSInstantFadeAction.cpp */; };
+		9BCB023116D2E7EA0031840C /* APSInstantGraphicAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C216D2E7EA0031840C /* APSInstantGraphicAction.cpp */; };
+		9BCB023216D2E7EA0031840C /* APSInstantMoveAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C316D2E7EA0031840C /* APSInstantMoveAction.cpp */; };
+		9BCB023316D2E7EA0031840C /* APSInstantRotationAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C416D2E7EA0031840C /* APSInstantRotationAction.cpp */; };
+		9BCB023416D2E7EA0031840C /* APSInstantScaleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C516D2E7EA0031840C /* APSInstantScaleAction.cpp */; };
+		9BCB023516D2E7EA0031840C /* APSVisibilityAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C616D2E7EA0031840C /* APSVisibilityAction.cpp */; };
+		9BCB023616D2E7EA0031840C /* APSAnimateAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C816D2E7EA0031840C /* APSAnimateAction.cpp */; };
+		9BCB023716D2E7EA0031840C /* APSFadeAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01C916D2E7EA0031840C /* APSFadeAction.cpp */; };
+		9BCB023816D2E7EA0031840C /* APSIntervalGraphicAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01CA16D2E7EA0031840C /* APSIntervalGraphicAction.cpp */; };
+		9BCB023916D2E7EA0031840C /* APSMoveAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01CB16D2E7EA0031840C /* APSMoveAction.cpp */; };
+		9BCB023A16D2E7EA0031840C /* APSRotationAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01CC16D2E7EA0031840C /* APSRotationAction.cpp */; };
+		9BCB023B16D2E7EA0031840C /* APSScaleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01CD16D2E7EA0031840C /* APSScaleAction.cpp */; };
+		9BCB023C16D2E7EA0031840C /* APSAnchor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01CF16D2E7EA0031840C /* APSAnchor.cpp */; };
+		9BCB023D16D2E7EA0031840C /* APSBezierMoveAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D016D2E7EA0031840C /* APSBezierMoveAction.cpp */; };
+		9BCB023E16D2E7EA0031840C /* APSResource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D116D2E7EA0031840C /* APSResource.cpp */; };
+		9BCB023F16D2E7EA0031840C /* APSResourceArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D216D2E7EA0031840C /* APSResourceArray.cpp */; };
+		9BCB024016D2E7EA0031840C /* APSSymbol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D316D2E7EA0031840C /* APSSymbol.cpp */; };
+		9BCB024116D2E7EA0031840C /* APSGraphic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D516D2E7EA0031840C /* APSGraphic.cpp */; };
+		9BCB024216D2E7EA0031840C /* APSGraphicGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D616D2E7EA0031840C /* APSGraphicGroup.cpp */; };
+		9BCB024316D2E7EA0031840C /* APSSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D716D2E7EA0031840C /* APSSprite.cpp */; };
+		9BCB024416D2E7EA0031840C /* APSResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D816D2E7EA0031840C /* APSResourceManager.cpp */; };
+		9BCB024516D2E7EA0031840C /* APSTouch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01D916D2E7EA0031840C /* APSTouch.cpp */; };
+		9BCB024616D2E7EA0031840C /* APSCCActionInterval.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01DB16D2E7EA0031840C /* APSCCActionInterval.cpp */; };
+		9BCB024716D2E7EA0031840C /* APSDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01DD16D2E7EA0031840C /* APSDevice.cpp */; };
+		9BCB024816D2E7EA0031840C /* APSDeviceInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB01DE16D2E7EA0031840C /* APSDeviceInfo.cpp */; };
+		9BCB024916D2E7EA0031840C /* APSAudioHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021816D2E7EA0031840C /* APSAudioHolder.cpp */; };
+		9BCB024A16D2E7EA0031840C /* APSImageHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021916D2E7EA0031840C /* APSImageHolder.cpp */; };
+		9BCB024B16D2E7EA0031840C /* APSMedium.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021A16D2E7EA0031840C /* APSMedium.cpp */; };
+		9BCB024C16D2E7EA0031840C /* APSSpriteFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021B16D2E7EA0031840C /* APSSpriteFrame.cpp */; };
+		9BCB024D16D2E7EA0031840C /* APSSpriteSheetHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021C16D2E7EA0031840C /* APSSpriteSheetHolder.cpp */; };
+		9BCB024E16D2E7EA0031840C /* APSPlatform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB021E16D2E7EA0031840C /* APSPlatform.cpp */; };
+		9BCB024F16D2E7EA0031840C /* APXAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCB022016D2E7EA0031840C /* APXAnimation.cpp */; };
 		9BCBFE0C16D1B19B0031840C /* libcocos2dx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCBFE0B16D1B1940031840C /* libcocos2dx.a */; };
 		9BCBFEA416D1BD3F0031840C /* Accelerometer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE0E16D1BD3F0031840C /* Accelerometer.cpp */; };
 		9BCBFEA516D1BD3F0031840C /* Accelerometer_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE1016D1BD3F0031840C /* Accelerometer_Base.cpp */; };
@@ -125,6 +172,108 @@
 		9B4104A116D1ABB600EA730A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		9B4104A316D1ABCA00EA730A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9B4104A516D1ABD900EA730A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		9BCB01AD16D2E7EA0031840C /* APSXMLParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSXMLParser.cpp; sourceTree = "<group>"; };
+		9BCB01AF16D2E7EA0031840C /* APSArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSArray.cpp; sourceTree = "<group>"; };
+		9BCB01B016D2E7EA0031840C /* APSAutoreleasePool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAutoreleasePool.cpp; sourceTree = "<group>"; };
+		9BCB01B116D2E7EA0031840C /* APSDictionary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSDictionary.cpp; sourceTree = "<group>"; };
+		9BCB01B216D2E7EA0031840C /* APSNull.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSNull.cpp; sourceTree = "<group>"; };
+		9BCB01B316D2E7EA0031840C /* APSNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSNumber.cpp; sourceTree = "<group>"; };
+		9BCB01B416D2E7EA0031840C /* APSObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSObject.cpp; sourceTree = "<group>"; };
+		9BCB01B516D2E7EA0031840C /* APString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APString.cpp; sourceTree = "<group>"; };
+		9BCB01B816D2E7EA0031840C /* APSAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAction.cpp; sourceTree = "<group>"; };
+		9BCB01B916D2E7EA0031840C /* APSActionGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSActionGroup.cpp; sourceTree = "<group>"; };
+		9BCB01BA16D2E7EA0031840C /* APSAudioAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAudioAction.cpp; sourceTree = "<group>"; };
+		9BCB01BB16D2E7EA0031840C /* APSLinkerAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSLinkerAction.cpp; sourceTree = "<group>"; };
+		9BCB01BC16D2E7EA0031840C /* APSSymbolControlAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSSymbolControlAction.cpp; sourceTree = "<group>"; };
+		9BCB01BD16D2E7EA0031840C /* APSTouchEventNotificationLinker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSTouchEventNotificationLinker.cpp; sourceTree = "<group>"; };
+		9BCB01BF16D2E7EA0031840C /* APSGraphicAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSGraphicAction.cpp; sourceTree = "<group>"; };
+		9BCB01C116D2E7EA0031840C /* APSInstantFadeAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSInstantFadeAction.cpp; sourceTree = "<group>"; };
+		9BCB01C216D2E7EA0031840C /* APSInstantGraphicAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSInstantGraphicAction.cpp; sourceTree = "<group>"; };
+		9BCB01C316D2E7EA0031840C /* APSInstantMoveAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSInstantMoveAction.cpp; sourceTree = "<group>"; };
+		9BCB01C416D2E7EA0031840C /* APSInstantRotationAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSInstantRotationAction.cpp; sourceTree = "<group>"; };
+		9BCB01C516D2E7EA0031840C /* APSInstantScaleAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSInstantScaleAction.cpp; sourceTree = "<group>"; };
+		9BCB01C616D2E7EA0031840C /* APSVisibilityAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSVisibilityAction.cpp; sourceTree = "<group>"; };
+		9BCB01C816D2E7EA0031840C /* APSAnimateAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAnimateAction.cpp; sourceTree = "<group>"; };
+		9BCB01C916D2E7EA0031840C /* APSFadeAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSFadeAction.cpp; sourceTree = "<group>"; };
+		9BCB01CA16D2E7EA0031840C /* APSIntervalGraphicAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSIntervalGraphicAction.cpp; sourceTree = "<group>"; };
+		9BCB01CB16D2E7EA0031840C /* APSMoveAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSMoveAction.cpp; sourceTree = "<group>"; };
+		9BCB01CC16D2E7EA0031840C /* APSRotationAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSRotationAction.cpp; sourceTree = "<group>"; };
+		9BCB01CD16D2E7EA0031840C /* APSScaleAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSScaleAction.cpp; sourceTree = "<group>"; };
+		9BCB01CF16D2E7EA0031840C /* APSAnchor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAnchor.cpp; sourceTree = "<group>"; };
+		9BCB01D016D2E7EA0031840C /* APSBezierMoveAction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSBezierMoveAction.cpp; sourceTree = "<group>"; };
+		9BCB01D116D2E7EA0031840C /* APSResource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSResource.cpp; sourceTree = "<group>"; };
+		9BCB01D216D2E7EA0031840C /* APSResourceArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSResourceArray.cpp; sourceTree = "<group>"; };
+		9BCB01D316D2E7EA0031840C /* APSSymbol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSSymbol.cpp; sourceTree = "<group>"; };
+		9BCB01D516D2E7EA0031840C /* APSGraphic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSGraphic.cpp; sourceTree = "<group>"; };
+		9BCB01D616D2E7EA0031840C /* APSGraphicGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSGraphicGroup.cpp; sourceTree = "<group>"; };
+		9BCB01D716D2E7EA0031840C /* APSSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSSprite.cpp; sourceTree = "<group>"; };
+		9BCB01D816D2E7EA0031840C /* APSResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSResourceManager.cpp; sourceTree = "<group>"; };
+		9BCB01D916D2E7EA0031840C /* APSTouch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSTouch.cpp; sourceTree = "<group>"; };
+		9BCB01DB16D2E7EA0031840C /* APSCCActionInterval.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSCCActionInterval.cpp; sourceTree = "<group>"; };
+		9BCB01DD16D2E7EA0031840C /* APSDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSDevice.cpp; sourceTree = "<group>"; };
+		9BCB01DE16D2E7EA0031840C /* APSDeviceInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSDeviceInfo.cpp; sourceTree = "<group>"; };
+		9BCB01E016D2E7EA0031840C /* APSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAction.h; sourceTree = "<group>"; };
+		9BCB01E116D2E7EA0031840C /* APSActionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSActionGroup.h; sourceTree = "<group>"; };
+		9BCB01E216D2E7EA0031840C /* APSActionObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSActionObserver.h; sourceTree = "<group>"; };
+		9BCB01E316D2E7EA0031840C /* APSAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAnchor.h; sourceTree = "<group>"; };
+		9BCB01E416D2E7EA0031840C /* APSAnimateAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAnimateAction.h; sourceTree = "<group>"; };
+		9BCB01E516D2E7EA0031840C /* APSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSArray.h; sourceTree = "<group>"; };
+		9BCB01E616D2E7EA0031840C /* APSAudioAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAudioAction.h; sourceTree = "<group>"; };
+		9BCB01E716D2E7EA0031840C /* APSAudioHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAudioHolder.h; sourceTree = "<group>"; };
+		9BCB01E816D2E7EA0031840C /* APSAutoreleasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSAutoreleasePool.h; sourceTree = "<group>"; };
+		9BCB01E916D2E7EA0031840C /* APSBezierMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSBezierMoveAction.h; sourceTree = "<group>"; };
+		9BCB01EA16D2E7EA0031840C /* APSCCActionInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSCCActionInterval.h; sourceTree = "<group>"; };
+		9BCB01EB16D2E7EA0031840C /* APSCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSCommon.h; sourceTree = "<group>"; };
+		9BCB01EC16D2E7EA0031840C /* APSDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSDevice.h; sourceTree = "<group>"; };
+		9BCB01ED16D2E7EA0031840C /* APSDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSDeviceInfo.h; sourceTree = "<group>"; };
+		9BCB01EE16D2E7EA0031840C /* APSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSDictionary.h; sourceTree = "<group>"; };
+		9BCB01EF16D2E7EA0031840C /* APSElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSElements.h; sourceTree = "<group>"; };
+		9BCB01F016D2E7EA0031840C /* APSFadeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSFadeAction.h; sourceTree = "<group>"; };
+		9BCB01F116D2E7EA0031840C /* APSGraphic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSGraphic.h; sourceTree = "<group>"; };
+		9BCB01F216D2E7EA0031840C /* APSGraphicAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSGraphicAction.h; sourceTree = "<group>"; };
+		9BCB01F316D2E7EA0031840C /* APSGraphicGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSGraphicGroup.h; sourceTree = "<group>"; };
+		9BCB01F416D2E7EA0031840C /* APSImageHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSImageHolder.h; sourceTree = "<group>"; };
+		9BCB01F516D2E7EA0031840C /* APSInstantFadeAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSInstantFadeAction.h; sourceTree = "<group>"; };
+		9BCB01F616D2E7EA0031840C /* APSInstantGraphicAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSInstantGraphicAction.h; sourceTree = "<group>"; };
+		9BCB01F716D2E7EA0031840C /* APSInstantMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSInstantMoveAction.h; sourceTree = "<group>"; };
+		9BCB01F816D2E7EA0031840C /* APSInstantRotationAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSInstantRotationAction.h; sourceTree = "<group>"; };
+		9BCB01F916D2E7EA0031840C /* APSInstantScaleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSInstantScaleAction.h; sourceTree = "<group>"; };
+		9BCB01FA16D2E7EA0031840C /* APSIntervalGraphicAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSIntervalGraphicAction.h; sourceTree = "<group>"; };
+		9BCB01FB16D2E7EA0031840C /* APSLinkerAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSLinkerAction.h; sourceTree = "<group>"; };
+		9BCB01FC16D2E7EA0031840C /* APSMacroCPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSMacroCPP.h; sourceTree = "<group>"; };
+		9BCB01FD16D2E7EA0031840C /* APSMedium.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSMedium.h; sourceTree = "<group>"; };
+		9BCB01FE16D2E7EA0031840C /* APSMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSMoveAction.h; sourceTree = "<group>"; };
+		9BCB01FF16D2E7EA0031840C /* APSNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSNull.h; sourceTree = "<group>"; };
+		9BCB020016D2E7EA0031840C /* APSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSNumber.h; sourceTree = "<group>"; };
+		9BCB020116D2E7EA0031840C /* APSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSObject.h; sourceTree = "<group>"; };
+		9BCB020216D2E7EA0031840C /* APSPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSPlatform.h; sourceTree = "<group>"; };
+		9BCB020316D2E7EA0031840C /* APSResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSResource.h; sourceTree = "<group>"; };
+		9BCB020416D2E7EA0031840C /* APSResourceArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSResourceArray.h; sourceTree = "<group>"; };
+		9BCB020516D2E7EA0031840C /* APSResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSResourceManager.h; sourceTree = "<group>"; };
+		9BCB020616D2E7EA0031840C /* APSRotationAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSRotationAction.h; sourceTree = "<group>"; };
+		9BCB020716D2E7EA0031840C /* APSScaleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSScaleAction.h; sourceTree = "<group>"; };
+		9BCB020816D2E7EA0031840C /* APSSharedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSharedType.h; sourceTree = "<group>"; };
+		9BCB020916D2E7EA0031840C /* APSSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSprite.h; sourceTree = "<group>"; };
+		9BCB020A16D2E7EA0031840C /* APSSpriteFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSpriteFrame.h; sourceTree = "<group>"; };
+		9BCB020B16D2E7EA0031840C /* APSSpriteSheetHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSpriteSheetHolder.h; sourceTree = "<group>"; };
+		9BCB020C16D2E7EA0031840C /* APSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSString.h; sourceTree = "<group>"; };
+		9BCB020D16D2E7EA0031840C /* APSSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSymbol.h; sourceTree = "<group>"; };
+		9BCB020E16D2E7EA0031840C /* APSSymbolControlAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSSymbolControlAction.h; sourceTree = "<group>"; };
+		9BCB020F16D2E7EA0031840C /* APSTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSTouch.h; sourceTree = "<group>"; };
+		9BCB021016D2E7EA0031840C /* APSTouchEventNotificationLinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSTouchEventNotificationLinker.h; sourceTree = "<group>"; };
+		9BCB021116D2E7EA0031840C /* APSTouchEventObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSTouchEventObserver.h; sourceTree = "<group>"; };
+		9BCB021216D2E7EA0031840C /* APSVisibilityAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSVisibilityAction.h; sourceTree = "<group>"; };
+		9BCB021316D2E7EA0031840C /* APSXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSXMLParser.h; sourceTree = "<group>"; };
+		9BCB021416D2E7EA0031840C /* APXAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APXAnimation.h; sourceTree = "<group>"; };
+		9BCB021516D2E7EA0031840C /* APXAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APXAnimationObserver.h; sourceTree = "<group>"; };
+		9BCB021616D2E7EA0031840C /* artpig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = artpig.h; sourceTree = "<group>"; };
+		9BCB021816D2E7EA0031840C /* APSAudioHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSAudioHolder.cpp; sourceTree = "<group>"; };
+		9BCB021916D2E7EA0031840C /* APSImageHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSImageHolder.cpp; sourceTree = "<group>"; };
+		9BCB021A16D2E7EA0031840C /* APSMedium.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSMedium.cpp; sourceTree = "<group>"; };
+		9BCB021B16D2E7EA0031840C /* APSSpriteFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSSpriteFrame.cpp; sourceTree = "<group>"; };
+		9BCB021C16D2E7EA0031840C /* APSSpriteSheetHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSSpriteSheetHolder.cpp; sourceTree = "<group>"; };
+		9BCB021E16D2E7EA0031840C /* APSPlatform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APSPlatform.cpp; sourceTree = "<group>"; };
+		9BCB022016D2E7EA0031840C /* APXAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APXAnimation.cpp; sourceTree = "<group>"; };
 		9BCBFE0516D1B1940031840C /* cocos2dx.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2dx.xcodeproj; path = "cocos2d-x/cocos2dx/proj.ios/cocos2dx.xcodeproj"; sourceTree = "<group>"; };
 		9BCBFE0E16D1BD3F0031840C /* Accelerometer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Accelerometer.cpp; sourceTree = "<group>"; };
 		9BCBFE0F16D1BD3F0031840C /* Accelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Accelerometer.h; sourceTree = "<group>"; };
@@ -335,6 +484,7 @@
 		9B41048516D1A46700EA730A /* Cocos2dXML */ = {
 			isa = PBXGroup;
 			children = (
+				9BCB01AB16D2E7EA0031840C /* artpig */,
 				9BCBFEF216D1CADB0031840C /* Cocos2dXMLTouchDelegate.cpp */,
 				9BCBFEF316D1CADB0031840C /* Cocos2dXMLTouchDelegate.h */,
 				9BCBFEEF16D1C9E80031840C /* CocosAppDelegate.cpp */,
@@ -352,6 +502,235 @@
 				9B41048716D1A46700EA730A /* Cocos2dXML-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BCB01AB16D2E7EA0031840C /* artpig */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01AC16D2E7EA0031840C /* APSParser */,
+				9BCB01B616D2E7EA0031840C /* APSResource */,
+				9BCB01D816D2E7EA0031840C /* APSResourceManager.cpp */,
+				9BCB01D916D2E7EA0031840C /* APSTouch.cpp */,
+				9BCB01DA16D2E7EA0031840C /* cocos2d */,
+				9BCB01DC16D2E7EA0031840C /* device */,
+				9BCB01DF16D2E7EA0031840C /* include */,
+				9BCB021716D2E7EA0031840C /* media */,
+				9BCB021D16D2E7EA0031840C /* platform */,
+				9BCB021F16D2E7EA0031840C /* simple */,
+			);
+			path = artpig;
+			sourceTree = SOURCE_ROOT;
+		};
+		9BCB01AC16D2E7EA0031840C /* APSParser */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01AD16D2E7EA0031840C /* APSXMLParser.cpp */,
+				9BCB01AE16D2E7EA0031840C /* elements */,
+			);
+			path = APSParser;
+			sourceTree = "<group>";
+		};
+		9BCB01AE16D2E7EA0031840C /* elements */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01AF16D2E7EA0031840C /* APSArray.cpp */,
+				9BCB01B016D2E7EA0031840C /* APSAutoreleasePool.cpp */,
+				9BCB01B116D2E7EA0031840C /* APSDictionary.cpp */,
+				9BCB01B216D2E7EA0031840C /* APSNull.cpp */,
+				9BCB01B316D2E7EA0031840C /* APSNumber.cpp */,
+				9BCB01B416D2E7EA0031840C /* APSObject.cpp */,
+				9BCB01B516D2E7EA0031840C /* APString.cpp */,
+			);
+			path = elements;
+			sourceTree = "<group>";
+		};
+		9BCB01B616D2E7EA0031840C /* APSResource */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01B716D2E7EA0031840C /* Action */,
+				9BCB01D116D2E7EA0031840C /* APSResource.cpp */,
+				9BCB01D216D2E7EA0031840C /* APSResourceArray.cpp */,
+				9BCB01D316D2E7EA0031840C /* APSSymbol.cpp */,
+				9BCB01D416D2E7EA0031840C /* Graphic */,
+			);
+			path = APSResource;
+			sourceTree = "<group>";
+		};
+		9BCB01B716D2E7EA0031840C /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01B816D2E7EA0031840C /* APSAction.cpp */,
+				9BCB01B916D2E7EA0031840C /* APSActionGroup.cpp */,
+				9BCB01BA16D2E7EA0031840C /* APSAudioAction.cpp */,
+				9BCB01BB16D2E7EA0031840C /* APSLinkerAction.cpp */,
+				9BCB01BC16D2E7EA0031840C /* APSSymbolControlAction.cpp */,
+				9BCB01BD16D2E7EA0031840C /* APSTouchEventNotificationLinker.cpp */,
+				9BCB01BE16D2E7EA0031840C /* GraphicAction */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		9BCB01BE16D2E7EA0031840C /* GraphicAction */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01BF16D2E7EA0031840C /* APSGraphicAction.cpp */,
+				9BCB01C016D2E7EA0031840C /* Instant */,
+				9BCB01C716D2E7EA0031840C /* Interval */,
+			);
+			path = GraphicAction;
+			sourceTree = "<group>";
+		};
+		9BCB01C016D2E7EA0031840C /* Instant */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01C116D2E7EA0031840C /* APSInstantFadeAction.cpp */,
+				9BCB01C216D2E7EA0031840C /* APSInstantGraphicAction.cpp */,
+				9BCB01C316D2E7EA0031840C /* APSInstantMoveAction.cpp */,
+				9BCB01C416D2E7EA0031840C /* APSInstantRotationAction.cpp */,
+				9BCB01C516D2E7EA0031840C /* APSInstantScaleAction.cpp */,
+				9BCB01C616D2E7EA0031840C /* APSVisibilityAction.cpp */,
+			);
+			path = Instant;
+			sourceTree = "<group>";
+		};
+		9BCB01C716D2E7EA0031840C /* Interval */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01C816D2E7EA0031840C /* APSAnimateAction.cpp */,
+				9BCB01C916D2E7EA0031840C /* APSFadeAction.cpp */,
+				9BCB01CA16D2E7EA0031840C /* APSIntervalGraphicAction.cpp */,
+				9BCB01CB16D2E7EA0031840C /* APSMoveAction.cpp */,
+				9BCB01CC16D2E7EA0031840C /* APSRotationAction.cpp */,
+				9BCB01CD16D2E7EA0031840C /* APSScaleAction.cpp */,
+				9BCB01CE16D2E7EA0031840C /* Bezier */,
+			);
+			path = Interval;
+			sourceTree = "<group>";
+		};
+		9BCB01CE16D2E7EA0031840C /* Bezier */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01CF16D2E7EA0031840C /* APSAnchor.cpp */,
+				9BCB01D016D2E7EA0031840C /* APSBezierMoveAction.cpp */,
+			);
+			path = Bezier;
+			sourceTree = "<group>";
+		};
+		9BCB01D416D2E7EA0031840C /* Graphic */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01D516D2E7EA0031840C /* APSGraphic.cpp */,
+				9BCB01D616D2E7EA0031840C /* APSGraphicGroup.cpp */,
+				9BCB01D716D2E7EA0031840C /* APSSprite.cpp */,
+			);
+			path = Graphic;
+			sourceTree = "<group>";
+		};
+		9BCB01DA16D2E7EA0031840C /* cocos2d */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01DB16D2E7EA0031840C /* APSCCActionInterval.cpp */,
+			);
+			path = cocos2d;
+			sourceTree = "<group>";
+		};
+		9BCB01DC16D2E7EA0031840C /* device */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01DD16D2E7EA0031840C /* APSDevice.cpp */,
+				9BCB01DE16D2E7EA0031840C /* APSDeviceInfo.cpp */,
+			);
+			path = device;
+			sourceTree = "<group>";
+		};
+		9BCB01DF16D2E7EA0031840C /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB01E016D2E7EA0031840C /* APSAction.h */,
+				9BCB01E116D2E7EA0031840C /* APSActionGroup.h */,
+				9BCB01E216D2E7EA0031840C /* APSActionObserver.h */,
+				9BCB01E316D2E7EA0031840C /* APSAnchor.h */,
+				9BCB01E416D2E7EA0031840C /* APSAnimateAction.h */,
+				9BCB01E516D2E7EA0031840C /* APSArray.h */,
+				9BCB01E616D2E7EA0031840C /* APSAudioAction.h */,
+				9BCB01E716D2E7EA0031840C /* APSAudioHolder.h */,
+				9BCB01E816D2E7EA0031840C /* APSAutoreleasePool.h */,
+				9BCB01E916D2E7EA0031840C /* APSBezierMoveAction.h */,
+				9BCB01EA16D2E7EA0031840C /* APSCCActionInterval.h */,
+				9BCB01EB16D2E7EA0031840C /* APSCommon.h */,
+				9BCB01EC16D2E7EA0031840C /* APSDevice.h */,
+				9BCB01ED16D2E7EA0031840C /* APSDeviceInfo.h */,
+				9BCB01EE16D2E7EA0031840C /* APSDictionary.h */,
+				9BCB01EF16D2E7EA0031840C /* APSElements.h */,
+				9BCB01F016D2E7EA0031840C /* APSFadeAction.h */,
+				9BCB01F116D2E7EA0031840C /* APSGraphic.h */,
+				9BCB01F216D2E7EA0031840C /* APSGraphicAction.h */,
+				9BCB01F316D2E7EA0031840C /* APSGraphicGroup.h */,
+				9BCB01F416D2E7EA0031840C /* APSImageHolder.h */,
+				9BCB01F516D2E7EA0031840C /* APSInstantFadeAction.h */,
+				9BCB01F616D2E7EA0031840C /* APSInstantGraphicAction.h */,
+				9BCB01F716D2E7EA0031840C /* APSInstantMoveAction.h */,
+				9BCB01F816D2E7EA0031840C /* APSInstantRotationAction.h */,
+				9BCB01F916D2E7EA0031840C /* APSInstantScaleAction.h */,
+				9BCB01FA16D2E7EA0031840C /* APSIntervalGraphicAction.h */,
+				9BCB01FB16D2E7EA0031840C /* APSLinkerAction.h */,
+				9BCB01FC16D2E7EA0031840C /* APSMacroCPP.h */,
+				9BCB01FD16D2E7EA0031840C /* APSMedium.h */,
+				9BCB01FE16D2E7EA0031840C /* APSMoveAction.h */,
+				9BCB01FF16D2E7EA0031840C /* APSNull.h */,
+				9BCB020016D2E7EA0031840C /* APSNumber.h */,
+				9BCB020116D2E7EA0031840C /* APSObject.h */,
+				9BCB020216D2E7EA0031840C /* APSPlatform.h */,
+				9BCB020316D2E7EA0031840C /* APSResource.h */,
+				9BCB020416D2E7EA0031840C /* APSResourceArray.h */,
+				9BCB020516D2E7EA0031840C /* APSResourceManager.h */,
+				9BCB020616D2E7EA0031840C /* APSRotationAction.h */,
+				9BCB020716D2E7EA0031840C /* APSScaleAction.h */,
+				9BCB020816D2E7EA0031840C /* APSSharedType.h */,
+				9BCB020916D2E7EA0031840C /* APSSprite.h */,
+				9BCB020A16D2E7EA0031840C /* APSSpriteFrame.h */,
+				9BCB020B16D2E7EA0031840C /* APSSpriteSheetHolder.h */,
+				9BCB020C16D2E7EA0031840C /* APSString.h */,
+				9BCB020D16D2E7EA0031840C /* APSSymbol.h */,
+				9BCB020E16D2E7EA0031840C /* APSSymbolControlAction.h */,
+				9BCB020F16D2E7EA0031840C /* APSTouch.h */,
+				9BCB021016D2E7EA0031840C /* APSTouchEventNotificationLinker.h */,
+				9BCB021116D2E7EA0031840C /* APSTouchEventObserver.h */,
+				9BCB021216D2E7EA0031840C /* APSVisibilityAction.h */,
+				9BCB021316D2E7EA0031840C /* APSXMLParser.h */,
+				9BCB021416D2E7EA0031840C /* APXAnimation.h */,
+				9BCB021516D2E7EA0031840C /* APXAnimationObserver.h */,
+				9BCB021616D2E7EA0031840C /* artpig.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9BCB021716D2E7EA0031840C /* media */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB021816D2E7EA0031840C /* APSAudioHolder.cpp */,
+				9BCB021916D2E7EA0031840C /* APSImageHolder.cpp */,
+				9BCB021A16D2E7EA0031840C /* APSMedium.cpp */,
+				9BCB021B16D2E7EA0031840C /* APSSpriteFrame.cpp */,
+				9BCB021C16D2E7EA0031840C /* APSSpriteSheetHolder.cpp */,
+			);
+			path = media;
+			sourceTree = "<group>";
+		};
+		9BCB021D16D2E7EA0031840C /* platform */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB021E16D2E7EA0031840C /* APSPlatform.cpp */,
+			);
+			path = platform;
+			sourceTree = "<group>";
+		};
+		9BCB021F16D2E7EA0031840C /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				9BCB022016D2E7EA0031840C /* APXAnimation.cpp */,
+			);
+			path = simple;
 			sourceTree = "<group>";
 		};
 		9BCBFE0616D1B1940031840C /* Products */ = {
@@ -694,6 +1073,53 @@
 				9BCBFEED16D1BD3F0031840C /* RootViewController.mm in Sources */,
 				9BCBFEF116D1C9E80031840C /* CocosAppDelegate.cpp in Sources */,
 				9BCBFEF416D1CADB0031840C /* Cocos2dXMLTouchDelegate.cpp in Sources */,
+				9BCB022116D2E7EA0031840C /* APSXMLParser.cpp in Sources */,
+				9BCB022216D2E7EA0031840C /* APSArray.cpp in Sources */,
+				9BCB022316D2E7EA0031840C /* APSAutoreleasePool.cpp in Sources */,
+				9BCB022416D2E7EA0031840C /* APSDictionary.cpp in Sources */,
+				9BCB022516D2E7EA0031840C /* APSNull.cpp in Sources */,
+				9BCB022616D2E7EA0031840C /* APSNumber.cpp in Sources */,
+				9BCB022716D2E7EA0031840C /* APSObject.cpp in Sources */,
+				9BCB022816D2E7EA0031840C /* APString.cpp in Sources */,
+				9BCB022916D2E7EA0031840C /* APSAction.cpp in Sources */,
+				9BCB022A16D2E7EA0031840C /* APSActionGroup.cpp in Sources */,
+				9BCB022B16D2E7EA0031840C /* APSAudioAction.cpp in Sources */,
+				9BCB022C16D2E7EA0031840C /* APSLinkerAction.cpp in Sources */,
+				9BCB022D16D2E7EA0031840C /* APSSymbolControlAction.cpp in Sources */,
+				9BCB022E16D2E7EA0031840C /* APSTouchEventNotificationLinker.cpp in Sources */,
+				9BCB022F16D2E7EA0031840C /* APSGraphicAction.cpp in Sources */,
+				9BCB023016D2E7EA0031840C /* APSInstantFadeAction.cpp in Sources */,
+				9BCB023116D2E7EA0031840C /* APSInstantGraphicAction.cpp in Sources */,
+				9BCB023216D2E7EA0031840C /* APSInstantMoveAction.cpp in Sources */,
+				9BCB023316D2E7EA0031840C /* APSInstantRotationAction.cpp in Sources */,
+				9BCB023416D2E7EA0031840C /* APSInstantScaleAction.cpp in Sources */,
+				9BCB023516D2E7EA0031840C /* APSVisibilityAction.cpp in Sources */,
+				9BCB023616D2E7EA0031840C /* APSAnimateAction.cpp in Sources */,
+				9BCB023716D2E7EA0031840C /* APSFadeAction.cpp in Sources */,
+				9BCB023816D2E7EA0031840C /* APSIntervalGraphicAction.cpp in Sources */,
+				9BCB023916D2E7EA0031840C /* APSMoveAction.cpp in Sources */,
+				9BCB023A16D2E7EA0031840C /* APSRotationAction.cpp in Sources */,
+				9BCB023B16D2E7EA0031840C /* APSScaleAction.cpp in Sources */,
+				9BCB023C16D2E7EA0031840C /* APSAnchor.cpp in Sources */,
+				9BCB023D16D2E7EA0031840C /* APSBezierMoveAction.cpp in Sources */,
+				9BCB023E16D2E7EA0031840C /* APSResource.cpp in Sources */,
+				9BCB023F16D2E7EA0031840C /* APSResourceArray.cpp in Sources */,
+				9BCB024016D2E7EA0031840C /* APSSymbol.cpp in Sources */,
+				9BCB024116D2E7EA0031840C /* APSGraphic.cpp in Sources */,
+				9BCB024216D2E7EA0031840C /* APSGraphicGroup.cpp in Sources */,
+				9BCB024316D2E7EA0031840C /* APSSprite.cpp in Sources */,
+				9BCB024416D2E7EA0031840C /* APSResourceManager.cpp in Sources */,
+				9BCB024516D2E7EA0031840C /* APSTouch.cpp in Sources */,
+				9BCB024616D2E7EA0031840C /* APSCCActionInterval.cpp in Sources */,
+				9BCB024716D2E7EA0031840C /* APSDevice.cpp in Sources */,
+				9BCB024816D2E7EA0031840C /* APSDeviceInfo.cpp in Sources */,
+				9BCB024916D2E7EA0031840C /* APSAudioHolder.cpp in Sources */,
+				9BCB024A16D2E7EA0031840C /* APSImageHolder.cpp in Sources */,
+				9BCB024B16D2E7EA0031840C /* APSMedium.cpp in Sources */,
+				9BCB024C16D2E7EA0031840C /* APSSpriteFrame.cpp in Sources */,
+				9BCB024D16D2E7EA0031840C /* APSSpriteSheetHolder.cpp in Sources */,
+				9BCB024E16D2E7EA0031840C /* APSPlatform.cpp in Sources */,
+				9BCB024F16D2E7EA0031840C /* APXAnimation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +1157,8 @@
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+					"\"$(SRCROOT)/cocos2d-x/CocosDenshion/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/cocoa\"",
 					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPLc/include\"",
 					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
 				);
@@ -766,6 +1194,8 @@
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/kazmath/include\"",
 					"\"$(SRCROOT)/cocos2d-x/cocos2dx/platform/ios\"",
+					"\"$(SRCROOT)/cocos2d-x/CocosDenshion/include\"",
+					"\"$(SRCROOT)/cocos2d-x/cocos2dx/cocoa\"",
 					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPLc/include\"",
 					"\"$(SRCROOT)/NoPLGenerator/NoPL_repo/NoPL_Runtime/include\"",
 				);
