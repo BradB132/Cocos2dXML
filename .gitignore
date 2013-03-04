@@ -5,3 +5,4 @@ Cocos2dXML_typedefs.*
 Cocos2dXML.h
 Cocos2dXML.xcscheme
 xcschememanagement.plist
+*.xcuserstate
