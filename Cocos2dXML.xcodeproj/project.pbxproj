@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B1F308516E43A2A004203A2 /* ArtpigProj_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */; };
+		9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */; };
 		9B41048416D1A46700EA730A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41048316D1A46700EA730A /* Foundation.framework */; };
 		9B41049B16D1AB5B00EA730A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41049A16D1AB5B00EA730A /* CoreGraphics.framework */; };
 		9B41049D16D1AB6700EA730A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41049C16D1AB6700EA730A /* UIKit.framework */; };
@@ -163,6 +165,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArtpigProj_Base.cpp; sourceTree = "<group>"; };
+		9B1F308216E43A2A004203A2 /* ArtpigProj_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtpigProj_Base.h; sourceTree = "<group>"; };
+		9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArtpigProj.cpp; sourceTree = "<group>"; };
+		9B1F308416E43A2A004203A2 /* ArtpigProj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtpigProj.h; sourceTree = "<group>"; };
 		9B41048016D1A46700EA730A /* libCocos2dXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocos2dXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B41048316D1A46700EA730A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B41048716D1A46700EA730A /* Cocos2dXML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cocos2dXML-Prefix.pch"; sourceTree = "<group>"; };
@@ -756,6 +762,10 @@
 				9BCBFE1716D1BD3F0031840C /* Animation.h */,
 				9BCBFE1816D1BD3F0031840C /* Animation_Base.cpp */,
 				9BCBFE1916D1BD3F0031840C /* Animation_Base.h */,
+				9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */,
+				9B1F308216E43A2A004203A2 /* ArtpigProj_Base.h */,
+				9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */,
+				9B1F308416E43A2A004203A2 /* ArtpigProj.h */,
 				9BCBFE1A16D1BD3F0031840C /* BaseObject.cpp */,
 				9BCBFE1B16D1BD3F0031840C /* BaseObject.h */,
 				9BCBFE1C16D1BD3F0031840C /* BaseObject_Base.cpp */,
@@ -1120,6 +1130,8 @@
 				9BCB024D16D2E7EA0031840C /* APSSpriteSheetHolder.cpp in Sources */,
 				9BCB024E16D2E7EA0031840C /* APSPlatform.cpp in Sources */,
 				9BCB024F16D2E7EA0031840C /* APXAnimation.cpp in Sources */,
+				9B1F308516E43A2A004203A2 /* ArtpigProj_Base.cpp in Sources */,
+				9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

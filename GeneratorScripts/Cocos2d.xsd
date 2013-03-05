@@ -291,6 +291,7 @@
 				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Accelerometer" minOccurs="0" maxOccurs="1"/>
+				<element ref="cc:ArtpigProj" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
 			<attribute name="onLoad" type="cc:event"/>
@@ -554,6 +555,16 @@
 		<extension base="cc:BaseObject">
 			<attribute name="hertz" type="float" default="30"/>
 			<attribute name="filter" type="float" default="0.1"/>
+		</extension>
+	</complexContent>
+</complexType>
+
+<element name="ArtpigProj" type="cc:ArtpigProj"/>
+<complexType name="ArtpigProj">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="projectID" type="string" use="required"/>
+			<attribute name="startListener" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>
