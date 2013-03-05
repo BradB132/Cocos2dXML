@@ -221,7 +221,7 @@ CCFiniteTimeAction * APSAction::makeCCAction() {
         if (actions[i]) {
             if (seq) {
 #if COCOS2D_VERSION >= 0x00020000
-                seq = CCSequence::create(seq, actions[i]);
+                seq = CCSequence::createWithTwoActions(seq, actions[i]);
 #else
                 seq = CCSequence::actionOneTwo(seq, actions[i]);
 #endif//APS_SKIP

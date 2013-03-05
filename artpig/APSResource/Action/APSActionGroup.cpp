@@ -188,7 +188,7 @@ CCFiniteTimeAction * APSActionGroup::makeMidCCAction(bool universal, float scale
         startTime = (*actionPairs[0])[0].first->getStartTime();
         
 #if COCOS2D_VERSION >= 0x00020000
-        CCFiniteTimeAction *action = CCSequence::create(CCDelayTime::create(startTime), this->spawnWithActions(*actionPairs[0]));
+        CCFiniteTimeAction *action = CCSequence::createWithTwoActions(CCDelayTime::create(startTime), this->spawnWithActions(*actionPairs[0]));
 #else
         CCFiniteTimeAction *action = CCSequence::actionOneTwo(CCDelayTime::actionWithDuration(startTime), this->spawnWithActions(*actionPairs[0]));
 #endif//APS_SKIP
@@ -230,7 +230,7 @@ CCFiniteTimeAction *APSActionGroup::spawnWithActions(vector<pair<APSAction *, CC
     
     for (int i=1; i < size; i++) {
 #if COCOS2D_VERSION >= 0x00020000
-        action = CCSpawn::create(action, actionPairs[i].second);
+        action = CCSpawn::createWithTwoActions(action, actionPairs[i].second);
 #else
         action = CCSpawn::actionOneTwo(action, actionPairs[i].second);
 #endif//APS_SKIP
