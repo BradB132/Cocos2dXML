@@ -315,7 +315,7 @@ if(children.count > 0)
 
 if(!hasParentClass)
 {
-#valueForKey('__ROOT_CLASS__');<?* ?>#baseName;<?::getParent()
+#valueForKey('__ROOT_CLASS__');<?* ?>#baseName;<?::getParent() const
 {
 	return parent;
 }
@@ -356,7 +356,7 @@ if(attributes.count > 0)
 		String attrName = attr.name;
 		String capName = capitalize(attrName);
 		String typeName = valueForKey((String)attr.type);
-#typeName;<? ?>#baseName;<?::get?>#capName;<?()
+#typeName;<? ?>#baseName;<?::get?>#capName;<?() const
 {
 	return ?>#attrName;<?;
 }
@@ -379,7 +379,7 @@ if(children.count > 0)
 		Object child = children[j];
 		String listName = pluralize((String)child.name);
 		String capName = capitalize(listName);
-<?cocos2d::CCArray* ?>#baseName;<?::get?>#listName;<?()
+<?cocos2d::CCArray* ?>#baseName;<?::get?>#listName;<?() const
 {
 	return ?>#listName;<?;
 }
