@@ -186,6 +186,8 @@
 				<element ref="cc:Transition" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="displayStats" type="boolean" default="false" />
+			<attribute name="debug" type="boolean" default="false"/>
+			<attribute name="depthTest" type="boolean" default="true"/>
 			<attribute name="fps" type="double" default="60.0" />
 			<attribute name="color" type="cc:color3" default="#000000"/>
 			<attribute name="designedSize" type="cc:point" default="320,480"/>
@@ -193,7 +195,6 @@
 			<attribute name="swapScene" type="cc:eventListener"/>
 			<attribute name="popScene" type="cc:eventListener"/>
 			<attribute name="popToRootScene" type="cc:eventListener"/>
-			<attribute name="debug" type="boolean" default="false"/>
 		</extension>
 	</complexContent>
 </complexType>
@@ -292,7 +293,6 @@
 				<element ref="cc:Script" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Variable" minOccurs="0" maxOccurs="unbounded"/>
 				<element ref="cc:Accelerometer" minOccurs="0" maxOccurs="1"/>
-				<element ref="cc:ArtpigProj" minOccurs="0" maxOccurs="unbounded"/>
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
 			<attribute name="onLoad" type="cc:event"/>

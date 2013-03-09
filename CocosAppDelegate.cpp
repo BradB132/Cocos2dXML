@@ -62,6 +62,7 @@ bool CocosAppDelegate::applicationDidFinishLaunching()
 	pDirector->setDisplayStats(xmlDirector->getDisplayStats());
 	pDirector->setAnimationInterval(1.0/xmlDirector->getFps());
 	pDirector->setBackgroundColor(xmlDirector->getColor());
+	pDirector->setDepthTest(xmlDirector->getDepthTest());
 	pDirector->setDisplayOutlines(xmlDirector->getDebug());
 	
 	Cocos2dXMLTouchDelegate::initDelegate();
