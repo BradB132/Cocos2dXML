@@ -193,6 +193,7 @@
 			<attribute name="swapScene" type="cc:eventListener"/>
 			<attribute name="popScene" type="cc:eventListener"/>
 			<attribute name="popToRootScene" type="cc:eventListener"/>
+			<attribute name="debug" type="boolean" default="false"/>
 		</extension>
 	</complexContent>
 </complexType>

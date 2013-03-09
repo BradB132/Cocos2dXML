@@ -185,13 +185,38 @@ NoPL_FunctionValue Node::evaluateFunction(const char* functionName, const NoPL_F
 				returnVal.type = NoPL_DataType_Number;
 			}
 		}
-		else if(argc == 2 &&
-		   argv[0].type == NoPL_DataType_Number &&
-		   argv[1].type == NoPL_DataType_Number &&
-		   !strcmp(functionName, "hitTest"))
+		else if(!strcmp(functionName, "hitTest"))
 		{
-			returnVal.booleanValue = (node->hitTest(cocos2d::CCPoint(argv[0].numberValue, argv[1].numberValue)));
-			returnVal.type = NoPL_DataType_Boolean;
+			if(argc == 2 &&
+			   argv[0].type == NoPL_DataType_Number &&
+			   argv[1].type == NoPL_DataType_Number)
+			{
+				returnVal.booleanValue = (node->hitTest(cocos2d::CCPoint(argv[0].numberValue, argv[1].numberValue)));
+				returnVal.type = NoPL_DataType_Boolean;
+			}
+			else if(argc == 1 && argv[0].type == NoPL_DataType_Pointer)
+			{
+				cocos2d::CCObject* arg = (cocos2d::CCObject*)argv[0].pointerValue;
+				Node* otherNode = dynamic_cast<Node*>(arg);
+				if(otherNode && otherNode->getCCNode())
+				{
+					//get the transforms for each node
+					cocos2d::CCAffineTransform thisTransform = node->nodeToWorldTransform();
+					cocos2d::CCAffineTransform nodeTransform = otherNode->getCCNode()->nodeToWorldTransform();
+					
+					//create a rect for each node in the same coord system
+					cocos2d::CCRect thisRect;
+					thisRect.origin = CCPointApplyAffineTransform(cocos2d::CCPoint(0,0), thisTransform);
+					thisRect.size = CCSizeApplyAffineTransform(node->getContentSize(), thisTransform);
+					cocos2d::CCRect nodeRect;
+					nodeRect.origin = CCPointApplyAffineTransform(cocos2d::CCPoint(0,0), nodeTransform);
+					nodeRect.size = CCSizeApplyAffineTransform(otherNode->getCCNode()->getContentSize(), nodeTransform);
+					
+					//return the result of the hit test
+					returnVal.booleanValue = thisRect.intersectsRect(nodeRect);
+					returnVal.type = NoPL_DataType_Boolean;
+				}
+			}
 		}
 	}
 	
