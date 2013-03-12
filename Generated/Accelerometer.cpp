@@ -37,7 +37,7 @@ void Accelerometer::didAccelerate(cocos2d::CCAcceleration* acceleration)
 	//calculate gravity
 	gravity.x = (acceleration->x * filter) + (gravity.x * (1.0 - filter));
 	gravity.y = (acceleration->y * filter) + (gravity.y * (1.0 - filter));
-	gravity.z = (acceleration->z * filter) + (gravity.x * (1.0 - filter));
+	gravity.z = (acceleration->z * filter) + (gravity.z * (1.0 - filter));
 	
 	//store the raw values from the accelerometer
 	accel = *acceleration;
