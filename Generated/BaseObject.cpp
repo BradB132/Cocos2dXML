@@ -45,6 +45,25 @@ void BaseObject::postEvent(std::string eventName)
 	postEvent(eventName, NULL);
 }
 
+void BaseObject::listenForEvent(std::string eventName, cocos2d::SEL_NoteHandler selector)
+{
+	//listen to the new notification
+	cocos2d::CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
+																		   selector,
+																		   eventName.c_str(),
+																		   getRootObject());
+}
+
+void BaseObject::stopListeningToEvent(std::string eventName)
+{
+	cocos2d::CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, eventName.c_str());
+}
+
+void BaseObject::stopListeningToAllEvents()
+{
+	cocos2d::CCNotificationCenter::sharedNotificationCenter()->removeObserver(this);
+}
+
 void BaseObject::load()
 {
 	//attempt to add self to scene

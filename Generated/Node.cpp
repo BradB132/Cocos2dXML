@@ -123,46 +123,58 @@ cocos2d::CCNode* Node::getCCNode()
 
 void Node::touchDidBegin(cocos2d::CCTouch* touch)
 {
-	cocos2d::CCDictionary* params = NULL;
-	if(touch)
+	if(onTouchDown != "")
 	{
-		params = cocos2d::CCDictionary::create();
-		params->setObject(touch, "touch");
+		cocos2d::CCDictionary* params = NULL;
+		if(touch)
+		{
+			params = cocos2d::CCDictionary::create();
+			params->setObject(touch, "touch");
+		}
+		postEvent(onTouchDown, params);
 	}
-	postEvent(onTouchDown, params);
 }
 
 void Node::touchDidMove(cocos2d::CCTouch* touch)
 {
-	cocos2d::CCDictionary* params = NULL;
-	if(touch)
+	if(onTouchMove != "")
 	{
-		params = cocos2d::CCDictionary::create();
-		params->setObject(touch, "touch");
+		cocos2d::CCDictionary* params = NULL;
+		if(touch)
+		{
+			params = cocos2d::CCDictionary::create();
+			params->setObject(touch, "touch");
+		}
+		postEvent(onTouchMove, params);
 	}
-	postEvent(onTouchMove, params);
 }
 
 void Node::touchDidEnd(cocos2d::CCTouch* touch)
 {
-	cocos2d::CCDictionary* params = NULL;
-	if(touch)
+	if(onTouchUp != "")
 	{
-		params = cocos2d::CCDictionary::create();
-		params->setObject(touch, "touch");
+		cocos2d::CCDictionary* params = NULL;
+		if(touch)
+		{
+			params = cocos2d::CCDictionary::create();
+			params->setObject(touch, "touch");
+		}
+		postEvent(onTouchUp, params);
 	}
-	postEvent(onTouchUp, params);
 }
 
 void Node::touchDidCancel(cocos2d::CCTouch* touch)
 {
-	cocos2d::CCDictionary* params = NULL;
-	if(touch)
+	if(onTouchCancel != "")
 	{
-		params = cocos2d::CCDictionary::create();
-		params->setObject(touch, "touch");
+		cocos2d::CCDictionary* params = NULL;
+		if(touch)
+		{
+			params = cocos2d::CCDictionary::create();
+			params->setObject(touch, "touch");
+		}
+		postEvent(onTouchCancel, params);
 	}
-	postEvent(onTouchCancel, params);
 }
 
 NoPL_FunctionValue Node::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)

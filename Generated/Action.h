@@ -20,9 +20,14 @@ public:
 	virtual void runAction();
 	
 	virtual void load();
+	virtual void attributeDidChange(int attributeID);
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 	
+protected:
+	
+	void handleStartEvent(const char* noteName, cocos2d::CCDictionary* params);
+	void handleStopEvent(const char* noteName, cocos2d::CCDictionary* params);
 };
 
 #endif //end __ACTION_H__

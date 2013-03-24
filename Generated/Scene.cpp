@@ -58,7 +58,8 @@ void Scene::attributeDidChange(int attributeID)
 
 void Scene::update(float dt)
 {
-	postEvent(onUpdate);
+	if(onUpdate != "")
+		postEvent(onUpdate);
 }
 
 void Scene::addToSceneMap(BaseObject* obj)

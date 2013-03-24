@@ -20,8 +20,12 @@ public:
 	virtual BaseObject* getRootObject();
 	virtual BaseObject* objectForID(std::string objectID);
 	
-	virtual void postEvent(std::string eventName);
-	virtual void postEvent(std::string eventName, cocos2d::CCDictionary* args);
+	//convenience functions for events
+	void postEvent(std::string eventName);
+	void postEvent(std::string eventName, cocos2d::CCDictionary* args);
+	void listenForEvent(std::string eventName, cocos2d::SEL_NoteHandler selector);
+	void stopListeningToEvent(std::string eventName);
+	void stopListeningToAllEvents();
 	
 	virtual void load();
 	virtual void unload();

@@ -12,7 +12,7 @@
 #include "ArtpigProj_Base.h"
 #include "artpig.h"
 
-class ArtpigProj : public ArtpigProj_Base
+class ArtpigProj : public ArtpigProj_Base, public artpig::APSActionObserver
 {
 public:
 	
@@ -20,6 +20,10 @@ public:
 	virtual void unload();
 	
 	void play();
+	
+	//implementing APSActionObserver
+	virtual void willStartAction(artpig::APSAction *action);
+    virtual void didFinishAction(artpig::APSAction *action);
 	
 protected:
 	

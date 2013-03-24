@@ -41,6 +41,9 @@ void ArtpigProj::load()
 	
 	ArtpigProj_Base::load();
 	
+	//set ourselves up to check for events
+	symbol->setSymbolObserver(this);
+	
 	//are we going to auto-play?
 	if(startListener == "")
 		play();
@@ -58,4 +61,14 @@ void ArtpigProj::unload()
 	}
 	
 	ArtpigProj_Base::unload();
+}
+
+void ArtpigProj::willStartAction(artpig::APSAction *action)
+{
+}
+
+void ArtpigProj::didFinishAction(artpig::APSAction *action)
+{
+	if(onFinish != "")
+		postEvent(onFinish);
 }

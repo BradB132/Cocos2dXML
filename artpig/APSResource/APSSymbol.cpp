@@ -102,7 +102,9 @@ m_resourceManager(NULL),m_backgroundColor(ccc4(0.,0.,0.,0.)),
 m_prologueDuration(-1),
 m_touchListeners(NULL),
 m_isRoot(kAPSSymbol_defaultIsRoot),
-m_touchOwner(NULL)
+m_touchOwner(NULL),
+symbolObserver(NULL),
+_isPlaying(false)
 {
     this->initialize(properties);
 }
@@ -113,7 +115,9 @@ m_prologueDuration(-1),
 m_touchListeners(NULL),
 m_isRoot(kAPSSymbol_defaultIsRoot),
 m_orientation(kAPSOrientationLandscapeRight),
-m_touchOwner(NULL)
+m_touchOwner(NULL),
+symbolObserver(NULL),
+_isPlaying(false)
 {
     this->initialize();
     
@@ -621,9 +625,20 @@ void APSSymbol::dispatchTouch(const APSTouch &touch) {
 
 #pragma #### Protected ####
 
-void APSSymbol::notifyStart(APSAction *action) {
-    if (action) {
-        // Notify start to observers
+void APSSymbol::notifyStart(APSAction *action)
+{
+    if (action)
+	{
+        //check if we're just starting to run actions
+		if(!_isPlaying && m_runningActionGroups.size() == 0)
+		{
+			_isPlaying = true;
+			
+			if(symbolObserver)
+				symbolObserver->willStartAction(NULL);
+		}
+		
+		// Notify start to observers
         const char *tag = action->getTag();
         if (*tag) {
             set<APSActionObserver *> *observers = this->getActionObservers(tag);
@@ -649,7 +664,8 @@ void APSSymbol::notifyStop(APSAction *action) {
         
         // notify observers for 'didFinishAction'
         const char *tag = action->getTag();
-        if (*tag) {
+        if (*tag)
+		{
             set<APSActionObserver *> *observers = this->getActionObservers(tag);
             if (observers) {
                 APS_FOREACH(set<APSActionObserver *>, *observers, iter) {
@@ -658,14 +674,22 @@ void APSSymbol::notifyStop(APSAction *action) {
                 }
             }
         }
-        
+		
         if (action->getActionType()!=kAPSActionTypeGroup) {
             APSActionGroup *actionGroup = action->getActionGroup();
             if (actionGroup) {
                 actionGroup->decreaseRunningActionCount();
             }
         }
-
+		
+		//check if we're done running actions
+		if(_isPlaying && m_runningActionGroups.size() == 0)
+		{
+			_isPlaying = false;
+			
+			if(symbolObserver)
+				symbolObserver->didFinishAction(NULL);
+		}
     }
 }
 
@@ -845,6 +869,17 @@ void APSSymbol::setParent(APSGraphic *parent) {
     m_parent = parent;
 }
 
+
+void APSSymbol::setSymbolObserver(artpig::APSActionObserver* newObserver)
+{
+	symbolObserver = newObserver;
+}
+
+artpig::APSActionObserver* APSSymbol::getSymbolObserver()
+{
+	return symbolObserver;
+}
+
 #pragma #### Protected ####
 
 set<APSActionObserver *> *APSSymbol::getActionObservers(const string &tag, bool createNew) {
@@ -875,9 +910,3 @@ void APSCCSymbolLayer::postAll() {
     }
     _finishedActions.clear();
 }
-
-
-
-
-
-

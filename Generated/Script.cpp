@@ -114,16 +114,8 @@ void Script::attributeDidChange(int attributeID)
 	{
 		case id_Script_runListener:
 		{
-			cocos2d::CCNotificationCenter* center = cocos2d::CCNotificationCenter::sharedNotificationCenter();
-		
-			//remove self from any notifications
-			center->removeObserver(this);
-			
-			//listen to the new notification
-			center->addObserver(this,
-								cocos2d::SEL_NoteHandler(&Script::handleRunEvent),
-								runListener.c_str(),
-								getRootObject());
+			stopListeningToAllEvents();
+			listenForEvent(runListener, cocos2d::SEL_NoteHandler(&Script::handleRunEvent));
 		}
 			return;
 	}

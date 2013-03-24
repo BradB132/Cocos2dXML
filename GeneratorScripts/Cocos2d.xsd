@@ -566,6 +566,7 @@
 		<extension base="cc:Node">
 			<attribute name="projectID" type="string" use="required"/>
 			<attribute name="startListener" type="cc:eventListener"/>
+			<attribute name="onFinish" type="cc:event"/>
 		</extension>
 	</complexContent>
 </complexType>

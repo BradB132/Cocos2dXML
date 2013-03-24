@@ -227,6 +227,10 @@ public:
     /** parent graphic(APSSymbolSprite) is assigned when this symbol is used as a child of another symbol.
      */
     void setParent(APSGraphic *parent);
+	
+	void setSymbolObserver(APSActionObserver* newObserver);
+	APSActionObserver* getSymbolObserver();
+	bool isPlaying();
     
 protected:
     void initialize(APSDictionary *properties=NULL);
@@ -255,6 +259,9 @@ protected:
     std::set<APSActionGroup *> m_runningActionGroups;
     std::map<const std::string, APSResource *> m_taggedResources;
     
+	APSActionObserver* symbolObserver;
+	bool _isPlaying;
+	
     /** a map table of observers that receive start & stop message for actions
      specified by tags.
      */
