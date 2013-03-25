@@ -191,10 +191,6 @@
 			<attribute name="fps" type="double" default="60.0" />
 			<attribute name="color" type="cc:color3" default="#000000"/>
 			<attribute name="designedSize" type="cc:point" default="320,480"/>
-			<attribute name="pushScene" type="cc:eventListener"/>
-			<attribute name="swapScene" type="cc:eventListener"/>
-			<attribute name="popScene" type="cc:eventListener"/>
-			<attribute name="popToRootScene" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>
@@ -296,6 +292,10 @@
 			</sequence>
 			<attribute name="onUpdate" type="cc:event"/>
 			<attribute name="onLoad" type="cc:event"/>
+			<attribute name="pushSceneListener" type="cc:eventListener"/>
+			<attribute name="swapSceneListener" type="cc:eventListener"/>
+			<attribute name="popSceneListener" type="cc:eventListener"/>
+			<attribute name="popToRootSceneListener" type="cc:eventListener"/>
 		</extension>
 	</complexContent>
 </complexType>

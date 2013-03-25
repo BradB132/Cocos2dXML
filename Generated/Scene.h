@@ -31,6 +31,11 @@ public:
 	
 protected:
 	
+	void handlePopEvent(const char* noteName, cocos2d::CCDictionary* params);
+	void handlePopRootEvent(const char* noteName, cocos2d::CCDictionary* params);
+	void handlePushEvent(const char* noteName, cocos2d::CCDictionary* params);
+	void handleSwapEvent(const char* noteName, cocos2d::CCDictionary* params);
+	
 	std::map<std::string, BaseObject*> objectMap;
 	
 };

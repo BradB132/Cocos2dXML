@@ -41,7 +41,7 @@ void Scene::attributeDidChange(int attributeID)
 	switch (attributeID)
 	{
 		case id_Scene_onUpdate:
-			
+		{
 			//remove self from scheduler
 			cocos2d::CCScheduler* scheduler = cocos2d::CCDirector::sharedDirector()->getScheduler();
 			scheduler->unscheduleUpdateForTarget(this);
@@ -49,17 +49,57 @@ void Scene::attributeDidChange(int attributeID)
 			//only re-schedule if we have an actual event name
 			if(onUpdate != "")
 				scheduler->scheduleUpdateForTarget(this, 0, false);
-			
-			break;
+		}
+			return;
+		case id_Scene_popSceneListener:
+		{
+			listenForEvent(popSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopEvent));
+		}
+			return;
+		case id_Scene_popToRootSceneListener:
+		{
+			listenForEvent(popToRootSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopRootEvent));
+		}
+			return;
+		case id_Scene_pushSceneListener:
+		{
+			listenForEvent(pushSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePushEvent));
+		}
+			return;
+		case id_Scene_swapSceneListener:
+		{
+			listenForEvent(swapSceneListener, cocos2d::SEL_NoteHandler(&Scene::handleSwapEvent));
+		}
+			return;
 	}
 	
 	Scene_Base::attributeDidChange(attributeID);
 }
 
+void Scene::handlePopEvent(const char* noteName, cocos2d::CCDictionary* params)
+{
+	cocos2d::CCDirector::sharedDirector()->popScene();
+}
+
+void Scene::handlePopRootEvent(const char* noteName, cocos2d::CCDictionary* params)
+{
+	cocos2d::CCDirector::sharedDirector()->popToRootScene();
+}
+
+void Scene::handlePushEvent(const char* noteName, cocos2d::CCDictionary* params)
+{
+	
+}
+
+void Scene::handleSwapEvent(const char* noteName, cocos2d::CCDictionary* params)
+{
+	
+}
+
 void Scene::update(float dt)
 {
-	if(onUpdate != "")
-		postEvent(onUpdate);
+	//the attributeDidChange call already checks to make sure onUpdate has a real value
+	postEvent(onUpdate);
 }
 
 void Scene::addToSceneMap(BaseObject* obj)

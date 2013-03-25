@@ -17,21 +17,12 @@ The reason for implement as private inheritance is to hide some interface call b
 class  CocosAppDelegate : private cocos2d::CCApplication
 {
 public:
-    CocosAppDelegate();
-    virtual ~CocosAppDelegate();
-
+	
 	//application lifecycle
     virtual bool applicationDidFinishLaunching();
 	virtual void applicationDidEnterBackground();
 	virtual void applicationWillEnterForeground();
 	
-	//scene management
-	virtual bool switchToScene(SceneReference* ref, Transition* trans, bool push);
-	
-protected:
-	
-	Director* xmlDirector;
-	Scene* currentScene;
 };
 
 #endif // _APP_DELEGATE_H_

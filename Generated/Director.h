@@ -11,9 +11,23 @@
 
 #import "Director_Base.h"
 
+class Scene;
+
 class Director : public Director_Base
 {
-	//TODO: move director logic into here
+public:
+	
+	static Director* sharedDirector();
+	
+	virtual void load();
+	virtual void attributeDidChange(int attributeID);
+	
+	//scene management
+	virtual bool switchToScene(SceneReference* ref, Transition* trans, bool push);
+	
+protected:
+	
+	Scene* currentScene;
 };
 
 #endif //end __DIRECTOR_H__

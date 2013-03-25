@@ -79,16 +79,18 @@ void BaseObject::load()
 
 void BaseObject::unload()
 {
-	if(getId() == "")
-		return;
-	
-	//attempt to remove self from scene
-	BaseObject* rootObj = getRootObject();
-	Scene* rootScene = dynamic_cast<Scene*>(rootObj);
-	if(rootScene)
+	if(getId() != "")
 	{
-		rootScene->removeFromSceneMap(this);
+		//attempt to remove self from scene
+		BaseObject* rootObj = getRootObject();
+		Scene* rootScene = dynamic_cast<Scene*>(rootObj);
+		if(rootScene)
+		{
+			rootScene->removeFromSceneMap(this);
+		}
 	}
+	
+	stopListeningToAllEvents();
 	
 	BaseObject_Base::unload();
 }

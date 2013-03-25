@@ -114,7 +114,7 @@ void Script::attributeDidChange(int attributeID)
 	{
 		case id_Script_runListener:
 		{
-			stopListeningToAllEvents();
+			stopListeningToEvent(runListener);
 			listenForEvent(runListener, cocos2d::SEL_NoteHandler(&Script::handleRunEvent));
 		}
 			return;
