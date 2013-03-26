@@ -84,8 +84,35 @@ void Director::attributeDidChange(int attributeID)
 	Director_Base::attributeDidChange(attributeID);
 }
 
+SceneReference* Director::sceneRefForID(std::string idString)
+{
+	cocos2d::ccArray* arr = SceneReferences->data;
+	for(int i = 0; i < arr->num; i++)
+	{
+		SceneReference* ref = (SceneReference*)arr->arr[i];
+		if(ref->getId() == idString)
+			return ref;
+	}
+	return NULL;
+}
+
+Transition* Director::transitionForID(std::string idString)
+{
+	cocos2d::ccArray* arr = Transitions->data;
+	for(int i = 0; i < arr->num; i++)
+	{
+		Transition* trans = (Transition*)arr->arr[i];
+		if(trans->getId() == idString)
+			return trans;
+	}
+	return NULL;
+}
+
 bool Director::switchToScene(SceneReference* ref, Transition* trans, bool push)
 {
+	if(!ref)
+		return false;
+	
 	//load the xml
 	const char* fullPath = cocos2d::CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(ref->getPath().c_str());
 	xmlDocPtr xmlDocument = xmlReadFile(fullPath, NULL, XML_PARSE_XINCLUDE|XML_PARSE_NONET|XML_PARSE_NSCLEAN);

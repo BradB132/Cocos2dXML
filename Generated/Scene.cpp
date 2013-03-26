@@ -7,6 +7,7 @@
 //
 
 #include "Scene.h"
+#include "Director.h"
 
 void Scene::load()
 {
@@ -86,20 +87,52 @@ void Scene::handlePopRootEvent(const char* noteName, cocos2d::CCDictionary* para
 	cocos2d::CCDirector::sharedDirector()->popToRootScene();
 }
 
+void getSceneAndTransitionParams(cocos2d::CCDictionary* params, SceneReference** outSceneRef, Transition** outTrans)
+{
+	//make sure that we at least return NULL instead of garbage values
+	*outSceneRef = NULL;
+	*outTrans = NULL;
+	
+	//make sure that we have the params that we need
+	cocos2d::CCString* sceneRefId = (cocos2d::CCString*)params->objectForKey("scene");
+	cocos2d::CCString* transitionId = (cocos2d::CCString*)params->objectForKey("transition");
+	if(!sceneRefId)
+		return;
+	
+	//get the scene reference and transition
+	Director* xmlDirector = Director::sharedDirector();
+	*outSceneRef = xmlDirector->sceneRefForID(sceneRefId->getCString());
+	if(transitionId)
+		*outTrans = xmlDirector->transitionForID(transitionId->getCString());
+}
+
 void Scene::handlePushEvent(const char* noteName, cocos2d::CCDictionary* params)
 {
+	//get the scene ref and transition
+	SceneReference* sceneRef;
+	Transition* trans;
+	getSceneAndTransitionParams(params, &sceneRef, &trans);
 	
+	//transition to the next scene
+	Director::sharedDirector()->switchToScene(sceneRef, trans, true);
 }
 
 void Scene::handleSwapEvent(const char* noteName, cocos2d::CCDictionary* params)
 {
+	//get the scene ref and transition
+	SceneReference* sceneRef;
+	Transition* trans;
+	getSceneAndTransitionParams(params, &sceneRef, &trans);
 	
+	//transition to the next scene
+	Director::sharedDirector()->switchToScene(sceneRef, trans, false);
 }
 
 void Scene::update(float dt)
 {
 	//the attributeDidChange call already checks to make sure onUpdate has a real value
-	postEvent(onUpdate);
+	if(!((cocos2d::CCScene*)node)->isTransitioning())
+		postEvent(onUpdate);
 }
 
 void Scene::addToSceneMap(BaseObject* obj)

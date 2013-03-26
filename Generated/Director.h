@@ -23,6 +23,8 @@ public:
 	virtual void attributeDidChange(int attributeID);
 	
 	//scene management
+	SceneReference* sceneRefForID(std::string idString);
+	Transition* transitionForID(std::string idString);
 	virtual bool switchToScene(SceneReference* ref, Transition* trans, bool push);
 	
 protected:
