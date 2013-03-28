@@ -25,6 +25,9 @@ void Scene::unload()
 	//dump anything that was in our mapping
 	objectMap.clear();
 	
+	//remove self from scheduler
+	cocos2d::CCDirector::sharedDirector()->getScheduler()->unscheduleUpdateForTarget(this);
+	
 	Scene_Base::unload();
 }
 
@@ -79,12 +82,12 @@ void Scene::attributeDidChange(int attributeID)
 
 void Scene::handlePopEvent(const char* noteName, cocos2d::CCDictionary* params)
 {
-	cocos2d::CCDirector::sharedDirector()->popScene();
+	Director::sharedDirector()->popScene();
 }
 
 void Scene::handlePopRootEvent(const char* noteName, cocos2d::CCDictionary* params)
 {
-	cocos2d::CCDirector::sharedDirector()->popToRootScene();
+	Director::sharedDirector()->popToRootScene();
 }
 
 void getSceneAndTransitionParams(cocos2d::CCDictionary* params, SceneReference** outSceneRef, Transition** outTrans)

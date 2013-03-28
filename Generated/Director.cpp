@@ -25,6 +25,12 @@ void Director::load()
 		return;
 	_sharedDirector = this;
 	
+	//create an empty scene arrays
+	sceneStack = cocos2d::CCArray::create();
+	discardedScenes = cocos2d::CCArray::create();
+	sceneStack->retain();
+	discardedScenes->retain();
+	
 	//set attributes of the director based on XML arguments
 	refreshAllAttributes();
 	
@@ -34,6 +40,19 @@ void Director::load()
 		SceneReference* defaultScene = (SceneReference*)SceneReferences->objectAtIndex(0);
 		switchToScene(defaultScene, NULL, false);
 	}
+	
+	//we want to be able to check discarded scenes frequently, use the update loop
+	cocos2d::CCDirector::sharedDirector()->getScheduler()->scheduleUpdateForTarget(this, 0, false);
+	
+	Director_Base::load();
+}
+
+void Director::unload()
+{
+	//remove self from scheduler
+	cocos2d::CCDirector::sharedDirector()->getScheduler()->unscheduleUpdateForTarget(this);
+	
+	Director_Base::unload();
 }
 
 void Director::attributeDidChange(int attributeID)
@@ -122,121 +141,122 @@ bool Director::switchToScene(SceneReference* ref, Transition* trans, bool push)
 		return false;
 	}
 	
-	//dump our old scene if we have one
-	//	if(currentScene)
-	//		delete currentScene;
-	
 	//create the new scene using the XML
-	currentScene = new Scene();
-	currentScene->initWithXML(xmlDocument->children, NULL);
-	currentScene->visitLoad();
-	cocos2d::CCScene* ccScene = dynamic_cast<cocos2d::CCScene*>(currentScene->getCCNode());
+	Scene* newScene = new Scene();
+	newScene->autorelease();
+	newScene->initWithXML(xmlDocument->children, NULL);
+	newScene->visitLoad();
+	cocos2d::CCScene* ccScene = dynamic_cast<cocos2d::CCScene*>(newScene->getCCNode());
 	if(!ccScene)
+	{
+		newScene->visitLoad();
 		return false;
+	}
 	
-	//wrap this scene in a transition
+	//wrap this scene in a transition?
+	cocos2d::CCScene* transitionScene = ccScene;
 	if(trans)
 	{
 		switch(trans->getType())
 		{
 			case transition_crossFade:
-				ccScene = cocos2d::CCTransitionCrossFade::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionCrossFade::create(trans->getDuration(), ccScene);
 				break;
 			case transition_fade:
-				ccScene = cocos2d::CCTransitionFade::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFade::create(trans->getDuration(), ccScene);
 				break;
 			case transition_fadeBL:
-				ccScene = cocos2d::CCTransitionFadeBL::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFadeBL::create(trans->getDuration(), ccScene);
 				break;
 			case transition_fadeDown:
-				ccScene = cocos2d::CCTransitionFadeDown::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFadeDown::create(trans->getDuration(), ccScene);
 				break;
 			case transition_fadeTR:
-				ccScene = cocos2d::CCTransitionFadeTR::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFadeTR::create(trans->getDuration(), ccScene);
 				break;
 			case transition_fadeUp:
-				ccScene = cocos2d::CCTransitionFadeUp::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFadeUp::create(trans->getDuration(), ccScene);
 				break;
 			case transition_flipAngular:
-				ccScene = cocos2d::CCTransitionFlipAngular::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFlipAngular::create(trans->getDuration(), ccScene);
 				break;
 			case transition_flipX:
-				ccScene = cocos2d::CCTransitionFlipX::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFlipX::create(trans->getDuration(), ccScene);
 				break;
 			case transition_flipY:
-				ccScene = cocos2d::CCTransitionFlipY::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionFlipY::create(trans->getDuration(), ccScene);
 				break;
 			case transition_jumpZoom:
-				ccScene = cocos2d::CCTransitionJumpZoom::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionJumpZoom::create(trans->getDuration(), ccScene);
 				break;
 			case transition_moveInB:
-				ccScene = cocos2d::CCTransitionMoveInB::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionMoveInB::create(trans->getDuration(), ccScene);
 				break;
 			case transition_moveInL:
-				ccScene = cocos2d::CCTransitionMoveInL::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionMoveInL::create(trans->getDuration(), ccScene);
 				break;
 			case transition_moveInR:
-				ccScene = cocos2d::CCTransitionMoveInR::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionMoveInR::create(trans->getDuration(), ccScene);
 				break;
 			case transition_moveInT:
-				ccScene = cocos2d::CCTransitionMoveInT::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionMoveInT::create(trans->getDuration(), ccScene);
 				break;
 			case transition_pageTurn:
-				ccScene = cocos2d::CCTransitionPageTurn::create(trans->getDuration(), ccScene, false);
+				transitionScene = cocos2d::CCTransitionPageTurn::create(trans->getDuration(), ccScene, false);
 				break;
 			case transition_progressHorizontal:
-				ccScene = cocos2d::CCTransitionProgressHorizontal::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressHorizontal::create(trans->getDuration(), ccScene);
 				break;
 			case transition_progressInOut:
-				ccScene = cocos2d::CCTransitionProgressInOut::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressInOut::create(trans->getDuration(), ccScene);
 				break;
 			case transition_progressOutIn:
-				ccScene = cocos2d::CCTransitionProgressOutIn::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressOutIn::create(trans->getDuration(), ccScene);
 				break;
 			case transition_progressRadialCCW:
-				ccScene = cocos2d::CCTransitionProgressRadialCCW::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressRadialCCW::create(trans->getDuration(), ccScene);
 				break;
 			case transition_progressRadialCW:
-				ccScene = cocos2d::CCTransitionProgressRadialCW::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressRadialCW::create(trans->getDuration(), ccScene);
 				break;
 			case transition_progressVertical:
-				ccScene = cocos2d::CCTransitionProgressVertical::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionProgressVertical::create(trans->getDuration(), ccScene);
 				break;
 			case transition_rotoZoom:
-				ccScene = cocos2d::CCTransitionRotoZoom::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionRotoZoom::create(trans->getDuration(), ccScene);
 				break;
 			case transition_shrinkGrow:
-				ccScene = cocos2d::CCTransitionShrinkGrow::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionShrinkGrow::create(trans->getDuration(), ccScene);
 				break;
 			case transition_slideInB:
-				ccScene = cocos2d::CCTransitionSlideInB::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSlideInB::create(trans->getDuration(), ccScene);
 				break;
 			case transition_slideInL:
-				ccScene = cocos2d::CCTransitionSlideInL::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSlideInL::create(trans->getDuration(), ccScene);
 				break;
 			case transition_slideInR:
-				ccScene = cocos2d::CCTransitionSlideInR::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSlideInR::create(trans->getDuration(), ccScene);
 				break;
 			case transition_slideInT:
-				ccScene = cocos2d::CCTransitionSlideInT::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSlideInT::create(trans->getDuration(), ccScene);
 				break;
 			case transition_splitCols:
-				ccScene = cocos2d::CCTransitionSplitCols::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSplitCols::create(trans->getDuration(), ccScene);
 				break;
 			case transition_splitRows:
-				ccScene = cocos2d::CCTransitionSplitRows::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionSplitRows::create(trans->getDuration(), ccScene);
 				break;
 			case transition_turnOffTiles:
-				ccScene = cocos2d::CCTransitionTurnOffTiles::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionTurnOffTiles::create(trans->getDuration(), ccScene);
 				break;
 			case transition_zoomFlipAngular:
-				ccScene = cocos2d::CCTransitionZoomFlipAngular::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionZoomFlipAngular::create(trans->getDuration(), ccScene);
 				break;
 			case transition_zoomFlipX:
-				ccScene = cocos2d::CCTransitionZoomFlipX ::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionZoomFlipX ::create(trans->getDuration(), ccScene);
 				break;
 			case transition_zoomFlipY:
-				ccScene = cocos2d::CCTransitionZoomFlipY::create(trans->getDuration(), ccScene);
+				transitionScene = cocos2d::CCTransitionZoomFlipY::create(trans->getDuration(), ccScene);
 				break;
 			case transition_none:
 			default:
@@ -250,15 +270,63 @@ bool Director::switchToScene(SceneReference* ref, Transition* trans, bool push)
 	{
 		//either push this scene or replace the current one on top of the stack
 		if(push)
-			pDirector->pushScene(ccScene);
+		{
+			sceneStack->addObject(newScene);
+			pDirector->pushScene(transitionScene);
+		}
 		else
-			pDirector->replaceScene(ccScene);
+		{
+			//substitute the new scene
+			discardTopScene();
+			sceneStack->addObject(newScene);
+			
+			pDirector->replaceScene(transitionScene);
+		}
 	}
 	else
 	{
 		//This is our first scene, which requires a different API
+		sceneStack->addObject(newScene);
 		pDirector->runWithScene(ccScene);
 	}
 	
 	return true;
+}
+
+void Director::popScene()
+{
+	discardTopScene();
+	
+	cocos2d::CCDirector::sharedDirector()->popScene();
+}
+
+void Director::popToRootScene()
+{
+	while(sceneStack->count() > 1)
+		discardTopScene();
+	
+	cocos2d::CCDirector::sharedDirector()->popToRootScene();
+}
+
+void Director::discardTopScene()
+{
+	Scene* removedScene = (Scene*)sceneStack->lastObject();
+	discardedScenes->addObject(removedScene);
+	sceneStack->removeLastObject();
+}
+
+void Director::update(float dt)
+{
+	//check the discarded scenes to see if they're done transitioning
+	cocos2d::ccArray* arr = discardedScenes->data;
+	for(int i = arr->num-1; i >= 0; i--)
+	{
+		Scene* scene = (Scene*)arr->arr[i];
+		cocos2d::CCScene* ccScene = (cocos2d::CCScene*)(scene->getCCNode());
+		if(!ccScene->isTransitioning())
+		{
+			scene->visitUnload();
+			discardedScenes->removeObjectAtIndex(i);
+		}
+	}
 }
