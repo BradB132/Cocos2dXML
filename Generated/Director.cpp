@@ -72,6 +72,10 @@ void Director::attributeDidChange(int attributeID)
 			cocos2d::CCSize frame = glView->getFrameSize();
 			glView->setDesignResolutionSize(frame.width/scaleFactor, frame.height/scaleFactor, kResolutionNoBorder);
 			director->setContentScaleFactor(scaleFactor);
+			
+			//the call to setDesignResolutionSize sets the director back to defaults for several states, change them back to what we want here
+			attributeDidChange(id_Director_color);
+			attributeDidChange(id_Director_depthTest);
 		}
 			return;
 		case id_Director_color:

@@ -45,6 +45,12 @@ NoPL_FunctionValue evaluateFunction(void* calledOnObject, const char* functionNa
 			returnVal.pointerValue = cocos2d::CCDirector::sharedDirector();
 			returnVal.type = NoPL_DataType_Pointer;
 		}
+		else if(!strcmp(functionName, "event") &&
+				argc == 1 && argv[0].type == NoPL_DataType_String)
+		{
+			returnVal.type = NoPL_DataType_Void;
+			callingFromScript->postEvent(argv[0].stringValue);
+		}
 		
 		if(returnVal.type == NoPL_DataType_Uninitialized)
 			returnVal = nopl_standardFunctions(calledOnObject, functionName, argv, argc);
@@ -189,7 +195,7 @@ void Script::relinquishScriptAtPath(std::string path)
 			if(scriptPtr->scriptBuffer)
 			{
 				delete[] scriptPtr->scriptBuffer;
-				scriptPtr = NULL;
+				scriptPtr->scriptBuffer = NULL;
 			}
 			scriptPtr->bufferLength = 0;
 			
