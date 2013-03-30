@@ -153,7 +153,7 @@ bool Director::switchToScene(SceneReference* ref, Transition* trans, bool push)
 	cocos2d::CCScene* ccScene = dynamic_cast<cocos2d::CCScene*>(newScene->getCCNode());
 	if(!ccScene)
 	{
-		newScene->visitLoad();
+		newScene->visitUnload();
 		return false;
 	}
 	
