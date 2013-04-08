@@ -75,6 +75,15 @@ void Scene::attributeDidChange(int attributeID)
 			listenForEvent(swapSceneListener, cocos2d::SEL_NoteHandler(&Scene::handleSwapEvent));
 		}
 			return;
+		case id_Node_scale:
+		case id_Node_position:
+		case id_Node_size:
+		case id_Node_anchorPoint:
+		case id_Node_skew:
+		case id_Node_rotation:
+		case id_Node_ignoreAnchorPointForPosition:
+			//ignore these attributes, it doesn't ever make sense to set them on a scene
+			return;
 	}
 	
 	Scene_Base::attributeDidChange(attributeID);
