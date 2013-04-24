@@ -13,7 +13,16 @@
 
 class ParticleSystem : public ParticleSystem_Base
 {
+public:
 	
+	virtual void load();
+	
+	virtual bool setEmitting(bool newEmitting);
+	
+	//TODO: fix and remove this
+	virtual void refreshAllAttributes();
+	
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 };
 
 #endif //end __PARTICLESYSTEM_H__

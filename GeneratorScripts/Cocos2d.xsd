@@ -315,6 +315,7 @@
 	<complexContent>
 		<extension base="cc:Node">
 			<attribute name="plist" type="cc:filePath" use="required"/>
+			<attribute name="emitting" type="boolean" default="true"/>
 		</extension>
 	</complexContent>
 </complexType>
