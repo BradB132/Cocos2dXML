@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B19765A172C7537008B2DF0 /* DrawNode_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B197656172C7536008B2DF0 /* DrawNode_Base.cpp */; };
+		9B19765B172C7537008B2DF0 /* DrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B197658172C7536008B2DF0 /* DrawNode.cpp */; };
 		9B1F308516E43A2A004203A2 /* ArtpigProj_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */; };
 		9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */; };
 		9B41048416D1A46700EA730A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41048316D1A46700EA730A /* Foundation.framework */; };
@@ -165,6 +167,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B197656172C7536008B2DF0 /* DrawNode_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawNode_Base.cpp; sourceTree = "<group>"; };
+		9B197657172C7536008B2DF0 /* DrawNode_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawNode_Base.h; sourceTree = "<group>"; };
+		9B197658172C7536008B2DF0 /* DrawNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawNode.cpp; sourceTree = "<group>"; };
+		9B197659172C7537008B2DF0 /* DrawNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawNode.h; sourceTree = "<group>"; };
 		9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArtpigProj_Base.cpp; sourceTree = "<group>"; };
 		9B1F308216E43A2A004203A2 /* ArtpigProj_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtpigProj_Base.h; sourceTree = "<group>"; };
 		9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArtpigProj.cpp; sourceTree = "<group>"; };
@@ -795,6 +801,10 @@
 				9BCBFE3416D1BD3F0031840C /* Director.h */,
 				9BCBFE3516D1BD3F0031840C /* Director_Base.cpp */,
 				9BCBFE3616D1BD3F0031840C /* Director_Base.h */,
+				9B197656172C7536008B2DF0 /* DrawNode_Base.cpp */,
+				9B197657172C7536008B2DF0 /* DrawNode_Base.h */,
+				9B197658172C7536008B2DF0 /* DrawNode.cpp */,
+				9B197659172C7537008B2DF0 /* DrawNode.h */,
 				9BCBFE3716D1BD3F0031840C /* Ease.cpp */,
 				9BCBFE3816D1BD3F0031840C /* Ease.h */,
 				9BCBFE3916D1BD3F0031840C /* Ease_Base.cpp */,
@@ -1132,6 +1142,8 @@
 				9BCB024F16D2E7EA0031840C /* APXAnimation.cpp in Sources */,
 				9B1F308516E43A2A004203A2 /* ArtpigProj_Base.cpp in Sources */,
 				9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */,
+				9B19765A172C7537008B2DF0 /* DrawNode_Base.cpp in Sources */,
+				9B19765B172C7537008B2DF0 /* DrawNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

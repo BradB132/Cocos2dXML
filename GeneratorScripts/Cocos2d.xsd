@@ -279,6 +279,19 @@
 	</complexContent>
 </complexType>
 
+<element name="DrawNode" type="cc:DrawNode"/>
+<complexType name="DrawNode">
+	<complexContent>
+		<extension base="cc:Node">
+			<attribute name="lineWidth" type="float" default="1"/>
+			<attribute name="lineColor" type="cc:color4" default="#000000FF"/>
+			<attribute name="fillColor" type="cc:color4" default="#000000FF"/>
+			<attribute name="srcBlend" type="cc:srcBlendFunc" default="one"/>
+			<attribute name="dstBlend" type="cc:dstBlendFunc" default="oneMinusSourceAlpha"/>
+		</extension>
+	</complexContent>
+</complexType>
+
 <element name="Scene" type="cc:Scene"/>
 <complexType name="Scene">
 	<complexContent>
