@@ -25,8 +25,9 @@ void Sprite::formatTexturePathWithSuffix()
 			sprintf(formatStr, "%s@%dx%s", texture.substr(0,index).c_str(), scaleSufix, texture.substr(index).c_str());
 			pathWithResolutionSuffix = formatStr;
 			
-			//TODO: check if file exists, then break if it does
-			break;
+			cocos2d::CCTexture2D* testTexture = cocos2d::CCTextureCache::sharedTextureCache()->addImage(formatStr);
+			if(testTexture)
+				break;
 			
 			scaleSufix--;
 		}
