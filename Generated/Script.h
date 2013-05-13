@@ -27,7 +27,7 @@ public:
 	virtual void load();
 	virtual void unload();
 	
-	virtual void attributeDidChange(int attributeID);
+	virtual bool setRunListener(Cocos2dXMLEventListener newRunListener);
 	
 	virtual void runTheScript();
 	

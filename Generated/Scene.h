@@ -29,11 +29,18 @@ public:
 	virtual void update(float dt);
 	
 	//overridden mutators
-//	virtual bool setOnUpdate(Cocos2dXMLEvent newOnUpdate);
-//	virtual bool setPushSceneListener(Cocos2dXMLEventListener newPushSceneListener);
-//	virtual bool setSwapSceneListener(Cocos2dXMLEventListener newSwapSceneListener);
-//	virtual bool setPopSceneListener(Cocos2dXMLEventListener newPopSceneListener);
-//	virtual bool setPopToRootSceneListener(Cocos2dXMLEventListener newPopToRootSceneListener);
+	virtual bool setOnUpdate(Cocos2dXMLEvent newOnUpdate);
+	virtual bool setPushSceneListener(Cocos2dXMLEventListener newPushSceneListener);
+	virtual bool setSwapSceneListener(Cocos2dXMLEventListener newSwapSceneListener);
+	virtual bool setPopSceneListener(Cocos2dXMLEventListener newPopSceneListener);
+	virtual bool setPopToRootSceneListener(Cocos2dXMLEventListener newPopToRootSceneListener);
+	virtual bool setScale(cocos2d::CCPoint newScale);
+	virtual bool setPosition(cocos2d::CCPoint newPosition);
+	virtual bool setSkew(cocos2d::CCPoint newSkew);
+	virtual bool setAnchorPoint(cocos2d::CCPoint newAnchorPoint);
+	virtual bool setSize(cocos2d::CCPoint newSize);
+	virtual bool setRotation(float newRotation);
+	virtual bool setIgnoreAnchorPointForPosition(bool newIgnoreAnchorPointForPosition);
 	
 protected:
 	

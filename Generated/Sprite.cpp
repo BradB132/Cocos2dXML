@@ -99,24 +99,26 @@ bool Sprite::setFlipY(bool newFlipY)
 
 bool Sprite::setSrcBlend(srcBlendFunc newSrcBlend)
 {
-	if(node)
-	{
-		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
-		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
-		func.src = newSrcBlend;
-		sprite->setBlendFunc(func);
-	}
+	//TODO: this won't work unless schema has a default value
+//	if(node)
+//	{
+//		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+//		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
+//		func.src = newSrcBlend;
+//		sprite->setBlendFunc(func);
+//	}
 	return Sprite_Base::setSrcBlend(newSrcBlend);
 }
 
 bool Sprite::setDstBlend(dstBlendFunc newDstBlend)
 {
-	if(node)
-	{
-		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
-		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
-		func.dst = newDstBlend;
-		sprite->setBlendFunc(func);
-	}
+	//TODO: this won't work unless schema has a default value
+//	if(node)
+//	{
+//		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+//		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
+//		func.dst = newDstBlend;
+//		sprite->setBlendFunc(func);
+//	}
 	return Sprite_Base::setDstBlend(newDstBlend);
 }

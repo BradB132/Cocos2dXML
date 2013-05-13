@@ -64,6 +64,7 @@
 
 <simpleType name="srcBlendFunc">
 	<restriction base="string">
+		<!-- add a default src blend mode? -->
 		<enumeration value="zero" define="GL_ZERO" />
 		<enumeration value="one" define="GL_ONE" />
 		<enumeration value="sourceColor" define="GL_SRC_COLOR" />

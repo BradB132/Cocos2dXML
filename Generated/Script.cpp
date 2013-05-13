@@ -114,18 +114,12 @@ void Script::unload()
 	Script::relinquishScriptAtPath(path);
 }
 
-void Script::attributeDidChange(int attributeID)
+bool Script::setRunListener(Cocos2dXMLEventListener newRunListener)
 {
-	switch (attributeID)
-	{
-		case id_Script_runListener:
-		{
-			stopListeningToEvent(runListener);
-			listenForEvent(runListener, cocos2d::SEL_NoteHandler(&Script::handleRunEvent));
-		}
-			return;
-	}
-	Script_Base::attributeDidChange(attributeID);
+	stopListeningToEvent(runListener);
+	listenForEvent(newRunListener, cocos2d::SEL_NoteHandler(&Script::handleRunEvent));
+	
+	return Script_Base::setRunListener(newRunListener);
 }
 
 void Script::handleRunEvent(const char* noteName, cocos2d::CCDictionary* params)

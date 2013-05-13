@@ -40,53 +40,83 @@ void Scene::visitLoad()
 		postEvent(onLoad);
 }
 
-void Scene::attributeDidChange(int attributeID)
+bool Scene::setOnUpdate(Cocos2dXMLEvent newOnUpdate)
 {
-	switch (attributeID)
-	{
-		case id_Scene_onUpdate:
-		{
-			//remove self from scheduler
-			cocos2d::CCScheduler* scheduler = cocos2d::CCDirector::sharedDirector()->getScheduler();
-			scheduler->unscheduleUpdateForTarget(this);
-			
-			//only re-schedule if we have an actual event name
-			if(onUpdate != "")
-				scheduler->scheduleUpdateForTarget(this, 0, false);
-		}
-			return;
-		case id_Scene_popSceneListener:
-		{
-			listenForEvent(popSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopEvent));
-		}
-			return;
-		case id_Scene_popToRootSceneListener:
-		{
-			listenForEvent(popToRootSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopRootEvent));
-		}
-			return;
-		case id_Scene_pushSceneListener:
-		{
-			listenForEvent(pushSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePushEvent));
-		}
-			return;
-		case id_Scene_swapSceneListener:
-		{
-			listenForEvent(swapSceneListener, cocos2d::SEL_NoteHandler(&Scene::handleSwapEvent));
-		}
-			return;
-		case id_Node_scale:
-		case id_Node_position:
-		case id_Node_size:
-		case id_Node_anchorPoint:
-		case id_Node_skew:
-		case id_Node_rotation:
-		case id_Node_ignoreAnchorPointForPosition:
-			//ignore these attributes, it doesn't ever make sense to set them on a scene
-			return;
-	}
+	//remove self from scheduler
+	cocos2d::CCScheduler* scheduler = cocos2d::CCDirector::sharedDirector()->getScheduler();
+	scheduler->unscheduleUpdateForTarget(this);
 	
-	Scene_Base::attributeDidChange(attributeID);
+	//only re-schedule if we have an actual event name
+	if(onUpdate != "")
+		scheduler->scheduleUpdateForTarget(this, 0, false);
+	
+	return Scene_Base::setOnUpdate(newOnUpdate);
+}
+
+bool Scene::setPushSceneListener(Cocos2dXMLEventListener newPushSceneListener)
+{
+	listenForEvent(newPushSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePushEvent));
+	return Scene_Base::setPushSceneListener(newPushSceneListener);
+}
+
+bool Scene::setSwapSceneListener(Cocos2dXMLEventListener newSwapSceneListener)
+{
+	listenForEvent(newSwapSceneListener, cocos2d::SEL_NoteHandler(&Scene::handleSwapEvent));
+	return Scene_Base::setSwapSceneListener(newSwapSceneListener);
+}
+
+bool Scene::setPopSceneListener(Cocos2dXMLEventListener newPopSceneListener)
+{
+	listenForEvent(newPopSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopEvent));
+	return Scene_Base::setPopSceneListener(newPopSceneListener);
+}
+
+bool Scene::setPopToRootSceneListener(Cocos2dXMLEventListener newPopToRootSceneListener)
+{
+	listenForEvent(newPopToRootSceneListener, cocos2d::SEL_NoteHandler(&Scene::handlePopRootEvent));
+	return Scene_Base::setPopToRootSceneListener(newPopToRootSceneListener);
+}
+
+bool Scene::setScale(cocos2d::CCPoint newScale)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setPosition(cocos2d::CCPoint newPosition)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setSkew(cocos2d::CCPoint newSkew)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setAnchorPoint(cocos2d::CCPoint newAnchorPoint)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setSize(cocos2d::CCPoint newSize)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setRotation(float newRotation)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
+}
+
+bool Scene::setIgnoreAnchorPointForPosition(bool newIgnoreAnchorPointForPosition)
+{
+	//ignore this attribute, it doesn't ever make sense to set it on a scene
+	return false;
 }
 
 void Scene::handlePopEvent(const char* noteName, cocos2d::CCDictionary* params)
@@ -142,7 +172,7 @@ void Scene::handleSwapEvent(const char* noteName, cocos2d::CCDictionary* params)
 
 void Scene::update(float dt)
 {
-	//the attributeDidChange call already checks to make sure onUpdate has a real value
+	//the setOnUpdate call already checks to make sure onUpdate has a real value
 	if(!((cocos2d::CCScene*)node)->isTransitioning())
 		postEvent(onUpdate);
 }
