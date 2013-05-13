@@ -8,39 +8,14 @@
 
 #include "Sprite.h"
 #include "sprite_nodes/CCSprite.h"
-
-void Sprite::formatTexturePathWithSuffix()
-{
-	//cocos no longer supports content scale suffix, so we'll have to do that ourselves
-	int scaleSufix = (int)cocos2d::CCDirector::sharedDirector()->getContentScaleFactor();
-	if(scaleSufix == 1)
-		pathWithResolutionSuffix = texture;
-	else
-	{
-		while (scaleSufix > 1)
-		{
-			//add a @x suffix onto the file name
-			char formatStr[texture.length()+5];
-			int index = texture.rfind('.');
-			sprintf(formatStr, "%s@%dx%s", texture.substr(0,index).c_str(), scaleSufix, texture.substr(index).c_str());
-			pathWithResolutionSuffix = formatStr;
-			
-			cocos2d::CCTexture2D* testTexture = cocos2d::CCTextureCache::sharedTextureCache()->addImage(formatStr);
-			if(testTexture)
-				break;
-			
-			scaleSufix--;
-		}
-	}
-}
+#include "CCXMLSprite.h"
 
 void Sprite::load()
 {
 	if(!node)
 	{
-		formatTexturePathWithSuffix();
-		node = cocos2d::CCSprite::create(pathWithResolutionSuffix.c_str());
-		node->retain();
+		node = new CCXMLSprite();
+		((cocos2d::CCSprite*)node)->init();
 	}
 	
 	Sprite_Base::load();
@@ -59,15 +34,49 @@ void Sprite::attributeDidChange(int attributeID)
 				return;
 			case id_Sprite_texture:
 			{
-				formatTexturePathWithSuffix();
+				//we're potentially going to be attempting to load files that don't exist, disable the popups
+				bool usingMessageBox = cocos2d::CCFileUtils::sharedFileUtils()->isPopupNotify();
+				cocos2d::CCFileUtils::sharedFileUtils()->setPopupNotify(false);
 				
-				cocos2d::CCTexture2D* tex = cocos2d::CCTextureCache::sharedTextureCache()->addImage(pathWithResolutionSuffix.c_str());
-				sprite->setTexture(tex);
+				CCXMLSprite* sprite = (CCXMLSprite*)node;
+				cocos2d::CCTexture2D* texture2d = NULL;
 				
-				//we generally also want this node to be the same size as the image
-				cocos2d::CCSize newSize = tex->getContentSize();
-				sprite->setTextureRect(cocos2d::CCRect(0,0,newSize.width,newSize.height));
-				this->setSize(cocos2d::CCPoint(newSize.width, newSize.height));
+				//find the highest resolution version of the texture
+				int contentScale = (int)cocos2d::CCDirector::sharedDirector()->getContentScaleFactor();
+				int imageScale = contentScale;
+				if(contentScale > 1)
+				{
+					char formatStr[texture.length()+5];
+					int pathExtensionIndex = texture.rfind('.');
+					const char* pathPrefix = texture.substr(0,pathExtensionIndex).c_str();
+					const char* pathSuffix = texture.substr(pathExtensionIndex).c_str();
+					while(imageScale > 1)
+					{
+						//format a @x suffix onto the file name
+						sprintf(formatStr, "%s@%dx%s", pathPrefix, imageScale, pathSuffix);
+						
+						//check if we have this texture
+						texture2d = cocos2d::CCTextureCache::sharedTextureCache()->addImage(formatStr);
+						if(texture2d)
+							break;
+						
+						imageScale--;
+					}
+				}
+				
+				//attempt to get the texture at 1x scale
+				if(!texture2d)
+					texture2d = cocos2d::CCTextureCache::sharedTextureCache()->addImage(texture.c_str());
+				
+				//restore previous message box state
+				cocos2d::CCFileUtils::sharedFileUtils()->setPopupNotify(usingMessageBox);
+				
+				if(texture2d)
+				{
+					sprite->setAssetScale(imageScale);
+					cocos2d::CCSize texSize = texture2d->getContentSize();
+					sprite->setDisplayFrame(cocos2d::CCSpriteFrame::createWithTexture(texture2d, cocos2d::CCRect(0,0,texSize.width,texSize.height)));
+				}
 			}
 				return;
 			case id_Sprite_flipX:

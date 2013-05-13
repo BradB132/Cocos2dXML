@@ -41,6 +41,7 @@ cocos2d::ccColor3B string_to_ccColor3B(const char* colorString);
 Cocos2dXMLColor string_to_Cocos2dXMLColor(const char* colorString);
 bool string_to_bool(const char* boolString);
 cocos2d::CCPoint string_to_CCPoint(const char* pointString);
+cocos2d::CCRect string_to_CCRect(const char* rectString);
 
 //utility functions for handling types
 bool isKindOfClass(const char* instanceTypeName, const char* desiredTypeName);
@@ -129,6 +130,19 @@ cocos2d::CCPoint string_to_CCPoint(const char* pointString)
 	point.x = atof(pointString);
 	point.y = atof(strchr(pointString, ',')+1);
 	return point;
+}
+
+cocos2d::CCRect string_to_CCRect(const char* rectString)
+{
+	cocos2d::CCRect rect;
+	rect.origin.x = atof(rectString);
+	rectString = strchr(rectString, ',')+1;
+	rect.origin.y = atof(rectString);
+	rectString = strchr(rectString, ',')+1;
+	rect.size.width = atof(rectString);
+	rectString = strchr(rectString, ',')+1;
+	rect.size.height = atof(rectString);
+	return rect;
 }
 
 bool isKindOfClass(const char* instanceTypeName, const char* desiredTypeName)

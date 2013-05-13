@@ -7,7 +7,7 @@
 //
 
 #include "Animation.h"
-#include "BatchedSprite.h"
+#include "Sprite.h"
 
 void Animation::load()
 {
@@ -141,7 +141,7 @@ void Animation::handleAnimateEvent(const char* noteName, cocos2d::CCDictionary* 
 
 void Animation::animate()
 {
-	BatchedSprite* targetSprite = dynamic_cast<BatchedSprite*>(objectForID(target));
+	Sprite* targetSprite = dynamic_cast<Sprite*>(objectForID(target));
 	if(targetSprite)
 	{
 		cocos2d::CCAnimation* animation = cocos2d::CCAnimation::createWithSpriteFrames(frameList, 1.0/fps);

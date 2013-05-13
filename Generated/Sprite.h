@@ -18,10 +18,8 @@ public:
 	
 	virtual void attributeDidChange(int attributeID);
 	
-protected:
+	//mutators
 	
-	void formatTexturePathWithSuffix();
-	std::string pathWithResolutionSuffix;
 };
 
 #endif //end __SPRITE_H__

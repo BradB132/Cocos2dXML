@@ -36,6 +36,14 @@
 	</restriction>
 </simpleType>
 
+<simpleType name="rect">
+	<restriction base="string">
+		<annotation>
+			<appinfo>cocos2d::CCRect</appinfo>
+		</annotation>
+	</restriction>
+</simpleType>
+
 <simpleType name="color4">
 	<restriction base="string">
 		<annotation>
@@ -251,30 +259,18 @@
 	</complexContent>
 </complexType>
 
-<attributeGroup name="spriteAttributes">
-	<attribute name="color" type="cc:color4" default="#FFFFFFFF"/>
-	<attribute name="flipX" type="boolean" default="false"/>
-	<attribute name="flipY" type="boolean" default="false"/>
-	<attribute name="srcBlend" type="cc:srcBlendFunc"/>
-	<attribute name="dstBlend" type="cc:dstBlendFunc"/>
-</attributeGroup>
-
-<element name="BatchedSprite" type="cc:BatchedSprite"/>
-<complexType name="BatchedSprite">
-	<complexContent>
-		<extension base="cc:Node">
-			<attribute name="texture" type="string" use="optional"/>
-			<attributeGroup ref="cc:spriteAttributes"/>
-		</extension>
-	</complexContent>
-</complexType>
-
 <element name="Sprite" type="cc:Sprite"/>
 <complexType name="Sprite">
 	<complexContent>
 		<extension base="cc:Node">
 			<attribute name="texture" type="cc:filePath"/>
-			<attributeGroup ref="cc:spriteAttributes"/>
+			<attribute name="color" type="cc:color4" default="#FFFFFFFF"/>
+			<attribute name="flipX" type="boolean" default="false"/>
+			<attribute name="flipY" type="boolean" default="false"/>
+			<attribute name="srcBlend" type="cc:srcBlendFunc"/>
+			<attribute name="dstBlend" type="cc:dstBlendFunc"/>
+			<attribute name="texCoords" type="cc:rect"/>
+			<!-- texture coord mode? -->
 		</extension>
 	</complexContent>
 </complexType>

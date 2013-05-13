@@ -234,6 +234,10 @@ if(attributes.count > 0)
 <?		?>#attrName;<? = string_to_CCPoint(attrVal);
 ?>
 				break;
+			case 'cocos2d::CCRect':
+<?		?>#attrName;<? = string_to_CCRect(attrVal);
+?>
+				break;
 			case 'cocos2d::ccColor3B':
 <?		?>#attrName;<? = string_to_ccColor3B(attrVal);
 ?>
@@ -512,6 +516,30 @@ for(int j = 0; j < attributes.count; j++)
 		}
 ?>
 	}
+	else if(convertedTypeName == 'cocos2d::CCRect')
+	{
+		<?if(!strcmp(functionName, "?>#attribName;<?X"))
+		{
+			retVal.numberValue = ?>#attribName;<?.origin.x;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?Y"))
+		{
+			retVal.numberValue = ?>#attribName;<?.origin.y;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?W"))
+		{
+			retVal.numberValue = ?>#attribName;<?.size.width;
+			retVal.type = NoPL_DataType_Number;
+		}
+		else if(!strcmp(functionName, "?>#attribName;<?H"))
+		{
+			retVal.numberValue = ?>#attribName;<?.size.height;
+			retVal.type = NoPL_DataType_Number;
+		}
+?>
+	}
 	else if(convertedTypeName == 'Cocos2dXMLColor')
 	{
 		<?if(!strcmp(functionName, "?>#attribName;<?R"))
@@ -700,6 +728,14 @@ for(int j = 0; j < attributes.count; j++)
 <?			if(argc == 2 && argv[0].type == NoPL_DataType_Number && argv[1].type == NoPL_DataType_Number)
 			{
 				retVal.booleanValue = set?>#capitalize(attribName);<?(cocos2d::CCPoint(argv[0].numberValue, argv[1].numberValue));
+				retVal.type = NoPL_DataType_Boolean;
+			}
+?>
+				break;
+			case 'cocos2d::CCRect':
+<?			if(argc == 4 && argv[0].type == NoPL_DataType_Number && argv[1].type == NoPL_DataType_Number && argv[2].type == NoPL_DataType_Number && argv[3].type == NoPL_DataType_Number)
+			{
+				retVal.booleanValue = set?>#capitalize(attribName);<?(cocos2d::CCRect(argv[0].numberValue, argv[1].numberValue, argv[2].numberValue, argv[3].numberValue));
 				retVal.type = NoPL_DataType_Boolean;
 			}
 ?>

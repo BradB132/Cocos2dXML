@@ -11,6 +11,7 @@
 		9B19765B172C7537008B2DF0 /* DrawNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B197658172C7536008B2DF0 /* DrawNode.cpp */; };
 		9B1F308516E43A2A004203A2 /* ArtpigProj_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308116E43A2A004203A2 /* ArtpigProj_Base.cpp */; };
 		9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */; };
+		9B32658A173C95BC00FE5616 /* CCXMLSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B326588173C95BC00FE5616 /* CCXMLSprite.cpp */; };
 		9B41048416D1A46700EA730A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41048316D1A46700EA730A /* Foundation.framework */; };
 		9B41049B16D1AB5B00EA730A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41049A16D1AB5B00EA730A /* CoreGraphics.framework */; };
 		9B41049D16D1AB6700EA730A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B41049C16D1AB6700EA730A /* UIKit.framework */; };
@@ -74,8 +75,6 @@
 		9BCBFEA916D1BD3F0031840C /* Animation_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE1816D1BD3F0031840C /* Animation_Base.cpp */; };
 		9BCBFEAA16D1BD3F0031840C /* BaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE1A16D1BD3F0031840C /* BaseObject.cpp */; };
 		9BCBFEAB16D1BD3F0031840C /* BaseObject_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE1C16D1BD3F0031840C /* BaseObject_Base.cpp */; };
-		9BCBFEAC16D1BD3F0031840C /* BatchedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE1E16D1BD3F0031840C /* BatchedSprite.cpp */; };
-		9BCBFEAD16D1BD3F0031840C /* BatchedSprite_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE2016D1BD3F0031840C /* BatchedSprite_Base.cpp */; };
 		9BCBFEAE16D1BD3F0031840C /* Bool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE2216D1BD3F0031840C /* Bool.cpp */; };
 		9BCBFEAF16D1BD3F0031840C /* Bool_Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE2416D1BD3F0031840C /* Bool_Base.cpp */; };
 		9BCBFEB016D1BD3F0031840C /* ClippingNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBFE2616D1BD3F0031840C /* ClippingNode.cpp */; };
@@ -175,6 +174,8 @@
 		9B1F308216E43A2A004203A2 /* ArtpigProj_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtpigProj_Base.h; sourceTree = "<group>"; };
 		9B1F308316E43A2A004203A2 /* ArtpigProj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArtpigProj.cpp; sourceTree = "<group>"; };
 		9B1F308416E43A2A004203A2 /* ArtpigProj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtpigProj.h; sourceTree = "<group>"; };
+		9B326588173C95BC00FE5616 /* CCXMLSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CCXMLSprite.cpp; sourceTree = SOURCE_ROOT; };
+		9B326589173C95BC00FE5616 /* CCXMLSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCXMLSprite.h; sourceTree = SOURCE_ROOT; };
 		9B41048016D1A46700EA730A /* libCocos2dXML.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocos2dXML.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B41048316D1A46700EA730A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B41048716D1A46700EA730A /* Cocos2dXML-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cocos2dXML-Prefix.pch"; sourceTree = "<group>"; };
@@ -303,10 +304,6 @@
 		9BCBFE1B16D1BD3F0031840C /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
 		9BCBFE1C16D1BD3F0031840C /* BaseObject_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseObject_Base.cpp; sourceTree = "<group>"; };
 		9BCBFE1D16D1BD3F0031840C /* BaseObject_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject_Base.h; sourceTree = "<group>"; };
-		9BCBFE1E16D1BD3F0031840C /* BatchedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BatchedSprite.cpp; sourceTree = "<group>"; };
-		9BCBFE1F16D1BD3F0031840C /* BatchedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchedSprite.h; sourceTree = "<group>"; };
-		9BCBFE2016D1BD3F0031840C /* BatchedSprite_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BatchedSprite_Base.cpp; sourceTree = "<group>"; };
-		9BCBFE2116D1BD3F0031840C /* BatchedSprite_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchedSprite_Base.h; sourceTree = "<group>"; };
 		9BCBFE2216D1BD3F0031840C /* Bool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bool.cpp; sourceTree = "<group>"; };
 		9BCBFE2316D1BD3F0031840C /* Bool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
 		9BCBFE2416D1BD3F0031840C /* Bool_Base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bool_Base.cpp; sourceTree = "<group>"; };
@@ -512,6 +509,8 @@
 			isa = PBXGroup;
 			children = (
 				9B41048716D1A46700EA730A /* Cocos2dXML-Prefix.pch */,
+				9B326588173C95BC00FE5616 /* CCXMLSprite.cpp */,
+				9B326589173C95BC00FE5616 /* CCXMLSprite.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -776,10 +775,6 @@
 				9BCBFE1B16D1BD3F0031840C /* BaseObject.h */,
 				9BCBFE1C16D1BD3F0031840C /* BaseObject_Base.cpp */,
 				9BCBFE1D16D1BD3F0031840C /* BaseObject_Base.h */,
-				9BCBFE1E16D1BD3F0031840C /* BatchedSprite.cpp */,
-				9BCBFE1F16D1BD3F0031840C /* BatchedSprite.h */,
-				9BCBFE2016D1BD3F0031840C /* BatchedSprite_Base.cpp */,
-				9BCBFE2116D1BD3F0031840C /* BatchedSprite_Base.h */,
 				9BCBFE2216D1BD3F0031840C /* Bool.cpp */,
 				9BCBFE2316D1BD3F0031840C /* Bool.h */,
 				9BCBFE2416D1BD3F0031840C /* Bool_Base.cpp */,
@@ -1025,8 +1020,6 @@
 				9BCBFEA916D1BD3F0031840C /* Animation_Base.cpp in Sources */,
 				9BCBFEAA16D1BD3F0031840C /* BaseObject.cpp in Sources */,
 				9BCBFEAB16D1BD3F0031840C /* BaseObject_Base.cpp in Sources */,
-				9BCBFEAC16D1BD3F0031840C /* BatchedSprite.cpp in Sources */,
-				9BCBFEAD16D1BD3F0031840C /* BatchedSprite_Base.cpp in Sources */,
 				9BCBFEAE16D1BD3F0031840C /* Bool.cpp in Sources */,
 				9BCBFEAF16D1BD3F0031840C /* Bool_Base.cpp in Sources */,
 				9BCBFEB016D1BD3F0031840C /* ClippingNode.cpp in Sources */,
@@ -1144,6 +1137,7 @@
 				9B1F308616E43A2A004203A2 /* ArtpigProj.cpp in Sources */,
 				9B19765A172C7537008B2DF0 /* DrawNode_Base.cpp in Sources */,
 				9B19765B172C7537008B2DF0 /* DrawNode.cpp in Sources */,
+				9B32658A173C95BC00FE5616 /* CCXMLSprite.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
