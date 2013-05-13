@@ -16,10 +16,13 @@ class Sprite : public Sprite_Base
 public:
 	virtual void load();
 	
-	virtual void attributeDidChange(int attributeID);
-	
-	//mutators
-	
+	//overridden mutators
+	virtual bool setColor(Cocos2dXMLColor newColor);
+	virtual bool setTexture(Cocos2dXMLFilePath newTexture);
+	virtual bool setFlipX(bool newFlipX);
+	virtual bool setFlipY(bool newFlipY);
+	virtual bool setSrcBlend(srcBlendFunc newSrcBlend);
+	virtual bool setDstBlend(dstBlendFunc newDstBlend);
 };
 
 #endif //end __SPRITE_H__

@@ -55,56 +55,55 @@ void Director::unload()
 	Director_Base::unload();
 }
 
-void Director::attributeDidChange(int attributeID)
+bool Director::setDisplayStats(bool newDisplayStats)
 {
-	switch (attributeID)
-	{
-		case id_Director_designedSize:
-		{
-			//get a reference to the director and openGL view so we can init them with XML values
-			cocos2d::CCDirector* director = cocos2d::CCDirector::sharedDirector();
-			cocos2d::CCEGLView* glView = director->getOpenGLView();
-			
-			//set the content scale
-			float smallerDesigned = (designedSize.x < designedSize.y) ? designedSize.x : designedSize.y;
-			float smallerScreenSize = (glView->getFrameSize().width < glView->getFrameSize().height) ? glView->getFrameSize().width : glView->getFrameSize().height;
-			int scaleFactor = (int)(smallerScreenSize/smallerDesigned);
-			cocos2d::CCSize frame = glView->getFrameSize();
-			glView->setDesignResolutionSize(frame.width/scaleFactor, frame.height/scaleFactor, kResolutionNoBorder);
-			director->setContentScaleFactor(scaleFactor);
-			
-			//the call to setDesignResolutionSize sets the director back to defaults for several states, change them back to what we want here
-			attributeDidChange(id_Director_color);
-			attributeDidChange(id_Director_depthTest);
-		}
-			return;
-		case id_Director_color:
-		{
-			cocos2d::CCDirector::sharedDirector()->setBackgroundColor(color);
-		}
-			return;
-		case id_Director_displayStats:
-		{
-			cocos2d::CCDirector::sharedDirector()->setDisplayStats(displayStats);
-		}
-			return;
-		case id_Director_fps:
-		{
-			cocos2d::CCDirector::sharedDirector()->setAnimationInterval(1.0/fps);
-		}
-			return;
-		case id_Director_depthTest:
-		{
-			cocos2d::CCDirector::sharedDirector()->setDepthTest(depthTest);
-		}
-			return;
-		case id_Director_debug:
-		{
-			cocos2d::CCDirector::sharedDirector()->setDisplayOutlines(debug);
-		}
-			return;
-	}
-	Director_Base::attributeDidChange(attributeID);
+	cocos2d::CCDirector::sharedDirector()->setDisplayStats(newDisplayStats);
+	return Director_Base::setDisplayStats(newDisplayStats);
+}
+
+bool Director::setDebug(bool newDebug)
+{
+	cocos2d::CCDirector::sharedDirector()->setDisplayOutlines(newDebug);
+	return Director_Base::setDebug(newDebug);
+}
+
+bool Director::setDepthTest(bool newDepthTest)
+{
+	cocos2d::CCDirector::sharedDirector()->setDepthTest(newDepthTest);
+	return Director_Base::setDepthTest(newDepthTest);
+}
+
+bool Director::setFps(double newFps)
+{
+	cocos2d::CCDirector::sharedDirector()->setAnimationInterval(1.0/newFps);
+	return Director_Base::setFps(newFps);
+}
+
+bool Director::setColor(cocos2d::ccColor3B newColor)
+{
+	cocos2d::CCDirector::sharedDirector()->setBackgroundColor(newColor);
+	return Director_Base::setColor(newColor);
+}
+
+bool Director::setDesignedSize(cocos2d::CCPoint newDesignedSize)
+{
+	//get a reference to the director and openGL view so we can init them with XML values
+	cocos2d::CCDirector* director = cocos2d::CCDirector::sharedDirector();
+	cocos2d::CCEGLView* glView = director->getOpenGLView();
+	
+	//set the content scale
+	float smallerDesigned = (newDesignedSize.x < newDesignedSize.y) ? newDesignedSize.x : newDesignedSize.y;
+	float smallerScreenSize = (glView->getFrameSize().width < glView->getFrameSize().height) ? glView->getFrameSize().width : glView->getFrameSize().height;
+	int scaleFactor = (int)(smallerScreenSize/smallerDesigned);
+	cocos2d::CCSize frame = glView->getFrameSize();
+	glView->setDesignResolutionSize(frame.width/scaleFactor, frame.height/scaleFactor, kResolutionNoBorder);
+	director->setContentScaleFactor(scaleFactor);
+	
+	//the call to setDesignResolutionSize sets the director back to defaults for several states, change them back to what we want here
+	setColor(color);
+	setDepthTest(depthTest);
+	
+	return Director_Base::setDesignedSize(newDesignedSize);
 }
 
 SceneReference* Director::sceneRefForID(std::string idString)

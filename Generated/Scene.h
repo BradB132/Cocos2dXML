@@ -27,7 +27,13 @@ public:
 	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 	
 	virtual void update(float dt);
-	virtual void attributeDidChange(int attributeID);
+	
+	//overridden mutators
+//	virtual bool setOnUpdate(Cocos2dXMLEvent newOnUpdate);
+//	virtual bool setPushSceneListener(Cocos2dXMLEventListener newPushSceneListener);
+//	virtual bool setSwapSceneListener(Cocos2dXMLEventListener newSwapSceneListener);
+//	virtual bool setPopSceneListener(Cocos2dXMLEventListener newPopSceneListener);
+//	virtual bool setPopToRootSceneListener(Cocos2dXMLEventListener newPopToRootSceneListener);
 	
 protected:
 	

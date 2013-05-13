@@ -19,20 +19,16 @@ void ClippingNode::load()
 	ClippingNode_Base::load();
 }
 
-void ClippingNode::attributeDidChange(int attributeID)
+bool ClippingNode::setAlphaThreshold(float newAlphaThreshold)
 {
 	if(node)
-	{
-		cocos2d::CCClippingNode* clip = (cocos2d::CCClippingNode*)node;
-		switch (attributeID)
-		{
-			case id_ClippingNode_alphaThreshold:
-				clip->setAlphaThreshold(alphaThreshold);
-				return;
-			case id_ClippingNode_inverted:
-				clip->setInverted(inverted);
-				return;
-		}
-	}
-	ClippingNode_Base::attributeDidChange(attributeID);
+		((cocos2d::CCClippingNode*)node)->setAlphaThreshold(newAlphaThreshold);
+	return ClippingNode_Base::setAlphaThreshold(newAlphaThreshold);
+}
+
+bool ClippingNode::setInverted(bool newInverted)
+{
+	if(node)
+		((cocos2d::CCClippingNode*)node)->setInverted(newInverted);
+	return ClippingNode_Base::setInverted(newInverted);
 }

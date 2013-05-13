@@ -20,7 +20,8 @@ public:
 	virtual void runAction();
 	
 	virtual void load();
-	virtual void attributeDidChange(int attributeID);
+	
+	virtual bool setStartListener(Cocos2dXMLEventListener newStartListener);
 	
 	virtual void createActionObject(cocos2d::CCAction** outAction);
 	

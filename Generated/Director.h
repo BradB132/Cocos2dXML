@@ -21,7 +21,6 @@ public:
 	
 	virtual void load();
 	virtual void unload();
-	virtual void attributeDidChange(int attributeID);
 	virtual void update(float dt);
 	
 	//scene management
@@ -30,6 +29,14 @@ public:
 	virtual bool switchToScene(SceneReference* ref, Transition* trans, bool push);
 	virtual void popScene();
 	virtual void popToRootScene();
+	
+	//overridden mutators
+	virtual bool setDisplayStats(bool newDisplayStats);
+	virtual bool setDebug(bool newDebug);
+	virtual bool setDepthTest(bool newDepthTest);
+	virtual bool setFps(double newFps);
+	virtual bool setColor(cocos2d::ccColor3B newColor);
+	virtual bool setDesignedSize(cocos2d::CCPoint newDesignedSize);
 	
 protected:
 	

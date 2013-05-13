@@ -26,18 +26,12 @@ void Object::unload()
 	Object_Base::unload();
 }
 
-void Object::attributeDidChange(int attributeID)
+bool Object::setValue(std::string newValue)
 {
-	switch (attributeID)
-	{
-		case id_Object_value:
-			
-			//swap out the old object for the new one
-			setReferencedObject(objectForID(value));
-			
-			return;
-	}
-	Object_Base::attributeDidChange(attributeID);
+	//swap out the old object for the new one
+	setReferencedObject(objectForID(newValue));
+	
+	return Object_Base::setValue(newValue);
 }
 
 void Object::setReferencedObject(cocos2d::CCObject* newObj)

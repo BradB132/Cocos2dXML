@@ -64,54 +64,80 @@ void Node::unload()
 	Node_Base::unload();
 }
 
-void Node::attributeDidChange(int attributeID)
+bool Node::setZOrder(int newZOrder)
+{
+	if(node)
+		node->setZOrder(newZOrder);
+	return Node_Base::setZOrder(newZOrder);
+}
+
+bool Node::setScale(cocos2d::CCPoint newScale)
 {
 	if(node)
 	{
-		switch (attributeID)
-		{
-			case id_Node_zOrder:
-				node->setZOrder(zOrder);
-				return;
-			case id_Node_scale:
-				node->setScaleX(scale.x);
-				node->setScaleY(scale.y);
-				return;
-			case id_Node_position:
-				node->setPosition(position);
-				return;
-			case id_Node_skew:
-				node->setSkewX(skew.x);
-				node->setSkewY(skew.y);
-				return;
-			case id_Node_tag:
-				node->setTag(tag);
-				return;
-			case id_Node_anchorPoint:
-				node->setAnchorPoint(anchorPoint);
-				return;
-			case id_Node_size:
-				node->setContentSize(cocos2d::CCSize(size.x, size.y));
-				return;
-			case id_Node_visible:
-				node->setVisible(visible);
-				return;
-			case id_Node_rotation:
-				node->setRotation(rotation);
-				return;
-			case id_Node_ignoreAnchorPointForPosition:
-				node->ignoreAnchorPointForPosition(ignoreAnchorPointForPosition);
-				return;
-			case id_Node_enabled:
-				return;
-			case id_Node_onTouchUp:
-			case id_Node_onTouchMove:
-			case id_Node_onTouchDown:
-			case id_Node_onTouchCancel:
-				return;
-		}
+		node->setScaleX(newScale.x);
+		node->setScaleY(newScale.y);
 	}
-	Node_Base::attributeDidChange(attributeID);
+	return Node_Base::setScale(newScale);
+}
+
+bool Node::setPosition(cocos2d::CCPoint newPosition)
+{
+	if(node)
+		node->setPosition(newPosition);
+	return Node_Base::setPosition(newPosition);
+}
+
+bool Node::setSkew(cocos2d::CCPoint newSkew)
+{
+	if(node)
+	{
+		node->setSkewX(newSkew.x);
+		node->setSkewY(newSkew.y);
+	}
+	return Node_Base::setSkew(newSkew);
+}
+
+bool Node::setTag(int newTag)
+{
+	if(node)
+		node->setTag(newTag);
+	return Node_Base::setTag(newTag);
+}
+
+bool Node::setAnchorPoint(cocos2d::CCPoint newAnchorPoint)
+{
+	if(node)
+		node->setAnchorPoint(newAnchorPoint);
+	return Node_Base::setAnchorPoint(newAnchorPoint);
+}
+
+bool Node::setSize(cocos2d::CCPoint newSize)
+{
+	if(node)
+		node->setContentSize(cocos2d::CCSize(newSize.x, newSize.y));
+	return Node_Base::setSize(newSize);
+}
+
+bool Node::setVisible(bool newVisible)
+{
+	if(node)
+		node->setVisible(newVisible);
+	return Node_Base::setVisible(newVisible);
+}
+
+bool Node::setRotation(float newRotation)
+{
+	if(node)
+		node->setRotation(newRotation);
+	return Node_Base::setRotation(newRotation);
+}
+
+bool Node::setIgnoreAnchorPointForPosition(bool newIgnoreAnchorPointForPosition)
+{
+	if(node)
+		node->ignoreAnchorPointForPosition(newIgnoreAnchorPointForPosition);
+	return Node_Base::setIgnoreAnchorPointForPosition(newIgnoreAnchorPointForPosition);
 }
 
 cocos2d::CCNode* Node::getCCNode()

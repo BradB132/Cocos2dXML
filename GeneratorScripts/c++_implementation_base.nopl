@@ -156,16 +156,6 @@ for(int j = 0; j < children.count; j++)
 }
 <?}
 
-void ?>#baseName;<?::attributeDidChange(int attributeID)
-{
-?>
-	if(hasParentClass)
-	{
-<?	?>#parentName;<?::attributeDidChange(attributeID);
-?>
-	}
-<?}
-
 void ?>#baseName;<?::refreshAllAttributes()
 {
 ?>
@@ -177,7 +167,7 @@ void ?>#baseName;<?::refreshAllAttributes()
 	for(int j = 0; j < attributes.count; j++)
 	{
 		String attrName = attributes[j].name;
-<?	attributeDidChange(id_?>#name;<?_?>#attrName;<?);
+<?	set?>#capitalize(attrName);<?(?>#attrName;<?);
 ?>
 	}
 <?}
@@ -368,7 +358,6 @@ if(attributes.count > 0)
 bool ?>#baseName;<?::set?>#capName;<?(?>#typeName;<? new?>#capName;<?)
 {
 	?>#attrName;<? = new?>#capName;<?;
-	attributeDidChange(id_?>#name;<?_?>#attrName;<?);
 	return true;
 }
 

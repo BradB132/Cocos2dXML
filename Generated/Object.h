@@ -18,7 +18,7 @@ public:
 	virtual void load();
 	virtual void unload();
 	
-	virtual void attributeDidChange(int attributeID);
+	virtual bool setValue(std::string newValue);
 	
 	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 	

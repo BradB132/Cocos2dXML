@@ -15,7 +15,9 @@ class ClippingNode : public ClippingNode_Base
 {
 	virtual void load();
 	
-	virtual void attributeDidChange(int attributeID);
+	//overridden mutators
+	virtual bool setAlphaThreshold(float newAlphaThreshold);
+	virtual bool setInverted(bool newInverted);
 };
 
 #endif //end __CLIPPINGNODE_H__

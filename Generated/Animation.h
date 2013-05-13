@@ -20,7 +20,9 @@ public:
 	
 	virtual void animate();
 	
-	virtual void attributeDidChange(int attributeID);
+	//overridden mutators
+	virtual bool setSequence(std::string newSequence);
+	virtual bool setStartListener(Cocos2dXMLEventListener newStartListener);
 	
 protected:
 	

@@ -43,18 +43,12 @@ void Action::createActionObject(cocos2d::CCAction** outAction)
 		(*outAction)->setTag(tag);
 }
 
-void Action::attributeDidChange(int attributeID)
+bool Action::setStartListener(Cocos2dXMLEventListener newStartListener)
 {
-	switch (attributeID)
-	{
-		case id_Action_startListener:
-		{
-			stopListeningToAllEvents();
-			listenForEvent(startListener, cocos2d::SEL_NoteHandler(&Action::handleStartEvent));
-		}
-			return;
-	}
-	Action_Base::attributeDidChange(attributeID);
+	stopListeningToEvent(startListener);
+	listenForEvent(newStartListener, cocos2d::SEL_NoteHandler(&Action::handleStartEvent));
+	
+	return Action_Base::setStartListener(newStartListener);
 }
 
 void Action::handleStartEvent(const char* noteName, cocos2d::CCDictionary* params)

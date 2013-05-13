@@ -39,19 +39,6 @@ for(int i = 0; i < classes.count; i++)
 Object attributes = class.attributes;
 Object children = class.children;
 
-//define ID's for attribute refreshing
-if(attributes.count > 0)
-{
-	for(int j = 0; j < attributes.count; j++)
-	{
-		String attrName = attributes[j].name;
-<?#define id_?>#name;<?_?>#attrName;<? ?>#fastHash(attrName)%hashMod;<?
-?>
-	}
-<?
-?>
-}
-
 if(children.count > 0)
 {
 	for(int j = 0; j < children.count; j++)
@@ -131,7 +118,6 @@ if(children.count > 0)
 }
 
 <?	virtual void initWithXML(xmlNodePtr node, ?>#valueForKey('__ROOT_CLASS__');<?* parentObj);
-	virtual void attributeDidChange(int attributeID);
 	virtual void refreshAllAttributes();
 
 ?>
