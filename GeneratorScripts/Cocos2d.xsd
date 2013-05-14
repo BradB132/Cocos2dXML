@@ -64,7 +64,7 @@
 
 <simpleType name="srcBlendFunc">
 	<restriction base="string">
-		<!-- add a default src blend mode? -->
+		<enumeration value="default" define="-1"/><!-- default value can change, depending on if the texture has premultiplied alpha or not -->
 		<enumeration value="zero" define="GL_ZERO" />
 		<enumeration value="one" define="GL_ONE" />
 		<enumeration value="sourceColor" define="GL_SRC_COLOR" />
@@ -268,10 +268,8 @@
 			<attribute name="color" type="cc:color4" default="#FFFFFFFF"/>
 			<attribute name="flipX" type="boolean" default="false"/>
 			<attribute name="flipY" type="boolean" default="false"/>
-			<attribute name="srcBlend" type="cc:srcBlendFunc"/>
-			<attribute name="dstBlend" type="cc:dstBlendFunc"/>
-			<attribute name="texCoords" type="cc:rect"/>
-			<!-- texture coord mode? -->
+			<attribute name="srcBlend" type="cc:srcBlendFunc" default="default"/>
+			<attribute name="dstBlend" type="cc:dstBlendFunc" default="oneMinusSourceAlpha"/>
 		</extension>
 	</complexContent>
 </complexType>

@@ -21,6 +21,28 @@ void Sprite::load()
 	Sprite_Base::load();
 }
 
+NoPL_FunctionValue Sprite::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
+{
+	NoPL_FunctionValue retVal;
+	retVal.type = NoPL_DataType_Uninitialized;
+	
+	if(argc == 2 &&
+	   argv[0].type == NoPL_DataType_Number &&
+	   argv[1].type == NoPL_DataType_Number &&
+	   !strcmp(functionName, "setTexCoordOffset"))
+	{
+		CCXMLSprite* sprite = (CCXMLSprite*)node;
+		cocos2d::CCSize texSize = sprite->getTexture()->getContentSize();
+		float scaleFactor = cocos2d::CCDirector::sharedDirector()->getContentScaleFactor();
+		sprite->setTextureCoords(cocos2d::CCRect(argv[0].numberValue/scaleFactor, argv[1].numberValue/scaleFactor, texSize.width, texSize.height));
+		retVal.type = NoPL_DataType_Void;
+	}
+	
+	if(retVal.type != NoPL_DataType_Uninitialized)
+		return retVal;
+	return Sprite_Base::evaluateFunction(functionName, argv, argc);
+}
+
 bool Sprite::setColor(Cocos2dXMLColor newColor)
 {
 	if(node)
@@ -99,26 +121,34 @@ bool Sprite::setFlipY(bool newFlipY)
 
 bool Sprite::setSrcBlend(srcBlendFunc newSrcBlend)
 {
-	//TODO: this won't work unless schema has a default value
-//	if(node)
-//	{
-//		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
-//		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
-//		func.src = newSrcBlend;
-//		sprite->setBlendFunc(func);
-//	}
+	if(node)
+	{
+		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
+		if(newSrcBlend == srcBlendFunc_default)
+		{
+			//we need some special logic here to mimic how cocos2d handles the blend state
+			cocos2d::CCTexture2D* tex = sprite->getTexture();
+			if (!tex || ! tex->hasPremultipliedAlpha())
+				func.src = GL_SRC_ALPHA;
+			else
+				func.src = CC_BLEND_SRC;
+		}
+		else
+			func.src = newSrcBlend;
+		sprite->setBlendFunc(func);
+	}
 	return Sprite_Base::setSrcBlend(newSrcBlend);
 }
 
 bool Sprite::setDstBlend(dstBlendFunc newDstBlend)
 {
-	//TODO: this won't work unless schema has a default value
-//	if(node)
-//	{
-//		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
-//		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
-//		func.dst = newDstBlend;
-//		sprite->setBlendFunc(func);
-//	}
+	if(node)
+	{
+		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+		cocos2d::ccBlendFunc func = sprite->getBlendFunc();
+		func.dst = newDstBlend;
+		sprite->setBlendFunc(func);
+	}
 	return Sprite_Base::setDstBlend(newDstBlend);
 }

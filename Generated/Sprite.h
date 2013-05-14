@@ -16,6 +16,8 @@ class Sprite : public Sprite_Base
 public:
 	virtual void load();
 	
+	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
+	
 	//overridden mutators
 	virtual bool setColor(Cocos2dXMLColor newColor);
 	virtual bool setTexture(Cocos2dXMLFilePath newTexture);
