@@ -141,6 +141,15 @@
 	</restriction>
 </simpleType>
 
+<simpleType name="textureWrapMode">
+	<restriction base="string">
+		<enumeration value="none" define="GL_NONE" />
+		<enumeration value="repeat" define="GL_REPEAT" />
+		<enumeration value="clamp" define="GL_CLAMP_TO_EDGE" />
+		<enumeration value="mirror" define="GL_MIRRORED_REPEAT" />
+	</restriction>
+</simpleType>
+
 <simpleType name="transition">
 	<restriction base="string">
 		<enumeration value="none" />
@@ -270,6 +279,7 @@
 			<attribute name="flipY" type="boolean" default="false"/>
 			<attribute name="srcBlend" type="cc:srcBlendFunc" default="default"/>
 			<attribute name="dstBlend" type="cc:dstBlendFunc" default="oneMinusSourceAlpha"/>
+			<attribute name="textureWrap" type="cc:textureWrapMode" default="none"/>
 		</extension>
 	</complexContent>
 </complexType>

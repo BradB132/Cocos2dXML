@@ -43,6 +43,22 @@ NoPL_FunctionValue Sprite::evaluateFunction(const char* functionName, const NoPL
 	return Sprite_Base::evaluateFunction(functionName, argv, argc);
 }
 
+cocos2d::ccTexParams Sprite::getTexParams()
+{
+	CCXMLSprite* sprite = (CCXMLSprite*)node;
+	cocos2d::ccTexParams params;
+	
+	//with these filter settings, we're assuming we want antialiasing
+	if(sprite && sprite->getTexture() && sprite->getTexture()->hasMipmaps())
+		params.minFilter = GL_LINEAR_MIPMAP_NEAREST;
+	else
+		params.minFilter = GL_LINEAR;
+	params.magFilter = GL_LINEAR;
+	params.wrapS = params.wrapT = textureWrap;
+	
+	return params;
+}
+
 bool Sprite::setColor(Cocos2dXMLColor newColor)
 {
 	if(node)
@@ -151,4 +167,16 @@ bool Sprite::setDstBlend(dstBlendFunc newDstBlend)
 		sprite->setBlendFunc(func);
 	}
 	return Sprite_Base::setDstBlend(newDstBlend);
+}
+
+bool Sprite::setTextureWrap(textureWrapMode newTextureWrap)
+{
+	bool result = Sprite_Base::setTextureWrap(newTextureWrap);
+	if(result && node)
+	{
+		cocos2d::CCSprite* sprite = (cocos2d::CCSprite*)node;
+		cocos2d::ccTexParams params = getTexParams();
+		sprite->getTexture()->setTexParameters(&params);
+	}
+	return result;
 }

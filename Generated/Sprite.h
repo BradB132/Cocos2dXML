@@ -18,6 +18,8 @@ public:
 	
 	virtual NoPL_FunctionValue evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc);
 	
+	cocos2d::ccTexParams getTexParams();
+	
 	//overridden mutators
 	virtual bool setColor(Cocos2dXMLColor newColor);
 	virtual bool setTexture(Cocos2dXMLFilePath newTexture);
@@ -25,6 +27,7 @@ public:
 	virtual bool setFlipY(bool newFlipY);
 	virtual bool setSrcBlend(srcBlendFunc newSrcBlend);
 	virtual bool setDstBlend(dstBlendFunc newDstBlend);
+	virtual bool setTextureWrap(textureWrapMode newTextureWrap);
 };
 
 #endif //end __SPRITE_H__
