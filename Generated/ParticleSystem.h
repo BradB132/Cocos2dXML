@@ -18,6 +18,7 @@ public:
 	virtual void load();
 	
 	virtual bool setEmitting(bool newEmitting);
+	virtual bool setPositionType(particlePositionType newPositionType);
 	
 	//TODO: fix and remove this
 	virtual void refreshAllAttributes();

@@ -40,6 +40,13 @@ bool ParticleSystem::setEmitting(bool newEmitting)
 	return ParticleSystem_Base::setEmitting(newEmitting);
 }
 
+bool ParticleSystem::setPositionType(particlePositionType newPositionType)
+{
+	if(node)
+		((cocos2d::CCParticleSystemQuad*)node)->setPositionType((cocos2d::tCCPositionType)newPositionType);
+	return ParticleSystem_Base::setPositionType(newPositionType);
+}
+
 NoPL_FunctionValue ParticleSystem::evaluateFunction(const char* functionName, const NoPL_FunctionValue* argv, unsigned int argc)
 {
 	NoPL_FunctionValue retVal;

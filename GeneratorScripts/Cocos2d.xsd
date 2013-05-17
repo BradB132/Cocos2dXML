@@ -150,6 +150,14 @@
 	</restriction>
 </simpleType>
 
+<simpleType name="particlePositionType">
+	<restriction base="string">
+		<enumeration value="free" define="cocos2d::kCCPositionTypeFree" />
+		<enumeration value="relative" define="cocos2d::kCCPositionTypeRelative" />
+		<enumeration value="grouped" define="cocos2d::kCCPositionTypeGrouped" />
+	</restriction>
+</simpleType>
+
 <simpleType name="transition">
 	<restriction base="string">
 		<enumeration value="none" />
@@ -334,6 +342,7 @@
 		<extension base="cc:Node">
 			<attribute name="plist" type="cc:filePath" use="required"/>
 			<attribute name="emitting" type="boolean" default="true"/>
+			<attribute name="positionType" type="cc:particlePositionType" default="free"/>
 		</extension>
 	</complexContent>
 </complexType>
