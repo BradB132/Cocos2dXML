@@ -113,9 +113,14 @@ bool Sprite::setTexture(Cocos2dXMLFilePath newTexture)
 		
 		if(texture2d)
 		{
+			//update the sprite's image properties
 			sprite->setAssetScale(imageScale);
 			cocos2d::CCSize texSize = texture2d->getContentSize();
 			sprite->setDisplayFrame(cocos2d::CCSpriteFrame::createWithTexture(texture2d, cocos2d::CCRect(0,0,texSize.width,texSize.height)));
+			
+			//the sprite has probably updated its own size
+			cocos2d::CCSize newSize = node->getContentSize();
+			setSize(cocos2d::CCPoint(newSize.width, newSize.height));
 		}
 	}
 	return Sprite_Base::setTexture(newTexture);
